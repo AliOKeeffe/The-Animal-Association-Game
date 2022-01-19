@@ -1,0 +1,46 @@
+body {
+    background: cadetblue;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.heading {
+    font-family: 'Mochiy Pop P One', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    color: white;
+    letter-spacing: 3px;
+    /* text-transform: uppercase; */
+
+}
+
+.menu-area {
+    text-align: center;
+}
+.game-area {
+    background: white;
+    height: 550px;
+    width: 600px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.scene-area {
+    background: yellow;
+    height: 300px;
+    width: 500px;
+    margin: 0 auto;  
+}
+
+.card {
+    height: 150px;
+    width: 100px;
+    background: coral;
+    display: inline-block;
+    margin: 20px 10px;
+}
+
+.score-area {
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+}

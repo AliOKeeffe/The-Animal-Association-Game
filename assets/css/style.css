@@ -48,3 +48,25 @@ body {
 .correct-card {
     background: green;
 }
+
+#modal {
+    visibility: hidden;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .5);
+}
+
+.modal-inner {
+    width: 60%;
+    height: 50%;
+    background: royalblue;
+    border-radius: 10px;
+    margin: 50px auto;
+    text-align: center;
+    font-size: 3.5rem;
+    color: white;
+}

@@ -3,10 +3,6 @@ let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow'];
 let correctAnswers = 0;
 
 
-
-
-
-
 // Wait for the DOM to finish loading before running the game
 // Get the buttom elements and add event listeners to them
 
@@ -15,9 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (let button of buttons) {
         button.addEventListener('click', function () {
-            alert("you pressed a button")
+            alert("you pressed a button");
         })
-    };
+    }
 
     runGame();
 
@@ -26,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let card of cards) {
         card.addEventListener('click', function () {
             cardSelection(card);
-        })
-    };
+        });
+    }
 })
 
 function cardSelection(card) {
@@ -38,21 +34,18 @@ function cardSelection(card) {
         correctAnswers += 1;
 
         if (correctAnswers == 3) {
-            alert('Congratulations you have won!');
+            let modal = document.getElementById("modal");
+            modal.style.visibility = "visible";
         }
     } else {
         alert('Incorrect, sorry! ' + card.textContent + ' is not an animal');
     }
 }
 
-
-
-
-
 // For each element in animalsArray, creat a div with the name of the animal and add it to the DOM
 function runGame() {
-    let animalsArray2 = [...animalsArray]
-    let newArray = []
+    let animalsArray2 = [...animalsArray];
+    let newArray = [];
 
     for (let i = 0; i < 3; i++) {
         // Loop through animalsArray and get three random animals and push into newArray

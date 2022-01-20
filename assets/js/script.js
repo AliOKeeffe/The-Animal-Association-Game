@@ -15,21 +15,26 @@ document.addEventListener("DOMContentLoaded", function(){
     let cards = document.getElementsByClassName('card');
     
     for (let card of cards) {
-        card.addEventListener('click', function(){
+        card.addEventListener('click', function() {
             if (animalsArray.includes(card.textContent)) {
-            card.classList.add('correct-card');
+                card.classList.add('correct-card');
+                correctAnswers += 1;
+                if (correctAnswers == 3) {
+                    alert('Congratulations you have won!');
+                }
             } else {
-            alert('Incorrect, sorry! ' + card.textContent + ' is not an animal');
+                alert('Incorrect, sorry! ' + card.textContent + ' is not an animal');
             }
         }) 
     };
-
-    
 })
 
 
 let animalsArray = ['Cat', 'Dog', 'Mouse', 'Monkey', 'Sheep', 'Cow', 'Pig', 'Horse'];
 let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow'];
+let correctAnswers = 0; 
+
+
 
 
 // For each element in animalsArray, creat a div with the name of the animal and add it to the DOM
@@ -77,3 +82,5 @@ function runGame(){
 
 
 // - should I load a scene when the page loads or have a start button?
+
+// add a counter for correct attempts if the counter is = 3 then pop up you have won the game!

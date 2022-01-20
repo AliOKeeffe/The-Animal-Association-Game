@@ -6,34 +6,64 @@ document.addEventListener("DOMContentLoaded", function(){
 
     for (let button of buttons) {
         button.addEventListener('click', function(){
-            console.log("you pressed a button")
+            alert("you pressed a button")
         }) 
     };
 
     runGame();
+
+    let cards = document.getElementsByClassName('card');
+    
+    for (let card of cards) {
+        card.addEventListener('click', function(){
+            if (animalsArray.includes(card.textContent)) {
+            card.classList.add('correct-card');
+            } else {
+            alert('Incorrect, sorry! ' + card.textContent + ' is not an animal');
+            }
+        }) 
+    };
+
+    
 })
+
+
+let animalsArray = ['Cat', 'Dog', 'Mouse', 'Monkey', 'Sheep', 'Cow', 'Pig', 'Horse'];
+let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow'];
+
 
 // For each element in animalsArray, creat a div with the name of the animal and add it to the DOM
 function runGame(){
-    let animalsArray = ['Cat', 'Dog', 'Mouse', 'Monkey'];
-    let card = '';
+    let animalsArray2 = [...animalsArray]
+    let newArray = []
 
-    for (let animal of animalsArray) {
-        card += `<div class="card">${animal}</div>`; 
+    for (let i = 0; i < 3; i++) {
+        // Loop through animalsArray and get three random animals and push into newArray
+        let animalIndex = Math.floor(Math.random()*animalsArray2.length);
+        newArray.push(animalsArray2[animalIndex]);
+        // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
+        animalsArray2.splice(animalIndex, 1);
+    }
+
+    for (let i = 0; i < 2; i++) {
+        let colors = Math.floor(Math.random()*colorArray.length);
+        newArray.push(colorArray[colors]);
+        colorArray.splice(colors, 1)
+    }
+    
+    console.log(newArray);
+    
+
+    let card = '';
+    for (let i of newArray) {
+        card += `<div class="card">${i}</div>`; 
     }
 
     let cardArea = document.getElementById('card-area');
     cardArea.innerHTML = card;
 }
 
-// let cards = document.getElementsByClassName('card');
 
-// for (let card of cards) {
-//     card.addEventListener('click', function(){
-//         alert("you clicked the right card");
-//         console.log('hello');
-//     }) 
-// };
 
 
 

@@ -1,6 +1,8 @@
 let animalsArray = ['Cat', 'Dog', 'Mouse', 'Monkey', 'Sheep', 'Cow', 'Pig', 'Horse'];
 let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow'];
 let correctAnswers = 0;
+let modal = document.getElementById('modal');
+let closeIcon = document.getElementById('close');
 
 
 // Wait for the DOM to finish loading before running the game
@@ -34,9 +36,11 @@ function cardSelection(card) {
         correctAnswers += 1;
 
         if (correctAnswers == 3) {
-            let modal = document.getElementById("modal");
             modal.style.visibility = "visible";
         }
+
+        closeModal();
+
     } else {
         alert('Incorrect, sorry! ' + card.textContent + ' is not an animal');
     }
@@ -74,6 +78,11 @@ function runGame() {
 }
 
 
+function closeModal() {
+    closeIcon.addEventListener("click", function() {
+        modal.style.visibility = "hidden";
+    });
+}
 
 
 

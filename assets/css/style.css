@@ -70,3 +70,12 @@ body {
     font-size: 3.5rem;
     color: white;
 }
+
+#close {
+    position: absolute;
+	top: 50px;
+	right: 280px;
+	font-size: 50px;
+	color: blue;
+    text-decoration: none;
+}

@@ -1,8 +1,10 @@
 let animalsArray = ['Cat', 'Dog', 'Mouse', 'Monkey', 'Sheep', 'Cow', 'Pig', 'Horse'];
 let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow'];
 let correctAnswers = 0;
+let incorrectAttempts = 0;
 let modal = document.getElementById('modal');
 let closeIcon = document.getElementById('close');
+let counter = document.getElementById('counter');
 
 
 // Wait for the DOM to finish loading before running the game
@@ -22,18 +24,17 @@ document.addEventListener("DOMContentLoaded", function () {
     let cards = document.getElementsByClassName('card');
 
     for (let card of cards) {
-        card.addEventListener('click', function () {
-            cardSelection(card);
-        });
+        card.addEventListener('click', selectCard);
     }
 })
 
-function cardSelection(card) {
-
+function selectCard() {
+    let card = this;
     if (animalsArray.includes(card.textContent)) {
 
         card.classList.add('correct-card');
         correctAnswers += 1;
+        card.removeEventListener('click', selectCard);
 
         if (correctAnswers == 3) {
             modal.style.visibility = "visible";
@@ -43,6 +44,7 @@ function cardSelection(card) {
 
     } else {
         alert('Incorrect, sorry! ' + card.textContent + ' is not an animal');
+        incorrectAttemptsCounter()
     }
 }
 
@@ -77,10 +79,31 @@ function runGame() {
     cardArea.innerHTML = cardHtml;
 }
 
+function incorrectAttemptsCounter() {
+    incorrectAttempts++;
+    counter.innerHTML = incorrectAttempts;
+}
+
+// remove styling for selected cards, set incorrect attempts back to zero, add back in click listeners
+
+function resetGame() {
+    let cards = document.getElementsByClassName('card');
+
+    for (let card of cards) {
+        card.classList.remove('correct-card');
+    }
+    correctAnswers = 0 
+    incorrectAttempts = 0
+    counter.innerHTML = incorrectAttempts;
+}
+
+
+
 
 function closeModal() {
     closeIcon.addEventListener("click", function() {
         modal.style.visibility = "hidden";
+        resetGame()
     });
 }
 

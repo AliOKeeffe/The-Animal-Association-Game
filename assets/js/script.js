@@ -1,5 +1,6 @@
 let animalsArray = ['Cat', 'Dog', 'Mouse', 'Monkey', 'Sheep', 'Cow', 'Pig', 'Horse'];
-let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow'];
+let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow', 'Red', 'Black', 'Pink'];
+
 let correctAnswers = 0;
 let incorrectAttempts = 0;
 let modal = document.getElementById('modal');
@@ -51,6 +52,7 @@ function selectCard() {
 // For each element in animalsArray, creat a div with the name of the animal and add it to the DOM
 function runGame() {
     let animalsArray2 = [...animalsArray];
+    let colorArray2 = [...colorArray];
     let newArray = [];
 
     for (let i = 0; i < 3; i++) {
@@ -62,13 +64,14 @@ function runGame() {
     }
 
     for (let i = 0; i < 2; i++) {
-        let colors = Math.floor(Math.random() * colorArray.length);
-        newArray.push(colorArray[colors]);
-        colorArray.splice(colors, 1)
+        let colorIndex = Math.floor(Math.random() * colorArray2.length);
+        newArray.push(colorArray2[colorIndex]);
+        colorArray2.splice(colorIndex, 1)
     }
 
     console.log(newArray);
 
+    shuffleArray(newArray); 
 
     let cardHtml = '';
     for (let i of newArray) {
@@ -77,6 +80,18 @@ function runGame() {
 
     let cardArea = document.getElementById('card-area');
     cardArea.innerHTML = cardHtml;
+
+    startCount();
+}
+
+// Shuffle order of cards in newArray using the Fischer Yates Shuffle - https://javascript.info/task/shuffle 
+
+function shuffleArray(newArray) {
+    for (let i = newArray.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
 }
 
 function incorrectAttemptsCounter() {
@@ -87,14 +102,54 @@ function incorrectAttemptsCounter() {
 // remove styling for selected cards, set incorrect attempts back to zero, add back in click listeners
 
 function resetGame() {
-    let cards = document.getElementsByClassName('card');
-
-    for (let card of cards) {
-        card.classList.remove('correct-card');
-    }
+    
+    let cardArea = document.getElementById('card-area');
+    cardArea.innerHTML = '';
+  
     correctAnswers = 0 
     incorrectAttempts = 0
     counter.innerHTML = incorrectAttempts;
+    // Reset Timer
+    second = 00;
+    minute = 00;
+    zeroPlaceholder = 0;
+
+    runGame();
+
+    let cards = document.getElementsByClassName('card');
+
+    for (let card of cards) {
+        card.addEventListener('click', selectCard);
+    }
+}
+
+// start timer - credit to stackoverflow post - (altered by me to simplify) https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
+
+let second = 00; 
+let minute = 00;
+let zeroPlaceholder = 0;
+let timer = document.getElementById('timer');
+
+setInterval(function() {
+    startCount();
+}, 1000);
+
+function startCount () {
+    second++;
+    if (second == 60) {
+        second = 00;
+        minute++;
+    }
+    if (minute == 30) {
+        minute = 0;
+    }
+    if (second == 10) {
+        zeroPlaceholder = '';
+    } else if (second == 00) {
+        zeroPlaceholder = 0;
+    }
+
+    timer.innerHTML = 'Time: ' + minute + ':' +zeroPlaceholder + second;
 }
 
 

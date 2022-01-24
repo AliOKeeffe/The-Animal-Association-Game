@@ -1,5 +1,5 @@
 body {
-    background: cadetblue;
+    background: #fecfd9;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -17,26 +17,29 @@ body {
     text-align: center;
 }
 .game-area {
-    background: white;
-    height: 550px;
-    width: 600px;
+    background: #f6f7bb;
+    height: 700px;
+    width: 900px;
     text-align: center;
     margin: 0 auto;
+    border-radius: 5px;
 }
 
 .scene-area {
     background: yellow;
-    height: 300px;
-    width: 500px;
-    margin: 0 auto;  
+    height: 400px;
+    width: 700px;
+    margin: 0 auto; 
+    border-radius: 5px; 
 }
 
 .card {
     height: 150px;
-    width: 100px;
-    background: coral;
+    width: 150px;
+    background: #c0f3e2;
     display: inline-block;
-    margin: 20px 10px;
+    margin: 50px 10px;
+    border-radius: 5px;
 }
 
 .score-area {
@@ -78,4 +81,30 @@ body {
 	font-size: 50px;
 	color: blue;
     text-decoration: none;
+}
+
+/* Footer */
+
+.social-networks {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 40px 0;
+    margin: 0;
+    background: #c0f3e2;
+}
+
+.social-networks li {
+    display: inline;
+}
+
+.social-networks i {
+    font-size: 160%;
+    padding: 0 30px;
+    color: #4b5054;
+}
+
+.social-networks i:hover {
+    color: #142a2b;
 }

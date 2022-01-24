@@ -1,4 +1,13 @@
-let animalsArray = ['Cat', 'Dog', 'Mouse', 'Monkey', 'Sheep', 'Cow', 'Pig', 'Horse'];
+let animalsArray = [
+    { Name: 'Cat', Image: 'https://via.placeholder.com/150x150' },
+    { Name: 'Mouse', Image: 'https://via.placeholder.com/150x150' },
+    { Name: 'Monkey', Image: 'https://via.placeholder.com/150x150' },
+    { Name: 'Sheet', Image: 'https://via.placeholder.com/150x150' },
+    { Name: 'Cow', Image: 'https://via.placeholder.com/150x150' },
+    { Name: 'Pig', Image: 'https://via.placeholder.com/150x150' },
+    { Name: 'Horse', Image: 'https://via.placeholder.com/150x150' }
+]
+
 let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow', 'Red', 'Black', 'Pink'];
 
 let correctAnswers = 0;
@@ -74,8 +83,12 @@ function runGame() {
     shuffleArray(newArray); 
 
     let cardHtml = '';
-    for (let i of newArray) {
-        cardHtml += `<div class="card">${i}</div>`;
+    for (let animalObject of newArray) {
+        cardHtml += 
+        `<div class="card">
+            <img src="${animalObject.Image}">
+            ${animalObject.Name}
+        </div>`;
     }
 
     let cardArea = document.getElementById('card-area');
@@ -123,33 +136,36 @@ function resetGame() {
     }
 }
 
-// start timer - credit to stackoverflow post - (altered by me to simplify) https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript
+// start timer - credit to https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo
 
-let second = 00; 
-let minute = 00;
-let zeroPlaceholder = 0;
+let milliseconds = 00;
+let seconds = 00; 
+let minutes = 00;
 let timer = document.getElementById('timer');
 
 setInterval(function() {
     startCount();
-}, 1000);
-
+}, 10);
+ 
 function startCount () {
-    second++;
-    if (second == 60) {
-        second = 00;
-        minute++;
+    milliseconds +=10;
+    if (milliseconds == 1000) {
+        milliseconds = 0;
+        seconds++;
     }
-    if (minute == 30) {
-        minute = 0;
+    if (seconds == 60) {
+        seconds = 00;
+        minutes++;
     }
-    if (second == 10) {
-        zeroPlaceholder = '';
-    } else if (second == 00) {
-        zeroPlaceholder = 0;
+    if (minutes == 30) {
+        minutes = 0;
     }
 
-    timer.innerHTML = 'Time: ' + minute + ':' +zeroPlaceholder + second;
+    let m = minutes < 10 ? "0" + minutes : minutes;
+    let s = seconds < 10 ? "0" + seconds : seconds;
+    let ms = milliseconds < 100 ? "0" + milliseconds : milliseconds;
+
+    timer.innerHTML = `Timer: ${m} : ${s} : ${ms}`;
 }
 
 

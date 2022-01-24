@@ -33,6 +33,8 @@ body {
     border-radius: 5px; 
 }
 
+/* Animal Cards */
+
 .card {
     height: 150px;
     width: 150px;
@@ -42,6 +44,35 @@ body {
     border-radius: 5px;
 }
 
+.sheep {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+
+.Cat {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.Mouse {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.Monkey {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.Sheep {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.Cow {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.Pig{
+    background-image: url('https://via.placeholder.com/150x150');
+}
+
+.Horse{
+    background-image: url('https://via.placeholder.com/150x150');
+}
+
+
+
 .score-area {
     text-align: center;
     color: white;
@@ -50,6 +81,7 @@ body {
 
 .correct-card {
     background: green;
+    border: 1px solid green;
 }
 
 #modal {
@@ -86,8 +118,6 @@ body {
 /* Footer */
 
 .social-networks {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     text-align: center;
     padding: 40px 0;

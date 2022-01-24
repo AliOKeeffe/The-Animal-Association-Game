@@ -1,12 +1,14 @@
-let animalsArray = [
-    { Name: 'Cat', Image: 'https://via.placeholder.com/150x150' },
-    { Name: 'Mouse', Image: 'https://via.placeholder.com/150x150' },
-    { Name: 'Monkey', Image: 'https://via.placeholder.com/150x150' },
-    { Name: 'Sheet', Image: 'https://via.placeholder.com/150x150' },
-    { Name: 'Cow', Image: 'https://via.placeholder.com/150x150' },
-    { Name: 'Pig', Image: 'https://via.placeholder.com/150x150' },
-    { Name: 'Horse', Image: 'https://via.placeholder.com/150x150' }
-]
+// let animalsArray = {
+//    Cat: { Name: 'Cat', Image: 'https://via.placeholder.com/150x150' },
+//    Mouse: { Name: 'Mouse', Image: 'https://via.placeholder.com/150x150' },
+//    Monkey: { Name: 'Monkey', Image: 'https://via.placeholder.com/150x150' },
+//    Sheep: { Name: 'Sheep', Image: 'https://via.placeholder.com/150x150' },
+//     // { Name: 'Cow', Image: 'https://via.placeholder.com/150x150' },
+//     // { Name: 'Pig', Image: 'https://via.placeholder.com/150x150' },
+//     // { Name: 'Horse', Image: 'https://via.placeholder.com/150x150' }
+// }
+
+let animalsArray = [ 'Cat', 'Mouse', 'Monkey', 'Sheep', 'Cow', 'Pig', 'Horse'];
 
 let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow', 'Red', 'Black', 'Pink'];
 
@@ -40,6 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function selectCard() {
     let card = this;
+    // let animalsArray1 = Object.keys(animalsArray);
+
     if (animalsArray.includes(card.textContent)) {
 
         card.classList.add('correct-card');
@@ -60,9 +64,11 @@ function selectCard() {
 
 // For each element in animalsArray, creat a div with the name of the animal and add it to the DOM
 function runGame() {
-    let animalsArray2 = [...animalsArray];
+    let animalsArray2 = [...animalsArray]
     let colorArray2 = [...colorArray];
     let newArray = [];
+
+    // let animalsArray2 = Object.values(animalsArray);
 
     for (let i = 0; i < 3; i++) {
         // Loop through animalsArray and get three random animals and push into newArray
@@ -83,17 +89,23 @@ function runGame() {
     shuffleArray(newArray); 
 
     let cardHtml = '';
-    for (let animalObject of newArray) {
+    for (let animal of newArray) {
         cardHtml += 
-        `<div class="card">
-            <img src="${animalObject.Image}">
-            ${animalObject.Name}
-        </div>`;
+        `<div class="card ${animal}">${animal}</div>`;
     }
 
+    // let cardHtml = '';
+    // for (let animalObject of newArray) {
+    //     cardHtml += 
+    //     `<div class="card">
+    //         <img src="${animalObject.Image}">
+    //         ${animalObject.Name}
+    //     </div>`;
+    // }
+    
     let cardArea = document.getElementById('card-area');
     cardArea.innerHTML = cardHtml;
-
+    
     startCount();
 }
 

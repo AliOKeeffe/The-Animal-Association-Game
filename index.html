@@ -12,11 +12,12 @@
 </head>
 
 <body>
-    <h1 class="heading">Kids Association Game</h1>
+    
     <section class="welcome-area" id="welcome-area">
         <div class="home-button">
             <i class="fas fa-home"></i>
         </div>
+        <h1 class="heading">Kids Association Game</h1>
         <div class="box-title">
             <h2>Welcome to the Kids Association Game! </h2>
         </div>
@@ -24,7 +25,7 @@
     </section>
 
     <section class="game-area hide" id="game-area">
-        <div class="home-button" id="home-button">
+        <div class="home-button">
             <i class="fas fa-home"></i>
         </div>
         <div class="score-area">
@@ -41,17 +42,18 @@
         </div>
     </section>
 
-    <section class="modal hide" id="modal">
+    <section class="gameover hide" id="gameover">
         <div class="home-button">
             <i class="fas fa-home"></i>
         </div>
         <div class="box-title">
-            <a id="close" href="#">x</a>
+            <a class="restart-game" href="#">x</a>
             <h2>Congratulations!</h2>
-            <p class="modal-inner">You have completed the game with <span id="final-count"></span> incorrect attempts!</p>
-            <p class="modal-inner">Your total time was <span id="final-time"></span></p>
+            <p>You have completed the game with <span id="final-count"></span> incorrect attempts!</p>
+            <p>Your total time was <span id="final-time"></span></p>
         </div>
-        <button id="startbtn">Start Game</button>
+        <button class="restart-game">Try Again</button>
+        <button>Change Difficulty</button>
     </section>
     
 <!-- 

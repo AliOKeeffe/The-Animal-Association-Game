@@ -14,11 +14,11 @@ let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow', 'Red', 'Black',
 
 let correctAnswers = 0;
 let incorrectAttempts = 0;
-let modal = document.getElementById('modal');
-let closeIcon = document.getElementById('close');
+let gameOver = document.getElementById('gameover');
+let restartbtn = document.getElementsByClassName('restart-game');
 let counter = document.getElementById('counter');
 let startbtn = document.getElementById('startbtn');
-let homebtn = document.getElementById('home-button');
+let homebtn = document.getElementsByClassName('home-button');
 let gameArea = document.getElementById('game-area');
 let welcomeArea = document.getElementById('welcome-area');
 let finalCount = document.getElementById('final-count');
@@ -39,10 +39,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // // }
 
     startbtn.addEventListener('click', runGame);
-    homebtn.addEventListener('click', function () {
-            location.href = 'https://8000-lieeffe-idsssociationam-ulk8p3fa1nt.ws-eu28.gitpod.io/';
-        })
 
+    for (let i of homebtn) {
+        i.addEventListener('click', function () {
+            location.href = 'https://8000-lieeffe-idsssociationam-ulk8p3fa1nt.ws-eu28.gitpod.io/';
+        });
+    }
+
+    for (let i of restartbtn) {
+        i.addEventListener('click', function () {
+            gameOver.classList.add('hide');
+            resetGame();
+        });
+    }
     // runGame();
 
     
@@ -59,8 +68,8 @@ function selectCard() {
         card.removeEventListener('click', selectCard);
 
         if (correctAnswers == 3) {
-            // modal.style.visibility = "visible";
-            modal.classList.remove('hide');
+            // gameover.style.visibility = "visible";
+            gameOver.classList.remove('hide');
             finalCount.innerHTML = incorrectAttempts;
             finalTime.innerHTML = `${minutes} minutes and ${seconds} seconds`;
         }
@@ -155,8 +164,9 @@ function resetGame() {
     incorrectAttempts = 0
     counter.innerHTML = incorrectAttempts;
     // Reset Timer
-    second = 00;
-    minute = 00;
+    milliseconds = 00;
+    seconds = 00;
+    minutes = 00;
     zeroPlaceholder = 0;
 
     runGame();
@@ -203,12 +213,12 @@ function startCount () {
 
 
 
-function closeModal() {
-    closeIcon.addEventListener("click", function() {
-        modal.classList.add('hide');
-        resetGame()
-    });
-}
+// function closeModal() {
+//     closeIcon.addEventListener("click", function() {
+//         gameOver.classList.add('hide');
+//         resetGame()
+//     });
+// }
 
 
 

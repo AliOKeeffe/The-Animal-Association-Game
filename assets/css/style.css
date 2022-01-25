@@ -13,7 +13,7 @@ h2 {
     font-family: 'Mochiy Pop P One', sans-serif;
     font-size: 2.5rem;
     text-align: center;
-    color: white;
+    color: #d9adf8;
     letter-spacing: 3px;
     /* text-transform: uppercase; */
 
@@ -28,7 +28,7 @@ h2 {
     text-align: center;
 }
 
-.game-area, .welcome-area, .modal {
+.game-area, .welcome-area, .gameover {
     background: #f6f7bb;
     height: 700px;
     width: 1000px;

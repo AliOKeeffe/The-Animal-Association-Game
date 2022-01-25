@@ -1,52 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Quicksand:wght@400;500&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Kids Association Game</title>
 </head>
+
 <body>
     <h1 class="heading">Kids Association Game</h1>
-    <div class="menu-area">
-        <button>How to Play</button>
-        <button>Change Scene</button>
-        <button>Difficulty</button>
-        <button>Reset</button>
-    </div>
     <section class="welcome-area" id="welcome-area">
+        <div class="home-button">
+            <i class="fas fa-home"></i>
+        </div>
         <div class="box-title">
-            <h2>Welcome to the Kids Association Game!</h2>
+            <h2>Welcome to the Kids Association Game! </h2>
         </div>
         <button id="startbtn">Start Game</button>
     </section>
 
     <section class="game-area hide" id="game-area">
-        <h2>Select all the items which belong on the farm</h2>
+        <div class="home-button" id="home-button">
+            <i class="fas fa-home"></i>
+        </div>
+        <div class="score-area">
+            <div>Incorrect Attempts: <span id="counter">0</span></div>
+            <div id='timer'>Timer: 0:00</p></div> 
+        </div>
+        <div class="box-title">
+            <h2>Select all the items which belong on the farm</h2>
+        </div>
         <div class="scene-area">
-            <img src="https://via.placeholder.com/700x400" alt="">
+            <img src="https://via.placeholder.com/700x350" alt="">
         </div>
         <div class="card-area" id="card-area">
-        
         </div>
     </section>
-    <div class="score-area">
-        <p>Incorrect Attempts: <span id="counter"></span></p>
-        <p id='timer'>Timer: 0:00</p>
-    </div>
+
+    <section class="modal hide" id="modal">
+        <div class="home-button">
+            <i class="fas fa-home"></i>
+        </div>
+        <div class="box-title">
+            <a id="close" href="#">x</a>
+            <h2>Congratulations!</h2>
+            <p class="modal-inner">You have completed the game with <span id="final-count"></span> incorrect attempts!</p>
+            <p class="modal-inner">Your total time was <span id="final-time"></span></p>
+        </div>
+        <button id="startbtn">Start Game</button>
+    </section>
     
-    <!-- Modal Congratulations -->
+<!-- 
+    Modal Congratulations
     <div id="modal">
         <a id="close" href="#">x</a>
-        
+
         <div class="modal-inner">
             Congatulations You have completed the game!
         </div>
-    </div>
-    <footer>
+    </div> -->
+    <!-- <footer>
         <ul class="social-networks">
             <li>
                 <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Visit our Facebook page (opens in new tab)"><i class="fab fa-facebook"></i></a>
@@ -61,7 +78,7 @@
                 <a href="https://www.youtube.com/" target="blank" rel="noopener" aria-label="Visit out Youtube page (opens in new tab)"><i class="fab fa-youtube"></i></a>
             </li>
         </ul>
-    </footer>
+    </footer> -->
 
     <!-- End of Footer -->
 
@@ -70,4 +87,5 @@
 
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>

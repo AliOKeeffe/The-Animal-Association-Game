@@ -23,16 +23,12 @@ h2 {
     display: none;
 }
 
-.menu-area {
-    text-align: center;
-}
-
 .box-title {
-    margin-top: 60px;
+    margin-top: 75px;
     text-align: center;
 }
 
-.game-area, .welcome-area {
+.game-area, .welcome-area, .modal {
     background: #f6f7bb;
     height: 700px;
     width: 1000px;
@@ -45,9 +41,34 @@ h2 {
     text-align: center;
 }
 
+.home-button {
+    width: 40px;
+    cursor: pointer;
+    float: left;
+}
+
+.home-button i {
+    color: green;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.score-area {
+    float: right;
+    color: green;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.score-area div {
+    float: left;
+    padding: 20px;
+}
+
 .scene-area {
     background: yellow;
-    height: 400px;
+    height: 350px;
     width: 700px;
     margin: 0 auto; 
     border-radius: 5px; 
@@ -93,17 +114,11 @@ h2 {
 
 
 
-.score-area {
-    text-align: center;
-    color: white;
-    font-size: 1.5rem;
-}
-
 .correct-card {
     background: green;
     border: 1px solid green;
 }
-
+/* 
 #modal {
     visibility: hidden;
     z-index: 1;
@@ -124,7 +139,7 @@ h2 {
     text-align: center;
     font-size: 3.5rem;
     color: white;
-}
+} */
 
 #close {
     position: absolute;

@@ -18,8 +18,12 @@ let modal = document.getElementById('modal');
 let closeIcon = document.getElementById('close');
 let counter = document.getElementById('counter');
 let startbtn = document.getElementById('startbtn');
+let homebtn = document.getElementById('home-button');
 let gameArea = document.getElementById('game-area');
 let welcomeArea = document.getElementById('welcome-area');
+let finalCount = document.getElementById('final-count');
+let finalTime = document.getElementById('final-time');
+
 
 
 // Wait for the DOM to finish loading before running the game
@@ -35,6 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // // }
 
     startbtn.addEventListener('click', runGame);
+    homebtn.addEventListener('click', function () {
+            location.href = 'https://8000-lieeffe-idsssociationam-ulk8p3fa1nt.ws-eu28.gitpod.io/';
+        })
 
     // runGame();
 
@@ -42,9 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 function selectCard() {
-   
-    
-    
     let card = this;
     // let animalsArray1 = Object.keys(animalsArray);
 
@@ -55,7 +59,10 @@ function selectCard() {
         card.removeEventListener('click', selectCard);
 
         if (correctAnswers == 3) {
-            modal.style.visibility = "visible";
+            // modal.style.visibility = "visible";
+            modal.classList.remove('hide');
+            finalCount.innerHTML = incorrectAttempts;
+            finalTime.innerHTML = `${minutes} minutes and ${seconds} seconds`;
         }
 
         closeModal();
@@ -198,7 +205,7 @@ function startCount () {
 
 function closeModal() {
     closeIcon.addEventListener("click", function() {
-        modal.style.visibility = "hidden";
+        modal.classList.add('hide');
         resetGame()
     });
 }

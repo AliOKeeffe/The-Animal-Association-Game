@@ -8,7 +8,7 @@
 //     // { Name: 'Horse', Image: 'https://via.placeholder.com/150x150' }
 // }
 
-let animalsArray = [ 'Cat', 'Mouse', 'Monkey', 'Sheep', 'Cow', 'Pig', 'Horse'];
+let animalsArray = ['Cat', 'Mouse', 'Monkey', 'Sheep', 'Cow', 'Pig', 'Horse'];
 
 let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow', 'Red', 'Black', 'Pink'];
 
@@ -17,30 +17,34 @@ let incorrectAttempts = 0;
 let modal = document.getElementById('modal');
 let closeIcon = document.getElementById('close');
 let counter = document.getElementById('counter');
+let startbtn = document.getElementById('startbtn');
+let gameArea = document.getElementById('game-area');
+let welcomeArea = document.getElementById('welcome-area');
 
 
 // Wait for the DOM to finish loading before running the game
 // Get the buttom elements and add event listeners to them
 
 document.addEventListener("DOMContentLoaded", function () {
-    let buttons = document.getElementsByTagName('button');
+    // let buttons = document.getElementsByTagName('button');
 
-    for (let button of buttons) {
-        button.addEventListener('click', function () {
-            alert("you pressed a button");
-        })
-    }
+    // // for (let button of buttons) {
+    // //     button.addEventListener('click', function () {
+    // //         alert("you pressed a button");
+    // //     })
+    // // }
 
-    runGame();
+    startbtn.addEventListener('click', runGame);
 
-    let cards = document.getElementsByClassName('card');
+    // runGame();
 
-    for (let card of cards) {
-        card.addEventListener('click', selectCard);
-    }
+    
 })
 
 function selectCard() {
+   
+    
+    
     let card = this;
     // let animalsArray1 = Object.keys(animalsArray);
 
@@ -64,6 +68,9 @@ function selectCard() {
 
 // For each element in animalsArray, creat a div with the name of the animal and add it to the DOM
 function runGame() {
+    welcomeArea.classList.add('hide');
+    gameArea.classList.remove('hide');
+
     let animalsArray2 = [...animalsArray]
     let colorArray2 = [...colorArray];
     let newArray = [];
@@ -105,6 +112,12 @@ function runGame() {
     
     let cardArea = document.getElementById('card-area');
     cardArea.innerHTML = cardHtml;
+
+    let cards = document.getElementsByClassName('card');
+
+    for (let card of cards) {
+        card.addEventListener('click', selectCard);
+    }
     
     startCount();
 }

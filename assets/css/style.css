@@ -3,6 +3,12 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+h2 {
+    font-weight: bold;
+    font-size: 25px;
+    color: blue;
+}
+
 .heading {
     font-family: 'Mochiy Pop P One', sans-serif;
     font-size: 2.5rem;
@@ -13,16 +19,30 @@ body {
 
 }
 
+.hide {
+    display: none;
+}
+
 .menu-area {
     text-align: center;
 }
-.game-area {
+
+.box-title {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.game-area, .welcome-area {
     background: #f6f7bb;
     height: 700px;
-    width: 900px;
+    width: 1000px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
     text-align: center;
-    margin: 0 auto;
-    border-radius: 5px;
 }
 
 .scene-area {

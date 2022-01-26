@@ -12,6 +12,10 @@ let animalsArray = ['Cat', 'Mouse', 'Monkey', 'Sheep', 'Cow', 'Pig', 'Horse'];
 
 let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow', 'Red', 'Black', 'Pink'];
 
+let farmAnimals = ['Sheep', 'Cow', 'Pig', 'Horse', 'Chicken', 'Cockeral', 'Goat'];
+let seaAnimals = ['Whale', 'Dolphin', 'Octopus', 'Squid', 'Seahorse', 'Jellyfish', 'Clownfish'];
+let gameAnimals = []
+
 let correctAnswers = 0;
 let incorrectAttempts = 0;
 let gameOver = document.getElementById('gameover');
@@ -23,6 +27,7 @@ let gameArea = document.getElementById('game-area');
 let welcomeArea = document.getElementById('welcome-area');
 let finalCount = document.getElementById('final-count');
 let finalTime = document.getElementById('final-time');
+
 
 
 
@@ -38,13 +43,27 @@ document.addEventListener("DOMContentLoaded", function () {
     // //     })
     // // }
 
-    startbtn.addEventListener('click', runGame);
+    // startbtn.addEventListener('click', runGame);
 
-    for (let i of homebtn) {
-        i.addEventListener('click', function () {
-            location.href = 'https://8000-lieeffe-idsssociationam-ulk8p3fa1nt.ws-eu28.gitpod.io/';
-        });
-    }
+    let buttons = document.getElementsByTagName('button');
+
+    for (let button of buttons) {
+        button.addEventListener('click', function() {
+            if(this.getAttribute('data-type') === 'home') {
+                location.href = 'https://8000-aliokeeffe-kidsassociati-0wp5x4a93rd.ws-eu29.gitpod.io/';
+            } else {
+                let gameType = this.getAttribute('data-type');
+                runGame(gameType);
+                
+            }
+        })
+    }    
+        
+    // for (let i of homebtn) {
+    //     i.addEventListener('click', function () {
+    //         location.href = 'https://8000-aliokeeffe-kidsassociati-0wp5x4a93rd.ws-eu29.gitpod.io/';
+    //     });
+    // }
 
     for (let i of restartbtn) {
         i.addEventListener('click', function () {
@@ -57,11 +76,66 @@ document.addEventListener("DOMContentLoaded", function () {
     
 })
 
+function runGame(gameType) {
+console.log(gameType);
+
+    if (gameType === 'farm') {
+        gameAnimals = createGameAnimals([...farmAnimals], [...seaAnimals]);
+    } else if (gameType === 'sea') {
+        gameAnimals = createGameAnimals([...seaAnimals], [...farmAnimals]);
+    }
+
+    writeCards()
+
+    welcomeArea.classList.add('hide');
+    gameArea.classList.remove('hide');  
+}
+
+// Write a function that takes two arrays as parameters and returns a new array with 3 of one a 2 of the other.
+
+function createGameAnimals(rightAnimals, wrongAnimals) {
+
+    for (let i = 0; i < 3; i++) {
+        // Loop through animalsArray and get three random animals and push into newArray
+        let rightIndex = Math.floor(Math.random() * rightAnimals.length);
+        gameAnimals.push(rightAnimals[rightIndex]);
+        // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
+        rightAnimals.splice(rightIndex, 1);
+    }
+
+    for (let i = 0; i < 2; i++) {
+        let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
+        gameAnimals.push(wrongAnimals[wrongIndex]);
+        wrongAnimals.splice(wrongIndex, 1)
+    }
+
+    return gameAnimals;   
+}
+
+function writeCards () {
+
+    let cardHtml = '';
+    for (let animal of gameAnimals) {
+        cardHtml += 
+        `<div class="card ${animal}" data-type=>${animal}</div>`;
+    }
+    
+    let cardArea = document.getElementById('card-area');
+    cardArea.innerHTML = cardHtml;
+
+    let cards = document.getElementsByClassName('card');
+
+    for (let card of cards) {
+        card.addEventListener('click', selectCard);
+    } 
+}
+
 function selectCard() {
     let card = this;
+
     // let animalsArray1 = Object.keys(animalsArray);
 
-    if (animalsArray.includes(card.textContent)) {
+    if (rightAnimals.includes(card.textContent)) {
 
         card.classList.add('correct-card');
         correctAnswers += 1;
@@ -82,61 +156,68 @@ function selectCard() {
     }
 }
 
+
+
+
+
+
+
+
 // For each element in animalsArray, creat a div with the name of the animal and add it to the DOM
-function runGame() {
-    welcomeArea.classList.add('hide');
-    gameArea.classList.remove('hide');
+// function runGame() {
+//     welcomeArea.classList.add('hide');
+//     gameArea.classList.remove('hide');
 
-    let animalsArray2 = [...animalsArray]
-    let colorArray2 = [...colorArray];
-    let newArray = [];
+//     let animalsArray2 = [...animalsArray]
+//     let colorArray2 = [...colorArray];
+//     let newArray = [];
 
-    // let animalsArray2 = Object.values(animalsArray);
+//     // let animalsArray2 = Object.values(animalsArray);
 
-    for (let i = 0; i < 3; i++) {
-        // Loop through animalsArray and get three random animals and push into newArray
-        let animalIndex = Math.floor(Math.random() * animalsArray2.length);
-        newArray.push(animalsArray2[animalIndex]);
-        // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
-        animalsArray2.splice(animalIndex, 1);
-    }
+//     for (let i = 0; i < 3; i++) {
+//         // Loop through animalsArray and get three random animals and push into newArray
+//         let animalIndex = Math.floor(Math.random() * animalsArray2.length);
+//         newArray.push(animalsArray2[animalIndex]);
+//         // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
+//         animalsArray2.splice(animalIndex, 1);
+//     }
 
-    for (let i = 0; i < 2; i++) {
-        let colorIndex = Math.floor(Math.random() * colorArray2.length);
-        newArray.push(colorArray2[colorIndex]);
-        colorArray2.splice(colorIndex, 1)
-    }
+//     for (let i = 0; i < 2; i++) {
+//         let colorIndex = Math.floor(Math.random() * colorArray2.length);
+//         newArray.push(colorArray2[colorIndex]);
+//         colorArray2.splice(colorIndex, 1)
+//     }
 
-    console.log(newArray);
+//     console.log(newArray);
 
-    shuffleArray(newArray); 
+//     shuffleArray(newArray); 
 
-    let cardHtml = '';
-    for (let animal of newArray) {
-        cardHtml += 
-        `<div class="card ${animal}">${animal}</div>`;
-    }
+//     let cardHtml = '';
+//     for (let animal of newArray) {
+//         cardHtml += 
+//         `<div class="card ${animal}">${animal}</div>`;
+//     }
 
-    // let cardHtml = '';
-    // for (let animalObject of newArray) {
-    //     cardHtml += 
-    //     `<div class="card">
-    //         <img src="${animalObject.Image}">
-    //         ${animalObject.Name}
-    //     </div>`;
-    // }
+//     // let cardHtml = '';
+//     // for (let animalObject of newArray) {
+//     //     cardHtml += 
+//     //     `<div class="card">
+//     //         <img src="${animalObject.Image}">
+//     //         ${animalObject.Name}
+//     //     </div>`;
+//     // }
     
-    let cardArea = document.getElementById('card-area');
-    cardArea.innerHTML = cardHtml;
+//     let cardArea = document.getElementById('card-area');
+//     cardArea.innerHTML = cardHtml;
 
-    let cards = document.getElementsByClassName('card');
+//     let cards = document.getElementsByClassName('card');
 
-    for (let card of cards) {
-        card.addEventListener('click', selectCard);
-    }
+//     for (let card of cards) {
+//         card.addEventListener('click', selectCard);
+//     }
     
-    startCount();
-}
+//     startCount();
+// }
 
 // Shuffle order of cards in newArray using the Fischer Yates Shuffle - https://javascript.info/task/shuffle 
 

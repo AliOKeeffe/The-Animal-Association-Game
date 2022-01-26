@@ -21,9 +21,10 @@
         <div class="box-title">
             <h2>Welcome to the Kids Association Game! </h2>
         </div>
-        <button data-type='farm' id="startbtn">Start Game</button>
-        <button data-type="farm">Farm</button>
-        <button data-type="sea">Sea</button>
+        <button data-game-type='farm' id="startbtn">Start Game</button>
+        <button onclick="runGame('farm')">Farm</button>
+        <button data-game-type="sea">Sea</button>
+        <button data-game-type="jungle">Sea</button>
     </section>
 
     <section class="game-area hide" id="game-area">
@@ -89,7 +90,7 @@
     <!-- font awesome script -->
     <script src="https://kit.fontawesome.com/08445b6b20.js" crossorigin="anonymous"></script>
 
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script2.js"></script>
 </body>
 
 </html>

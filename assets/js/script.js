@@ -8,6 +8,13 @@
 //     // { Name: 'Horse', Image: 'https://via.placeholder.com/150x150' }
 // }
 
+
+// let jungle = {
+//     rightanswers: ['Sloth', 'Monkey', 'Snake', 'Treefrog', 'Toucan', 'Parrot', 'Leopard'],
+//     wronganswers: ['Whale', 'Dolphin', 'Octopus', 'Horse','Chicken', 'Cockeral', 'Goat'],
+//     gameType: 'jungle'
+// }
+
 // let animalsArray = ['Cat', 'Mouse', 'Monkey', 'Sheep', 'Cow', 'Pig', 'Horse'];
 
 // let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow', 'Red', 'Black', 'Pink'];

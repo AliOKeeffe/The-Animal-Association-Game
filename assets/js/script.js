@@ -8,13 +8,14 @@
 //     // { Name: 'Horse', Image: 'https://via.placeholder.com/150x150' }
 // }
 
-let animalsArray = ['Cat', 'Mouse', 'Monkey', 'Sheep', 'Cow', 'Pig', 'Horse'];
+// let animalsArray = ['Cat', 'Mouse', 'Monkey', 'Sheep', 'Cow', 'Pig', 'Horse'];
 
-let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow', 'Red', 'Black', 'Pink'];
+// let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow', 'Red', 'Black', 'Pink'];
 
 let farmAnimals = ['Sheep', 'Cow', 'Pig', 'Horse', 'Chicken', 'Cockeral', 'Goat'];
 let seaAnimals = ['Whale', 'Dolphin', 'Octopus', 'Squid', 'Seahorse', 'Jellyfish', 'Clownfish'];
-let gameAnimals = []
+let gameAnimals = [];
+let gameType;
 
 let correctAnswers = 0;
 let incorrectAttempts = 0;
@@ -52,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if(this.getAttribute('data-type') === 'home') {
                 location.href = 'https://8000-aliokeeffe-kidsassociati-0wp5x4a93rd.ws-eu29.gitpod.io/';
             } else {
-                let gameType = this.getAttribute('data-type');
+                gameType = this.getAttribute('data-type');
                 runGame(gameType);
                 
             }
@@ -77,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 function runGame(gameType) {
-console.log(gameType);
 
     if (gameType === 'farm') {
         gameAnimals = createGameAnimals([...farmAnimals], [...seaAnimals]);
@@ -85,7 +85,7 @@ console.log(gameType);
         gameAnimals = createGameAnimals([...seaAnimals], [...farmAnimals]);
     }
 
-    writeCards()
+    writeCards(gameAnimals);
 
     welcomeArea.classList.add('hide');
     gameArea.classList.remove('hide');  
@@ -112,49 +112,112 @@ function createGameAnimals(rightAnimals, wrongAnimals) {
     return gameAnimals;   
 }
 
-function writeCards () {
+function writeCards(gameAnimals) {
 
     let cardHtml = '';
     for (let animal of gameAnimals) {
         cardHtml += 
-        `<div class="card ${animal}" data-type=>${animal}</div>`;
+        `<div class="card ${animal}">${animal}</div>`;
     }
     
     let cardArea = document.getElementById('card-area');
     cardArea.innerHTML = cardHtml;
 
     let cards = document.getElementsByClassName('card');
-
+    
     for (let card of cards) {
         card.addEventListener('click', selectCard);
     } 
 }
 
 function selectCard() {
-    let card = this;
+    let card = this; 
+    if (gameType === 'farm') {
+        if (farmAnimals.includes(card.textContent)) {
+            card.classList.add('correct-card');
+            correctAnswers += 1;
+            card.removeEventListener('click', selectCard);
 
-    // let animalsArray1 = Object.keys(animalsArray);
-
-    if (rightAnimals.includes(card.textContent)) {
-
-        card.classList.add('correct-card');
-        correctAnswers += 1;
-        card.removeEventListener('click', selectCard);
-
-        if (correctAnswers == 3) {
-            // gameover.style.visibility = "visible";
-            gameOver.classList.remove('hide');
-            finalCount.innerHTML = incorrectAttempts;
-            finalTime.innerHTML = `${minutes} minutes and ${seconds} seconds`;
+            if (correctAnswers == 3) {
+                winGame();
+            }
+        } else {
+            alert('Incorrect, sorry! ' + card.textContent + ' is not a farm animal');
+            incorrectAttemptsCounter()
         }
+    } else if (gameType === 'sea') {
+        if (seaAnimals.includes(card.textContent)) {
+            card.classList.add('correct-card');
+            correctAnswers += 1;
+            card.removeEventListener('click', selectCard);
 
-        closeModal();
-
-    } else {
-        alert('Incorrect, sorry! ' + card.textContent + ' is not an animal');
-        incorrectAttemptsCounter()
+            if (correctAnswers == 3) {
+                winGame();
+            }
+        } else {
+            alert('Incorrect, sorry! ' + card.textContent + ' is not a sea animal');
+            incorrectAttemptsCounter()
+        }
     }
 }
+
+
+function winGame () {
+    gameOver.classList.remove('hide');
+    finalCount.innerHTML = incorrectAttempts;
+    finalTime.innerHTML = `${minutes} minutes and ${seconds} seconds`;
+
+    resetGame();
+}
+
+//     console.log(this.getAttribute('data-type'))
+
+//     // let cards = document.getElementsByClassName('card')
+// }
+//     // for (let card of cards) {
+//         if (this.getAttribute('data-type') === 'farm') {
+      
+//             this.classList.add('correct-card');
+//             correctAnswers += 1;
+//             this.removeEventListener('click', selectCard);
+    
+//             if (correctAnswers == 3) {
+//                 // gameover.style.visibility = "visible";
+//                 gameOver.classList.remove('hide');
+//                 finalCount.innerHTML = incorrectAttempts;
+//                 finalTime.innerHTML = `${minutes} minutes and ${seconds} seconds`;
+//             }
+    
+//             resetGame();
+    
+//         } else {
+//             alert('Incorrect, sorry! ' + this.textContent + ' is not an animal');
+//             incorrectAttemptsCounter()
+//         }
+
+// }
+    // let animalsArray1 = Object.keys(animalsArray);
+
+//     if (animalsArray.includes(card.textContent)) {
+
+//         card.classList.add('correct-card');
+//         correctAnswers += 1;
+//         card.removeEventListener('click', selectCard);
+
+//         if (correctAnswers == 3) {
+//             // gameover.style.visibility = "visible";
+//             gameOver.classList.remove('hide');
+//             finalCount.innerHTML = incorrectAttempts;
+//             finalTime.innerHTML = `${minutes} minutes and ${seconds} seconds`;
+//         }
+
+//         closeModal();
+
+//     } else {
+//         alert('Incorrect, sorry! ' + card.textContent + ' is not an animal');
+//         incorrectAttemptsCounter()
+//     }
+// }
 
 
 

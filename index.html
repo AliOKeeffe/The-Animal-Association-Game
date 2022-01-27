@@ -12,24 +12,22 @@
 </head>
 
 <body>
-    
     <section class="welcome-area" id="welcome-area">
-        <button data-type='home' class="home-button">
-            <i class="fas fa-home"></i>
-        </button>
+        <div class="home-button">
+            <a href="../index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
+        </div>
         <h1 class="heading">Kids Association Game</h1>
         <div class="box-title">
             <h2>Welcome to the Kids Association Game! </h2>
         </div>
-        <button data-game-type='farm' id="startbtn">Start Game</button>
         <button onclick="runGame('farm')">Farm</button>
-        <button data-game-type="sea">Sea</button>
-        <button data-game-type="jungle">Sea</button>
+        <button onclick="runGame('sea')">Sea</button>
+        <button onclick="runGame('jungle')">Jungle</button>
     </section>
 
     <section class="game-area hide" id="game-area">
         <div class="home-button">
-            <i class="fas fa-home"></i>
+            <a href="../index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
         </div>
         <div class="score-area">
             <div>Incorrect Attempts: <span id="counter">0</span></div>
@@ -47,7 +45,7 @@
 
     <section class="gameover hide" id="gameover">
         <div class="home-button">
-            <i class="fas fa-home"></i>
+            <a href="../index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
         </div>
         <div class="box-title">
             <a class="restart-game" href="#">x</a>
@@ -55,8 +53,7 @@
             <p>You have completed the game with <span id="final-count"></span> incorrect attempts!</p>
             <p>Your total time was <span id="final-time"></span></p>
         </div>
-        <button class="restart-game">Try Again</button>
-        <button>Change Difficulty</button>
+        <button><a href="../index.html" class="btn" aria-label="Go to the home page">Play Again</a></button>
     </section>
     
 <!-- 

@@ -6,14 +6,14 @@ body {
 h2 {
     font-weight: bold;
     font-size: 25px;
-    color: blue;
+    color: #345995;
 }
 
 .heading {
     font-family: 'Mochiy Pop P One', sans-serif;
     font-size: 2.5rem;
     text-align: center;
-    color: #d9adf8;
+    color: #345995;
     letter-spacing: 3px;
     /* text-transform: uppercase; */
 
@@ -29,7 +29,7 @@ h2 {
 }
 
 .game-area, .welcome-area, .gameover {
-    background: #f6f7bb;
+    background: #03cea4;
     height: 700px;
     width: 1000px;
     margin: 0;

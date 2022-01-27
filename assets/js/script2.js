@@ -4,7 +4,7 @@ let gameOver = document.getElementById('gameover');
 let correctAnswers = 0;
 let incorrectAttempts = 0;
 let counter = document.getElementById('counter');
-let currentLevel = ''
+
 
 let gameContents = {
     farm: {
@@ -24,12 +24,19 @@ let gameContents = {
 let currentRightAnimals = [];
 let currentWrongAnimals = [];
 
-document.addEventListener("DOMContentLoaded", function () {
-})
+// document.addEventListener("DOMContentLoaded", function () {
+// })
 
-function runGame(gameType, level) {
+function runGame(gameType) {
+
+    let level = document.getElementById("level-of-difficulty").value;
+
     welcomeArea.classList.add('hide');
-    gameArea.classList.remove('hide'); 
+    gameArea.classList.remove('hide');
+
+    if (level === 'hard') {
+        gameArea.classList.replace('game-area', 'hard-game-area')
+    } 
 
     //make a deep copy of the gameContents object - as it is a nested object I used the below method as ... wouldn't work. 
     //see https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/
@@ -39,7 +46,6 @@ function runGame(gameType, level) {
     // Set global variables
     currentRightAnimals.push(...currentContents.rightAnimals);
     currentWrongAnimals.push(...currentContents.wrongAnimals);
-    currentLevel = level;
 
     let animalArray = buildAnimalArray(currentContents.rightAnimals, currentContents.wrongAnimals, level);
 
@@ -51,35 +57,19 @@ function runGame(gameType, level) {
 function buildAnimalArray(rightAnimals, wrongAnimals, level) {
     let gameAnimals = [];
     
+    let rightAnswerCount = (level == 'easy') ? 3 : 6;
+    let wrongAnswerCount = (level == 'easy') ? 2 : 4;
 
-    if (level === 'easy') {    
-        for (let i = 0; i < 3; i++) {
-            // Loop through animalsArray and get three random animals and push into newArray
-            let rightIndex = Math.floor(Math.random() * rightAnimals.length);
-            gameAnimals.push(rightAnimals[rightIndex]);
-            // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
-            rightAnimals.splice(rightIndex, 1);
-        }
+    for (let i = 0; i < rightAnswerCount; i++) {
+        let rightIndex = Math.floor(Math.random() * rightAnimals.length);
+        gameAnimals.push(rightAnimals[rightIndex]);
+        rightAnimals.splice(rightIndex, 1);
+    }
 
-        for (let i = 0; i < 2; i++) {
-            let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
-            gameAnimals.push(wrongAnimals[wrongIndex]);
-            wrongAnimals.splice(wrongIndex, 1)
-        }
-    } else {
-        for (let i = 0; i < 6; i++) {
-            // Loop through animalsArray and get three random animals and push into newArray
-            let rightIndex = Math.floor(Math.random() * rightAnimals.length);
-            gameAnimals.push(rightAnimals[rightIndex]);
-            // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
-            rightAnimals.splice(rightIndex, 1);
-        }
-
-        for (let i = 0; i < 4; i++) {
-            let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
-            gameAnimals.push(wrongAnimals[wrongIndex]);
-            wrongAnimals.splice(wrongIndex, 1)
-        }
+    for (let i = 0; i < wrongAnswerCount; i++) {
+        let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
+        gameAnimals.push(wrongAnimals[wrongIndex]);
+        wrongAnimals.splice(wrongIndex, 1)
     }
 
     shuffleArray(gameAnimals);
@@ -121,12 +111,11 @@ function selectCard() {
         correctAnswers += 1;
         this.removeEventListener('click', selectCard);
 
-        if (currentLevel === 'easy') {
-            if (correctAnswers == 3) {
+        let currentLevel = document.getElementById("level-of-difficulty").value;
+        let correctTotal = (currentLevel === 'easy') ? 3 : 6;
+        
+        if (correctAnswers === correctTotal) {
                 winGame();
-            }
-        } else if (correctAnswers == 6) {
-            winGame()
         }
     } else {
         alert('Incorrect, sorry! ' + this.textContent + ' is not a sea animal');

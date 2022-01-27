@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:ital,wght@0,200;0,300;0,500;1,200&family=Roboto+Mono:wght@300&display=swap');
+
 body {
     background: #fecfd9;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 h2 {
@@ -39,6 +41,18 @@ h2 {
     text-align: center;
 }
 
+.hard-game-area {
+    background: #03cea4;
+    height: 900px;
+    width: 1000px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    text-align: center;
+}
 
 .home-button {
     width: 40px;
@@ -47,7 +61,7 @@ h2 {
 }
 
 .home-button i {
-    color: green;
+    color: #345995;
     font-size: 30px;
     padding: 20px;
 }
@@ -89,7 +103,7 @@ h2 {
     background: yellow;
     height: 350px;
     width: 700px;
-    margin: 0 auto; 
+    margin: 0 auto 40px auto; 
     border-radius: 5px; 
 }
 
@@ -100,7 +114,7 @@ h2 {
     width: 150px;
     background: #c0f3e2;
     display: inline-block;
-    margin: 50px 10px;
+    margin: 0 10px 20px 10px;
     border-radius: 5px;
 }
 

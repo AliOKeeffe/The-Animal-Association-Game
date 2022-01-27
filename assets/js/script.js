@@ -385,3 +385,34 @@ function startCount () {
 // - should I load a scene when the page loads or have a start button?
 
 // add a counter for correct attempts if the counter is = 3 then pop up you have won the game!
+
+
+    // if (level === 'easy') {    
+    //     for (let i = 0; i < 3; i++) {
+    //         // Loop through animalsArray and get three random animals and push into newArray
+    //         let rightIndex = Math.floor(Math.random() * rightAnimals.length);
+    //         gameAnimals.push(rightAnimals[rightIndex]);
+    //         // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
+    //         rightAnimals.splice(rightIndex, 1);
+    //     }
+
+    //     for (let i = 0; i < 2; i++) {
+    //         let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
+    //         gameAnimals.push(wrongAnimals[wrongIndex]);
+    //         wrongAnimals.splice(wrongIndex, 1)
+    //     }
+    // } else {
+    //     for (let i = 0; i < 6; i++) {
+    //         // Loop through animalsArray and get three random animals and push into newArray
+    //         let rightIndex = Math.floor(Math.random() * rightAnimals.length);
+    //         gameAnimals.push(rightAnimals[rightIndex]);
+    //         // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
+    //         rightAnimals.splice(rightIndex, 1);
+    //     }
+
+    //     for (let i = 0; i < 4; i++) {
+    //         let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
+    //         gameAnimals.push(wrongAnimals[wrongIndex]);
+    //         wrongAnimals.splice(wrongIndex, 1)
+    //     }
+    // }

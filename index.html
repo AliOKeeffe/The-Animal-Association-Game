@@ -14,25 +14,32 @@
 <body>
     <section class="welcome-area" id="welcome-area">
         <div class="home-button">
-            <a href="../index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
+            <a href="index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
         </div>
         <h1 class="heading">The Animal Association Game</h1>
         <div class="box-title">
-            <h2>Welcome to the Kids Association Game!</h2>
+            <h2>Welcome to The Animal Association Game!</h2>
             <p>Select a game below and see how fast you can match the animals to their habitat.</p>
         </div>
-        <button class='gamebtn' onclick="runGame('farm', 'easy')">Farm</button>
-        <button class='gamebtn' onclick="runGame('sea', 'hard')">Sea</button>
-        <button class='gamebtn' onclick="runGame('jungle', 'easy')">Jungle</button>
         <div>
-            <button>Easy</button>
-            <button>Hard</button>
+            <form>
+                <label for="level-of-difficulty">Select your preferred level of difficulty</label>
+                <select id="level-of-difficulty" name="level-of-difficulty">
+                    <option value="easy">Easy Peasy</option>
+                    <option value="hard">Super Duper Hard</option>
+                </select>
+            </form>
+        </div>
+        <div id='hard-buttons'>
+            <button class='gamebtn' onclick="runGame('farm')">Farm</button>
+            <button class='gamebtn' onclick="runGame('sea')">Sea</button>
+            <button class='gamebtn' onclick="runGame('jungle')">Jungle</button>
         </div>
     </section>
 
     <section class="game-area hide" id="game-area">
         <div class="home-button">
-            <a href="../index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
+            <a href="index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
         </div>
         <div class="score-area">
             <div>Incorrect Attempts: <span id="counter">0</span></div>
@@ -50,7 +57,7 @@
 
     <section class="gameover hide" id="gameover">
         <div class="home-button">
-            <a href="../index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
+            <a href="index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
         </div>
         <div class="box-title">
             <a class="restart-game" href="#">x</a>
@@ -58,7 +65,7 @@
             <p>You have completed the game with <span id="final-count"></span> incorrect attempts!</p>
             <p>Your total time was <span id="final-time"></span></p>
         </div>
-        <button><a href="../index.html" class="btn" aria-label="Go to the home page">Play Again</a></button>
+        <button><a href="index.html" class="btn" aria-label="Go to the home page">Play Again</a></button>
     </section>
     
 <!-- 

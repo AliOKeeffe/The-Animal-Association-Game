@@ -20,9 +20,9 @@
         <div class="box-title">
             <h2>Welcome to the Kids Association Game! </h2>
         </div>
-        <button onclick="runGame('farm')">Farm</button>
-        <button onclick="runGame('sea')">Sea</button>
-        <button onclick="runGame('jungle')">Jungle</button>
+        <button class='gamebtn' onclick="runGame('farm')">Farm</button>
+        <button class='gamebtn' onclick="runGame('sea')">Sea</button>
+        <button class='gamebtn' onclick="runGame('jungle')">Jungle</button>
     </section>
 
     <section class="game-area hide" id="game-area">
@@ -34,7 +34,7 @@
             <div id='timer'>Timer: 0:00</p></div> 
         </div>
         <div class="box-title">
-            <h2>Select all the items which belong on the farm</h2>
+            <h2>Select all the <span id="game-selected">farm</span> animals as fast as you can!</h2>
         </div>
         <div class="scene-area">
             <img src="https://via.placeholder.com/700x350" alt="">

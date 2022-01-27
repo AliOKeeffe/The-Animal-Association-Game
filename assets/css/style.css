@@ -53,6 +53,26 @@ h2 {
     padding: 20px;
 }
 
+
+.gamebtn {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    background-color: #e40066;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 40px;
+    cursor: pointer;
+}
+
+.gamebtn:hover {
+    border: solid #f4b333;
+}
+
 .score-area {
     float: right;
     color: green;

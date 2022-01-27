@@ -24,14 +24,6 @@ let currentRightAnimals = [];
 let currentWrongAnimals = [];
 
 document.addEventListener("DOMContentLoaded", function () {
-    // let buttons = document.getElementsByTagName('button');
-
-    // for (let button of buttons) {
-    //     button.addEventListener('click', function() {
-    //         let gameType = this.getAttribute('data-game-type');
-    //         runGame(gameType);
-    //     })
-    // }
 })
 
 function runGame(gameType) {
@@ -49,7 +41,7 @@ function runGame(gameType) {
 
     let animalArray = buildAnimalArray(currentContents.rightAnimals, currentContents.wrongAnimals);
 
-    writeCards(animalArray);
+    writeCards(animalArray, gameType);
 
 }
 
@@ -84,7 +76,9 @@ function shuffleArray(gameAnimals) {
     }
 }
 
-function writeCards(gameAnimals) {
+function writeCards(gameAnimals, gameType) {
+    document.getElementById('game-selected').innerHTML = gameType;
+
     let cardHtml = "";
     for (let animal of gameAnimals) {
         cardHtml += `<div class="card ${animal}">${animal}</div>`;

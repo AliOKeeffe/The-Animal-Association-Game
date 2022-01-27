@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Quicksand:wght@400;500&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Mochiy+Pop+P+One&family=Quicksand:wght@400;500&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Kids Association Game</title>
+    <title>The Animal Association Game</title>
 </head>
 
 <body>
@@ -16,13 +16,18 @@
         <div class="home-button">
             <a href="../index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
         </div>
-        <h1 class="heading">Kids Association Game</h1>
+        <h1 class="heading">The Animal Association Game</h1>
         <div class="box-title">
-            <h2>Welcome to the Kids Association Game! </h2>
+            <h2>Welcome to the Kids Association Game!</h2>
+            <p>Select a game below and see how fast you can match the animals to their habitat.</p>
         </div>
-        <button class='gamebtn' onclick="runGame('farm')">Farm</button>
-        <button class='gamebtn' onclick="runGame('sea')">Sea</button>
-        <button class='gamebtn' onclick="runGame('jungle')">Jungle</button>
+        <button class='gamebtn' onclick="runGame('farm', 'easy')">Farm</button>
+        <button class='gamebtn' onclick="runGame('sea', 'hard')">Sea</button>
+        <button class='gamebtn' onclick="runGame('jungle', 'easy')">Jungle</button>
+        <div>
+            <button>Easy</button>
+            <button>Hard</button>
+        </div>
     </section>
 
     <section class="game-area hide" id="game-area">

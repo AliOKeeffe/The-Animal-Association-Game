@@ -4,6 +4,7 @@ let gameOver = document.getElementById('gameover');
 let correctAnswers = 0;
 let incorrectAttempts = 0;
 let counter = document.getElementById('counter');
+let currentLevel = ''
 
 let gameContents = {
     farm: {
@@ -26,7 +27,7 @@ let currentWrongAnimals = [];
 document.addEventListener("DOMContentLoaded", function () {
 })
 
-function runGame(gameType) {
+function runGame(gameType, level) {
     welcomeArea.classList.add('hide');
     gameArea.classList.remove('hide'); 
 
@@ -38,27 +39,47 @@ function runGame(gameType) {
     // Set global variables
     currentRightAnimals.push(...currentContents.rightAnimals);
     currentWrongAnimals.push(...currentContents.wrongAnimals);
+    currentLevel = level;
 
-    let animalArray = buildAnimalArray(currentContents.rightAnimals, currentContents.wrongAnimals);
+    let animalArray = buildAnimalArray(currentContents.rightAnimals, currentContents.wrongAnimals, level);
 
     writeCards(animalArray, gameType);
 
+    startTimer()
 }
 
-function buildAnimalArray(rightAnimals, wrongAnimals) {
+function buildAnimalArray(rightAnimals, wrongAnimals, level) {
     let gameAnimals = [];
-    for (let i = 0; i < 3; i++) {
-        // Loop through animalsArray and get three random animals and push into newArray
-        let rightIndex = Math.floor(Math.random() * rightAnimals.length);
-        gameAnimals.push(rightAnimals[rightIndex]);
-        // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
-        rightAnimals.splice(rightIndex, 1);
-    }
+    
 
-    for (let i = 0; i < 2; i++) {
-        let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
-        gameAnimals.push(wrongAnimals[wrongIndex]);
-        wrongAnimals.splice(wrongIndex, 1)
+    if (level === 'easy') {    
+        for (let i = 0; i < 3; i++) {
+            // Loop through animalsArray and get three random animals and push into newArray
+            let rightIndex = Math.floor(Math.random() * rightAnimals.length);
+            gameAnimals.push(rightAnimals[rightIndex]);
+            // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
+            rightAnimals.splice(rightIndex, 1);
+        }
+
+        for (let i = 0; i < 2; i++) {
+            let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
+            gameAnimals.push(wrongAnimals[wrongIndex]);
+            wrongAnimals.splice(wrongIndex, 1)
+        }
+    } else {
+        for (let i = 0; i < 6; i++) {
+            // Loop through animalsArray and get three random animals and push into newArray
+            let rightIndex = Math.floor(Math.random() * rightAnimals.length);
+            gameAnimals.push(rightAnimals[rightIndex]);
+            // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
+            rightAnimals.splice(rightIndex, 1);
+        }
+
+        for (let i = 0; i < 4; i++) {
+            let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
+            gameAnimals.push(wrongAnimals[wrongIndex]);
+            wrongAnimals.splice(wrongIndex, 1)
+        }
     }
 
     shuffleArray(gameAnimals);
@@ -100,8 +121,12 @@ function selectCard() {
         correctAnswers += 1;
         this.removeEventListener('click', selectCard);
 
-        if (correctAnswers == 3) {
-            winGame();
+        if (currentLevel === 'easy') {
+            if (correctAnswers == 3) {
+                winGame();
+            }
+        } else if (correctAnswers == 6) {
+            winGame()
         }
     } else {
         alert('Incorrect, sorry! ' + this.textContent + ' is not a sea animal');
@@ -117,7 +142,7 @@ function winGame () {
     finalCount.innerHTML = incorrectAttempts;
     finalTime.innerHTML = `${minutes} minutes and ${seconds} seconds`;
 
-    resetGame();
+    // resetGame();
 }
 
 function incorrectAttemptsCounter() {
@@ -127,53 +152,57 @@ function incorrectAttemptsCounter() {
 
 // start timer - credit to https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo
 
+
 let milliseconds = 00;
 let seconds = 00; 
 let minutes = 00;
-let timer = document.getElementById('timer');
 
-setInterval(function() {
-    startCount();
-}, 10);
- 
-function startCount () {
-    milliseconds +=10;
-    if (milliseconds == 1000) {
-        milliseconds = 0;
-        seconds++;
-    }
-    if (seconds == 60) {
-        seconds = 00;
-        minutes++;
-    }
-    if (minutes == 30) {
-        minutes = 0;
-    }
+function startTimer() {
+    let timer = document.getElementById('timer');
 
-    let m = minutes < 10 ? "0" + minutes : minutes;
-    let s = seconds < 10 ? "0" + seconds : seconds;
-    let ms = milliseconds < 100 ? "0" + milliseconds : milliseconds;
+    setInterval(function() {
+        startCount();
+    }, 10);
+    
+    function startCount () {
+        milliseconds +=10;
+        if (milliseconds == 1000) {
+            milliseconds = 0;
+            seconds++;
+        }
+        if (seconds == 60) {
+            seconds = 00;
+            minutes++;
+        }
+        if (minutes == 30) {
+            minutes = 0;
+        }
 
-    timer.innerHTML = `Timer: ${m} : ${s} : ${ms}`;
+        let m = minutes < 10 ? "0" + minutes : minutes;
+        let s = seconds < 10 ? "0" + seconds : seconds;
+        let ms = milliseconds < 100 ? "0" + milliseconds : milliseconds;
+
+        timer.innerHTML = `Timer: ${m} : ${s} : ${ms}`;
+    }
 }
 
-function resetGame() {
+// function resetGame() {
     
-    let cardArea = document.getElementById('card-area');
-    cardArea.innerHTML = '';
+//     let cardArea = document.getElementById('card-area');
+//     cardArea.innerHTML = '';
   
-    // Reset Score
-    correctAnswers = 0 
-    incorrectAttempts = 0
-    counter.innerHTML = incorrectAttempts;
+//     // Reset Score
+//     correctAnswers = 0 
+//     incorrectAttempts = 0
+//     counter.innerHTML = incorrectAttempts;
     
-    // Reset Timer
-    milliseconds = 00;
-    seconds = 00;
-    minutes = 00;
-    zeroPlaceholder = 0;
+//     // Reset Timer
+//     milliseconds = 00;
+//     seconds = 00;
+//     minutes = 00;
+//     zeroPlaceholder = 0;
 
-    //Reset global variables
-    currentRightAnimals = [];
-    currentWrongAnimals = [];
-}
+//     //Reset global variables
+//     currentRightAnimals = [];
+//     currentWrongAnimals = [];
+// }

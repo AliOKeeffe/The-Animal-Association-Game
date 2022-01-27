@@ -11,12 +11,10 @@ h2 {
 
 .heading {
     font-family: 'Mochiy Pop P One', sans-serif;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     text-align: center;
     color: #345995;
-    letter-spacing: 3px;
-    /* text-transform: uppercase; */
-
+    letter-spacing: 4px;
 }
 
 .hide {
@@ -40,6 +38,7 @@ h2 {
     border-radius: 10px;
     text-align: center;
 }
+
 
 .home-button {
     width: 40px;

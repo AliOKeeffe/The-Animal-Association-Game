@@ -1,19 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:ital,wght@0,200;0,300;0,500;1,200&family=Roboto+Mono:wght@300&display=swap');
 
-html {
+/* html {
     background: url(../images/scenes/5403826.jpg) no-repeat center center fixed;
     background-size: cover;
-  }
+  } */
 
 body {
-    background: #fecfd9;
     font-family: 'Poppins', sans-serif;
+    background: url(../images/scenes/5403826.jpg) no-repeat center center fixed;
+    background-size: cover;
 }
 
 h2 {
     font-weight: bold;
     font-size: 25px;
-    color: #345995;
+    /* color: #345995; */
+    color: white;
 }
 
 .heading {
@@ -35,24 +37,37 @@ h2 {
 
 .welcome-area, .gameover {
     background: #03cea4;
-    width: 800px;
-    margin: 0;
+    max-width: 800px;
+    height:600px;
+    /* margin: 0 40px; */
+    margin: auto;
     position: absolute;
-    top: 50%;
+    top: 5%;
+    left: 0;
+    right: 0;
+    bottom: 5%;
+    /* top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
     border-radius: 10px;
     text-align: center;
 }
 
 .game-area {
     background: #03cea4;
-    width: 800px;
-    margin: 0;
+    max-width: 800px;
+    height:600px;
+    margin: auto;
+    /* margin: 0; */
     position: absolute;
-    top: 50%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* top: 50%;
+    /* top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
     border-radius: 10px;
     text-align: center;
 }
@@ -64,15 +79,15 @@ h2 {
 }
 
 .home-button i {
-    color: #345995;
+    color: white;
     font-size: 30px;
     padding: 20px;
 }
 
 .incorrect-attempts i {
-    color: #345995;
+    color: white;
     font-size: 30px;
-    padding: 20px;
+    padding: 0 0 0 20px;
 }
 
 .gamebtn {
@@ -96,7 +111,7 @@ h2 {
 
 .score-area {
     float: right;
-    color: green;
+    color: white;
     font-size: 1.5rem;
     letter-spacing: 1px;
     font-family: 'Roboto Mono', monospace;
@@ -107,38 +122,51 @@ h2 {
     padding: 20px;
 }
 
+/* .scene-area {
+    clear: both;
+    height: 200px;
+    width: 400px;
+    margin: 0 auto 40px auto; 
+    border-radius: 5px; 
+} */
+
 .scene-area {
-    /* background: url(../images/scenes/5362630.jpg) no-repeat center center;
-    background-size: 700px 400px; */
-    height: 300px;
-    width: 500px;
+    clear: both;
+    height: 600px;
+    max-width: 800px;
     margin: 0 auto 40px auto; 
     border-radius: 5px; 
 }
 
 .jungle {
     background: url(../images/scenes/5362630.jpg) no-repeat center center;
-    background-size: 500px 300px;
+    /* background-size: 400px 200px; */
+    background-size: cover;
 }
 .sea {
     background: url(../images/scenes/underwater_scene.jpg) no-repeat center center;
-    background-size: 500px 300px;
+    /* background-size: 400px 200px; */
+    background-size: cover;
 }
 .farm {
     background: url(../images/scenes/farm_scene.jpg) no-repeat center center;
-    background-size: 500px 300px;
+    /* background-size: 400px 200px; */
+    background-size: cover;
 }
 .safari {
     background: url(../images/scenes/safari_scene.jpg) no-repeat center center;
-    background-size: 500px 300px;
+    /* background-size: 400px 200px; */
+    background-size: cover;
 }
 
+.card-area {
+    margin-top: 100px;
+}
 
-
-.card-area-hard {
+/* .card-area-hard {
     width: 600px;
     display: inline-block;
-}
+} */
 
 /* Animal Cards */
 
@@ -149,8 +177,10 @@ h2 {
     margin: 0 10px 20px 10px;
     border-radius: 5px;
     text-transform: capitalize;
+    background-color: #fff;
     background-size: 140px 140px;
     background-position: center center;
+    background-repeat: no-repeat;
     cursor: pointer;
     color: #345995;
 }
@@ -161,10 +191,9 @@ h2 {
 }
 
 .card-hard {
-    height: 120px;
-    width: 120px;
-    background-size: 110px 110px;
-    margin: 0 15px 20px 15px;
+    height: 150px;
+    width: 150px;
+    background-size: 140px 140px;
 }
 
 
@@ -290,8 +319,7 @@ h2 {
     opacity: 50%;
     border: 1px solid green;
     z-index: 1; */
-    box-shadow: inset 0 0 99999px rgba(0, 255, 106, 0.555);
-    
+    box-shadow: inset 0 0 99999px rgba(0, 255, 106, 0.5) !important;
 }
 
 /* shake animation from w3 schools https://www.w3schools.com/howto/howto_css_shake_image.asp */

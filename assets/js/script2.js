@@ -39,6 +39,7 @@ function runGame(gameType) {
 
     welcomeArea.classList.add('hide');
     gameArea.classList.remove('hide');
+    document.getElementsByTagName('body')[0].style = 'background: #03cea4';
 
     if (level === 'hard') {
         cardArea.classList.replace('card-area', 'card-area-hard');
@@ -186,7 +187,8 @@ function startTimer() {
         let s = seconds < 10 ? "0" + seconds : seconds;
         let ms = milliseconds < 100 ? "0" + milliseconds : milliseconds;
 
-        timer.innerHTML = `Timer: ${m} : ${s} : ${ms}`;
+        // timer.innerHTML = `Timer: ${m} : ${s} : ${ms}`;
+        timer.innerHTML = `Timer: ${m} : ${s}`;
     }
 }
 

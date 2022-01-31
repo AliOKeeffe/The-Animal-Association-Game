@@ -8,16 +8,16 @@ let counter = document.getElementById('counter');
 
 let gameContents = {
     farm: {
-        rightAnimals: ['Sheep', 'Cow', 'Pig', 'Horse', 'Chicken', 'Cockeral', 'Goat'],
-        wrongAnimals: ['Whale', 'Dolphin', 'Octopus', 'Turtle', 'Sloth', 'Monkey', 'Snake']
+        rightAnimals: ['sheep', 'cow', 'pig', 'horse', 'chicken', 'cockeral', 'goat'],
+        wrongAnimals: ['whale', 'dolphin', 'octopus', 'turtle', 'sloth', 'monkey', 'snake']
     },
     sea: {
-        rightAnimals: ['Whale', 'Dolphin', 'Octopus', 'Turtle', 'Seahorse', 'Jellyfish', 'Crab'],
-        wrongAnimals: ['Sheep', 'Cow', 'Pig', 'Horse', 'Sloth', 'Monkey', 'Snake'],
+        rightAnimals: ['whale', 'dolphin', 'octopus', 'turtle', 'seahorse', 'jellyfish', 'crab'],
+        wrongAnimals: ['sheep', 'cow', 'pig', 'horse', 'sloth', 'monkey', 'snake'],
     },
     jungle: {
-        rightAnimals: ['Sloth', 'Monkey', 'Snake', 'Treefrog', 'Toucan', 'Parrot', 'Leopard'],
-        wrongAnimals: ['Whale', 'Dolphin', 'Octopus', 'Horse','Chicken', 'Cockeral', 'Goat'],
+        rightAnimals: ['sloth', 'monkey', 'snake', 'treefrog', 'toucan', 'parrot', 'leopard'],
+        wrongAnimals: ['whale', 'dolphin', 'octopus', 'horse', 'chicken', 'cockeral', 'goat'],
     }
 }
 

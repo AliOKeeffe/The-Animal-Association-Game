@@ -30,7 +30,7 @@ h2 {
 
 .game-area, .welcome-area, .gameover {
     background: #03cea4;
-    height: 700px;
+    
     width: 1000px;
     margin: 0;
     position: absolute;
@@ -43,7 +43,7 @@ h2 {
 
 .hard-game-area {
     background: #03cea4;
-    height: 900px;
+    /* height: 900px; */
     width: 1000px;
     margin: 0;
     position: absolute;
@@ -112,36 +112,126 @@ h2 {
 .card {
     height: 150px;
     width: 150px;
-    background: #c0f3e2;
+    /* background: #c0f3e2; */
     display: inline-block;
     margin: 0 10px 20px 10px;
     border-radius: 5px;
+    text-transform: capitalize;
 }
 
+.camel{
+    background-image: url());
+}
+
+.cat {
+    background: url(../images/animal_cards/cat);
+}
+.cockeral {
+    background: url(../images/animal_cards/cockeral);
+}
+.cow {
+    background: url(../images/animal_cards/cow);
+}
+.crab {
+    background-image: url(../images/animal_cards/crab);
+}
+.crocodile {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.dog {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.dolphin {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.donkey {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.elephant {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.frog {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.giraffe {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.goat {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.gorilla {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.hippo {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.horse {
+    background: url(../images/animal_cards/cat);
+}
+.jellyfish {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.lion {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.monkey {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.octopus {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.ostrich {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.panda {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.pig {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.rhino {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.seahorse {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.seal {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.shark {
+    background-image: url('https://via.placeholder.com/150x150');
+}
 .sheep {
+    background-image: url(../images/animal_cards/cat);
+}
+.sloth {
     background-image: url('https://via.placeholder.com/150x150');
 }
-
-.Cat {
+.snake {
     background-image: url('https://via.placeholder.com/150x150');
 }
-.Mouse {
+.squid {
     background-image: url('https://via.placeholder.com/150x150');
 }
-.Monkey {
+.swordfish {
     background-image: url('https://via.placeholder.com/150x150');
 }
-.Sheep {
+.tiger {
     background-image: url('https://via.placeholder.com/150x150');
 }
-.Cow {
+.toucan {
     background-image: url('https://via.placeholder.com/150x150');
 }
-.Pig{
+.turtle {
     background-image: url('https://via.placeholder.com/150x150');
 }
-
-.Horse{
+.walrus {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.whale {
+    background-image: url('https://via.placeholder.com/150x150');
+}
+.zebra {
     background-image: url('https://via.placeholder.com/150x150');
 }
 

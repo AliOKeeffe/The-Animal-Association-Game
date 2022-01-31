@@ -8,16 +8,20 @@ let counter = document.getElementById('counter');
 
 let gameContents = {
     farm: {
-        rightAnimals: ['sheep', 'cow', 'pig', 'horse', 'chicken', 'cockeral', 'goat'],
+        rightAnimals: ['sheep', 'cow', 'pig', 'horse', 'donkey', 'cockeral', 'goat', 'dog', 'cat'],
         wrongAnimals: ['whale', 'dolphin', 'octopus', 'turtle', 'sloth', 'monkey', 'snake']
     },
     sea: {
-        rightAnimals: ['whale', 'dolphin', 'octopus', 'turtle', 'seahorse', 'jellyfish', 'crab'],
+        rightAnimals: ['whale', 'dolphin', 'octopus', 'turtle', 'seal', 'swordfish', 'shark', 'walrus', 'crab'],
         wrongAnimals: ['sheep', 'cow', 'pig', 'horse', 'sloth', 'monkey', 'snake'],
     },
     jungle: {
-        rightAnimals: ['sloth', 'monkey', 'snake', 'treefrog', 'toucan', 'parrot', 'leopard'],
-        wrongAnimals: ['whale', 'dolphin', 'octopus', 'horse', 'chicken', 'cockeral', 'goat'],
+        rightAnimals: ['sloth', 'monkey', 'snake', 'treefrog', 'toucan', 'gorilla', 'panda'],
+        wrongAnimals: ['whale', 'dolphin', 'octopus', 'horse', 'dog', 'cockeral', 'goat'],
+    },
+    safari: {
+        rightAnimals: ['lion', 'elephant', 'crocodile', 'rhino', 'hippo', 'camel', 'zebra', 'giraffe', 'ostrich'],
+        wrongAnimals: ['cow', 'pig', 'horse', 'sloth', 'dog', 'cockeral', 'goat'],
     }
 }
 
@@ -57,8 +61,8 @@ function runGame(gameType) {
 function buildAnimalArray(rightAnimals, wrongAnimals, level) {
     let gameAnimals = [];
     
-    let rightAnswerCount = (level == 'easy') ? 3 : 6;
-    let wrongAnswerCount = (level == 'easy') ? 2 : 4;
+    let rightAnswerCount = (level == 'easy') ? 4 : 7;
+    let wrongAnswerCount = (level == 'easy') ? 2 : 5;
 
     for (let i = 0; i < rightAnswerCount; i++) {
         let rightIndex = Math.floor(Math.random() * rightAnimals.length);
@@ -112,13 +116,14 @@ function selectCard() {
         this.removeEventListener('click', selectCard);
 
         let currentLevel = document.getElementById("level-of-difficulty").value;
-        let correctTotal = (currentLevel === 'easy') ? 3 : 6;
+        let correctTotal = (currentLevel === 'easy') ? 4 : 7;
         
         if (correctAnswers === correctTotal) {
                 winGame();
         }
     } else {
-        alert('Incorrect, sorry! ' + this.textContent + ' is not a sea animal');
+        this.classList.add('incorrect-card');
+        // alert('Incorrect, sorry! ' + this.textContent + ' is not a sea animal');
         incorrectAttemptsCounter()
     }
 }

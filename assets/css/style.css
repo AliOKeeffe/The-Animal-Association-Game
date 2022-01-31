@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:ital,wght@0,200;0,300;0,500;1,200&family=Roboto+Mono:wght@300&display=swap');
 
+html {
+    background: url(../images/scenes/5403826.jpg) no-repeat center center fixed;
+    background-size: cover;
+  }
+
+
 body {
     background: #fecfd9;
     font-family: 'Poppins', sans-serif;
 }
+
+
 
 h2 {
     font-weight: bold;
@@ -28,10 +36,9 @@ h2 {
     text-align: center;
 }
 
-.game-area, .welcome-area, .gameover {
+.welcome-area, .gameover {
     background: #03cea4;
-    
-    width: 1000px;
+    width: 800px;
     margin: 0;
     position: absolute;
     top: 50%;
@@ -41,10 +48,23 @@ h2 {
     text-align: center;
 }
 
+.game-area {
+    background: #03cea4;
+    width: 1100px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    text-align: center;
+}
+
+
 .hard-game-area {
     background: #03cea4;
     /* height: 900px; */
-    width: 1000px;
+    width: 1100px;
     margin: 0;
     position: absolute;
     top: 50%;
@@ -100,8 +120,9 @@ h2 {
 }
 
 .scene-area {
-    background: yellow;
-    height: 350px;
+    background: url(../images/scenes/5362630.jpg) no-repeat center center;
+    background-size: 700px 400px;
+    height: 400px;
     width: 700px;
     margin: 0 auto 40px auto; 
     border-radius: 5px; 
@@ -112,135 +133,159 @@ h2 {
 .card {
     height: 150px;
     width: 150px;
-    /* background: #c0f3e2; */
     display: inline-block;
     margin: 0 10px 20px 10px;
     border-radius: 5px;
     text-transform: capitalize;
+    background-size: 150px 150px;
+    background-position: center center;
 }
 
-.camel{
-    background-image: url());
+.camel {
+    background-image: url(../images/animal_cards/camel.webp);
 }
-
 .cat {
-    background: url(../images/animal_cards/cat);
+    background-image: url(../images/animal_cards/cat.webp);
 }
 .cockeral {
-    background: url(../images/animal_cards/cockeral);
+    background-image: url(../images/animal_cards/cockeral.webp);
 }
 .cow {
-    background: url(../images/animal_cards/cow);
+    background-image: url(../images/animal_cards/cow.webp);
 }
 .crab {
-    background-image: url(../images/animal_cards/crab);
+    background-image: url(../images/animal_cards/crab.webp);
 }
 .crocodile {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/crocodile.webp);
 }
 .dog {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/dog.webp);
 }
 .dolphin {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/dolphin.webp);
 }
 .donkey {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/donkey.webp);
 }
 .elephant {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/elephant.webp);
 }
-.frog {
-    background-image: url('https://via.placeholder.com/150x150');
+.treefrog {
+    background-image: url(../images/animal_cards/frog.webp);
 }
 .giraffe {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/giraffe.webp);
 }
 .goat {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/goat.webp);
 }
 .gorilla {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/gorilla.webp);
 }
 .hippo {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/hippo.webp);
 }
 .horse {
-    background: url(../images/animal_cards/cat);
+    background-image: url(../images/animal_cards/horse.webp);
 }
 .jellyfish {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/jellyfish.webp);
 }
 .lion {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/lion.webp);
 }
 .monkey {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/monkey.webp);
 }
 .octopus {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/octopus.webp);
 }
 .ostrich {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/ostrich.webp);
 }
 .panda {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/panda.webp);
 }
 .pig {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/pig.webp);
 }
 .rhino {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/rhino.webp);
 }
 .seahorse {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/seahorse.webp);
 }
 .seal {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/seal.webp);
 }
 .shark {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/shark.webp);
 }
 .sheep {
-    background-image: url(../images/animal_cards/cat);
+    background-image: url(../images/animal_cards/sheep.webp);
 }
 .sloth {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/sloth.webp);
 }
 .snake {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/snake.webp);
 }
 .squid {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/squid.webp);
 }
 .swordfish {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/swordfish.webp);
 }
 .tiger {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/tiger.webp);
 }
 .toucan {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/toucan.webp);
 }
 .turtle {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/turtle.webp);
 }
 .walrus {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/walrus.webp);
 }
 .whale {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/whale.webp);
 }
 .zebra {
-    background-image: url('https://via.placeholder.com/150x150');
+    background-image: url(../images/animal_cards/zebra.webp);
 }
 
 
 
 .correct-card {
-    background: green;
+    /* background: green;
+    opacity: 50%;
     border: 1px solid green;
+    z-index: 1; */
+    box-shadow: inset 0 0 99999px rgba(0, 255, 106, 0.555);
+    
 }
+
+/* shake animation from w3 schools https://www.w3schools.com/howto/howto_css_shake_image.asp */
+.incorrect-card {
+  animation: shake 0.5s;
+  /* animation-iteration-count: infinite; */
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
 /* 
 #modal {
     visibility: hidden;

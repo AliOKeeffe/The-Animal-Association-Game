@@ -1,9 +1,11 @@
 let gameArea = document.getElementById('game-area');
 let welcomeArea = document.getElementById('welcome-area');
+let cardArea = document.getElementById('card-area');
 let gameOver = document.getElementById('gameover');
 let correctAnswers = 0;
 let incorrectAttempts = 0;
 let counter = document.getElementById('counter');
+
 
 
 let gameContents = {
@@ -39,7 +41,7 @@ function runGame(gameType) {
     gameArea.classList.remove('hide');
 
     if (level === 'hard') {
-        gameArea.classList.replace('game-area', 'hard-game-area')
+        cardArea.classList.replace('card-area', 'card-area-hard');
     } 
 
     //make a deep copy of the gameContents object - as it is a nested object I used the below method as ... wouldn't work. 
@@ -61,8 +63,8 @@ function runGame(gameType) {
 function buildAnimalArray(rightAnimals, wrongAnimals, level) {
     let gameAnimals = [];
     
-    let rightAnswerCount = (level == 'easy') ? 4 : 7;
-    let wrongAnswerCount = (level == 'easy') ? 2 : 5;
+    let rightAnswerCount = (level == 'easy') ? 3 : 5;
+    let wrongAnswerCount = (level == 'easy') ? 1 : 3;
 
     for (let i = 0; i < rightAnswerCount; i++) {
         let rightIndex = Math.floor(Math.random() * rightAnimals.length);
@@ -93,19 +95,27 @@ function shuffleArray(gameAnimals) {
 
 function writeCards(gameAnimals, gameType) {
     document.getElementById('game-selected').innerHTML = gameType;
+    let level = document.getElementById("level-of-difficulty").value;
 
     let cardHtml = "";
     for (let animal of gameAnimals) {
-        cardHtml += `<div class="card ${animal}">${animal}</div>`;
+        if (level === 'easy') {
+            cardHtml += `<div class="card ${animal}">${animal}</div>`;
+        } else {
+            cardHtml += `<div class="card-hard ${animal}">${animal}</div>`;
+        }
     }
     
-    let cardArea = document.getElementById('card-area');
+
     cardArea.innerHTML = cardHtml;
 
-    let cards = document.getElementsByClassName('card');
+    let cards = document.querySelectorAll('.card, .card-hard');
     for (let card of cards) {
         card.addEventListener('click', selectCard);
     } 
+
+    let scene = document.getElementById('scene-area');
+    scene.classList.add(gameType);    
 }
 
 function selectCard() {
@@ -116,7 +126,7 @@ function selectCard() {
         this.removeEventListener('click', selectCard);
 
         let currentLevel = document.getElementById("level-of-difficulty").value;
-        let correctTotal = (currentLevel === 'easy') ? 4 : 7;
+        let correctTotal = (currentLevel === 'easy') ? 3 : 5;
         
         if (correctAnswers === correctTotal) {
                 winGame();

@@ -16,7 +16,9 @@
         <div class="home-button">
             <a href="index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
         </div>
+        <div>
         <h1 class="heading">The Animal Association Game</h1>
+        </div>
         <div class="box-title">
             <h2>Welcome to The Animal Association Game!</h2>
             <p>Select a game below and see how fast you can match the animals to their habitat.</p>
@@ -43,13 +45,13 @@
             <a href="index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
         </div>
         <div class="score-area">
-            <div>Incorrect Attempts: <span id="counter">0</span></div>
+            <div class="incorrect-attempts"><span id="counter">0</span><i class="far fa-frown"></i></div>
             <div id='timer'>Timer: 0:00</p></div> 
         </div>
         <div class="box-title">
             <h2>Select all the <span id="game-selected">farm</span> animals as fast as you can!</h2>
         </div>
-        <div class="scene-area">
+        <div class="scene-area" id='scene-area'>
             <!-- <img src="https://via.placeholder.com/700x350" alt=""> -->
         </div>
         <div class="card-area" id="card-area">
@@ -63,7 +65,7 @@
         <div class="box-title">
             <a class="restart-game" href="#">x</a>
             <h2>Congratulations!</h2>
-            <p>You have completed the game with <span id="final-count"></span> incorrect attempts!</p>
+            <p>You have completed the game with <span id="final-count"></span>incorrect attempts!</p>
             <p>Your total time was <span id="final-time"></span></p>
         </div>
         <button><a href="index.html" class="btn" aria-label="Go to the home page">Play Again</a></button>

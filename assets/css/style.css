@@ -5,13 +5,10 @@ html {
     background-size: cover;
   }
 
-
 body {
     background: #fecfd9;
     font-family: 'Poppins', sans-serif;
 }
-
-
 
 h2 {
     font-weight: bold;
@@ -21,7 +18,7 @@ h2 {
 
 .heading {
     font-family: 'Mochiy Pop P One', sans-serif;
-    font-size: 3.5rem;
+    font-size: 3.0rem;
     text-align: center;
     color: #345995;
     letter-spacing: 4px;
@@ -32,7 +29,7 @@ h2 {
 }
 
 .box-title {
-    margin-top: 75px;
+    clear: both;
     text-align: center;
 }
 
@@ -50,21 +47,7 @@ h2 {
 
 .game-area {
     background: #03cea4;
-    width: 1100px;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    text-align: center;
-}
-
-
-.hard-game-area {
-    background: #03cea4;
-    /* height: 900px; */
-    width: 1100px;
+    width: 800px;
     margin: 0;
     position: absolute;
     top: 50%;
@@ -86,6 +69,11 @@ h2 {
     padding: 20px;
 }
 
+.incorrect-attempts i {
+    color: #345995;
+    font-size: 30px;
+    padding: 20px;
+}
 
 .gamebtn {
     border-radius: 50%;
@@ -120,26 +108,65 @@ h2 {
 }
 
 .scene-area {
-    background: url(../images/scenes/5362630.jpg) no-repeat center center;
-    background-size: 700px 400px;
-    height: 400px;
-    width: 700px;
+    /* background: url(../images/scenes/5362630.jpg) no-repeat center center;
+    background-size: 700px 400px; */
+    height: 300px;
+    width: 500px;
     margin: 0 auto 40px auto; 
     border-radius: 5px; 
 }
 
+.jungle {
+    background: url(../images/scenes/5362630.jpg) no-repeat center center;
+    background-size: 500px 300px;
+}
+.sea {
+    background: url(../images/scenes/underwater_scene.jpg) no-repeat center center;
+    background-size: 500px 300px;
+}
+.farm {
+    background: url(../images/scenes/farm_scene.jpg) no-repeat center center;
+    background-size: 500px 300px;
+}
+.safari {
+    background: url(../images/scenes/safari_scene.jpg) no-repeat center center;
+    background-size: 500px 300px;
+}
+
+
+
+.card-area-hard {
+    width: 600px;
+    display: inline-block;
+}
+
 /* Animal Cards */
 
-.card {
+.card, .card-hard {
     height: 150px;
     width: 150px;
     display: inline-block;
     margin: 0 10px 20px 10px;
     border-radius: 5px;
     text-transform: capitalize;
-    background-size: 150px 150px;
+    background-size: 140px 140px;
     background-position: center center;
+    cursor: pointer;
+    color: #345995;
 }
+
+.card:hover, .card-hard:hover {
+    box-shadow: inset 0px 0px 3px #345995;
+	box-sizing: border-box;
+}
+
+.card-hard {
+    height: 120px;
+    width: 120px;
+    background-size: 110px 110px;
+    margin: 0 15px 20px 15px;
+}
+
 
 .camel {
     background-image: url(../images/animal_cards/camel.webp);
@@ -341,3 +368,8 @@ h2 {
 .social-networks i:hover {
     color: #142a2b;
 }
+
+
+/* For mobile device sizes from 480px wide and down */
+@media screen and (max-width: 480px) {
+

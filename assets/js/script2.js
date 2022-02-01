@@ -39,11 +39,11 @@ function runGame(gameType) {
 
     welcomeArea.classList.add('hide');
     gameArea.classList.remove('hide');
-    document.getElementsByTagName('body')[0].style = 'background: #03cea4';
+    document.getElementsByTagName('body')[0].style = 'background: #b1cdf2';
 
-    if (level === 'hard') {
-        cardArea.classList.replace('card-area', 'card-area-hard');
-    } 
+    // if (level === 'hard') {
+    //     cardArea.classList.replace('card-area', 'card-area-hard');
+    // } 
 
     //make a deep copy of the gameContents object - as it is a nested object I used the below method as ... wouldn't work. 
     //see https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/
@@ -115,7 +115,7 @@ function writeCards(gameAnimals, gameType) {
         card.addEventListener('click', selectCard);
     } 
 
-    let scene = document.getElementById('scene-area');
+    let scene = document.getElementById('game-area');
     scene.classList.add(gameType);    
 }
 

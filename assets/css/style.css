@@ -1,29 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:ital,wght@0,200;0,300;0,500;1,200&family=Roboto+Mono:wght@300&display=swap');
 
-/* html {
-    background: url(../images/scenes/5403826.jpg) no-repeat center center fixed;
-    background-size: cover;
-  } */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: Poppins, "sans-serif";
+  }
+
 
 body {
-    font-family: 'Poppins', sans-serif;
     background: url(../images/scenes/5403826.jpg) no-repeat center center fixed;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh
 }
 
 h2 {
     font-weight: bold;
     font-size: 25px;
-    /* color: #345995; */
     color: white;
 }
 
 .heading {
     font-family: 'Mochiy Pop P One', sans-serif;
-    font-size: 3.0rem;
+    font-size: 2.5rem;
     text-align: center;
     color: #345995;
     letter-spacing: 4px;
+}
+
+.content-wrapper {
+    width: 800px;
+    height: 600px;
+    border-radius: 10px;
+    background-color: #03cea4;
+    text-align: center;
+}
+
+.info-bar {
+    background-color: #345995;
+    display: inline-block;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.welcome-area, .game-area, gameover {
+    width: 800px;
+    height: 527px;
 }
 
 .hide {
@@ -31,46 +59,9 @@ h2 {
 }
 
 .box-title {
-    clear: both;
     text-align: center;
 }
 
-.welcome-area, .gameover {
-    background: #03cea4;
-    max-width: 800px;
-    height:600px;
-    /* margin: 0 40px; */
-    margin: auto;
-    position: absolute;
-    top: 5%;
-    left: 0;
-    right: 0;
-    bottom: 5%;
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-    border-radius: 10px;
-    text-align: center;
-}
-
-.game-area {
-    background: #03cea4;
-    max-width: 800px;
-    height:600px;
-    margin: auto;
-    /* margin: 0; */
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* top: 50%;
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-    border-radius: 10px;
-    text-align: center;
-}
 
 .home-button {
     width: 40px;
@@ -130,13 +121,12 @@ h2 {
     border-radius: 5px; 
 } */
 
-.scene-area {
-    clear: both;
+/* .scene-area {
     height: 600px;
     max-width: 800px;
     margin: 0 auto 40px auto; 
     border-radius: 5px; 
-}
+} */
 
 .jungle {
     background: url(../images/scenes/5362630.jpg) no-repeat center center;

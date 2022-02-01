@@ -11,7 +11,7 @@
     <title>The Animal Association Game</title>
 </head>
 
-<body>
+<!-- <body>
     <section class="welcome-area" id="welcome-area">
         <div class="home-button">
             <a href="index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
@@ -69,6 +69,70 @@
         </div>
         <button><a href="index.html" class="btn" aria-label="Go to the home page">Play Again</a></button>
     </section>
+
+    font awesome script
+    <script src="https://kit.fontawesome.com/08445b6b20.js" crossorigin="anonymous"></script>
+
+    <script src="assets/js/script2.js"></script>
+</body> -->
+
+
+<body>
+    <div class="content-wrapper">
+        <section class="info-bar">
+            <div class="home-button">
+                <a href="index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
+            </div>
+            <div class="score-area">
+                <div class="incorrect-attempts"><span id="counter">0</span><i class="far fa-frown"></i></div>
+                <div id='timer'>Timer: 0:00</div> 
+            </div>
+        </section>
+        <section class="welcome-area" id="welcome-area"> 
+            <div>
+            <h1 class="heading">The Animal Association Game</h1>
+            </div>
+            <div class="box-title">
+                <h2>Welcome to The Animal Association Game!</h2>
+                <p>Select a game below and see how fast you can match the animals to their habitat.</p>
+            </div>
+            <div>
+                <form>
+                    <label for="level-of-difficulty">Select your preferred level of difficulty</label>
+                    <select id="level-of-difficulty" name="level-of-difficulty">
+                        <option value="easy">Easy Peasy</option>
+                        <option value="hard">Super Duper Hard</option>
+                    </select>
+                </form>
+            </div>
+            <div id='hard-buttons'>
+                <button class='gamebtn' onclick="runGame('farm')">Farm</button>
+                <button class='gamebtn' onclick="runGame('sea')">Sea</button>
+                <button class='gamebtn' onclick="runGame('jungle')">Jungle</button>
+                <button class='gamebtn' onclick="runGame('safari')">Safari</button>
+            </div>
+        </section>
+
+        <section class="game-area hide" id="game-area">
+            <div>
+                <div class="box-title">
+                    <h2>Select all the <span id="game-selected">farm</span> animals as fast as you can!</h2>
+                </div> 
+                <div class="card-area" id="card-area">
+                </div>
+            </div>
+        </section>
+
+        <section class="gameover hide" id="gameover">
+            <div class="box-title">
+                <a class="restart-game" href="#">x</a>
+                <h2>Congratulations!</h2>
+                <p>You have completed the game with <span id="final-count"></span> incorrect attempts!</p>
+                <p>Your total time was <span id="final-time"></span></p>
+            </div>
+            <button><a href="index.html" class="btn" aria-label="Go to the home page">Play Again</a></button>
+        </section>
+    </div>
 
     <!-- font awesome script -->
     <script src="https://kit.fontawesome.com/08445b6b20.js" crossorigin="anonymous"></script>

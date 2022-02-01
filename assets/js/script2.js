@@ -1,6 +1,7 @@
 let gameArea = document.getElementById('game-area');
 let welcomeArea = document.getElementById('welcome-area');
 let cardArea = document.getElementById('card-area');
+let scoreArea = document.getElementById('score-area');
 let gameOver = document.getElementById('gameover');
 let correctAnswers = 0;
 let incorrectAttempts = 0;
@@ -39,6 +40,7 @@ function runGame(gameType) {
 
     welcomeArea.classList.add('hide');
     gameArea.classList.remove('hide');
+    scoreArea.classList.remove('hide');
     document.getElementsByTagName('body')[0].style = 'background: #b1cdf2';
 
     // if (level === 'hard') {
@@ -188,7 +190,7 @@ function startTimer() {
         let ms = milliseconds < 100 ? "0" + milliseconds : milliseconds;
 
         // timer.innerHTML = `Timer: ${m} : ${s} : ${ms}`;
-        timer.innerHTML = `Timer: ${m} : ${s}`;
+        timer.innerHTML = `${m} : ${s}`;
     }
 }
 

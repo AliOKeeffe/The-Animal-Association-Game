@@ -83,9 +83,9 @@
             <div class="home-button">
                 <a href="index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
             </div>
-            <div class="score-area">
-                <div class="incorrect-attempts"><span id="counter">0</span><i class="far fa-frown"></i></div>
-                <div id='timer'>Timer: 0:00</div> 
+            <div class="score-area hide" id="score-area">
+                <div class="incorrect-attempts"><i class="far fa-frown"><span id="counter">0</span></i></div>
+                <div><i class="far fa-clock"></i><span id='timer'>0</span></div> 
             </div>
         </section>
         <section class="welcome-area" id="welcome-area"> 
@@ -112,7 +112,6 @@
                 <button class='gamebtn' onclick="runGame('safari')">Safari</button>
             </div>
         </section>
-
         <section class="game-area hide" id="game-area">
             <div>
                 <div class="box-title">
@@ -122,7 +121,6 @@
                 </div>
             </div>
         </section>
-
         <section class="gameover hide" id="gameover">
             <div class="box-title">
                 <a class="restart-game" href="#">x</a>

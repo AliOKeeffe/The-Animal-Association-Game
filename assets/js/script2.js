@@ -2,6 +2,7 @@ let gameArea = document.getElementById('game-area');
 let welcomeArea = document.getElementById('welcome-area');
 let cardArea = document.getElementById('card-area');
 let scoreArea = document.getElementById('score-area');
+let infoBar = document.getElementById('info-bar');
 let gameOver = document.getElementById('gameover');
 let correctAnswers = 0;
 let incorrectAttempts = 0;
@@ -36,11 +37,11 @@ let currentWrongAnimals = [];
 
 function runGame(gameType) {
 
-    let level = document.getElementById("level-of-difficulty").value;
+    let level = document.querySelector('input[type = radio]:checked').value
 
     welcomeArea.classList.add('hide');
     gameArea.classList.remove('hide');
-    scoreArea.classList.remove('hide');
+    infoBar.classList.remove('hide');
     document.getElementsByTagName('body')[0].style = 'background: #b1cdf2';
 
     // if (level === 'hard') {
@@ -98,7 +99,7 @@ function shuffleArray(gameAnimals) {
 
 function writeCards(gameAnimals, gameType) {
     document.getElementById('game-selected').innerHTML = gameType;
-    let level = document.getElementById("level-of-difficulty").value;
+    let level = document.querySelector('input[type = radio]:checked').value;
 
     let cardHtml = "";
     for (let animal of gameAnimals) {
@@ -128,7 +129,7 @@ function selectCard() {
         correctAnswers += 1;
         this.removeEventListener('click', selectCard);
 
-        let currentLevel = document.getElementById("level-of-difficulty").value;
+        let currentLevel = document.querySelector('input[type = radio]:checked').value
         let correctTotal = (currentLevel === 'easy') ? 3 : 5;
         
         if (correctAnswers === correctTotal) {
@@ -145,6 +146,8 @@ function winGame () {
     let finalCount = document.getElementById('final-count');
     let finalTime = document.getElementById('final-time');
 
+    gameArea.classList.add('hide');
+    scoreArea.classList.add('hide');
     gameOver.classList.remove('hide');
     finalCount.innerHTML = incorrectAttempts;
     finalTime.innerHTML = `${minutes} minutes and ${seconds} seconds`;

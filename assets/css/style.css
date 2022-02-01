@@ -5,10 +5,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 18px;
+    font-size: 20px;
     font-family: Poppins, "sans-serif";
   }
 
+.hide {
+    display: none;
+}
 
 body {
     background: url(../images/scenes/5403826.jpg) no-repeat center center;
@@ -19,20 +22,6 @@ body {
     min-height: 100vh
 }
 
-h2 {
-    font-weight: bold;
-    font-size: 25px;
-    color: white;
-}
-
-.heading {
-    font-family: 'Mochiy Pop P One', sans-serif;
-    font-size: 2.5rem;
-    text-align: center;
-    color: #345995;
-    letter-spacing: 4px;
-}
-
 .content-wrapper {
     width: 800px;
     height: 600px;
@@ -40,6 +29,8 @@ h2 {
     background-color: #03cea4;
     text-align: center;
 }
+
+/* Info bar with home button and score */
 
 .info-bar {
     background-color: #142a2b;
@@ -53,45 +44,67 @@ h2 {
     color: white;
     font-size: 30px;
     float: left;
-    /* line-height: 1.6; */
     padding: 20px 10px 10px 20px;
     cursor: pointer;
 }
 
-.score-area i {
-    color: white;
-    font-size: 30px;
-    padding right: 10px; 
-}
-
 .score-area {
     float: right;
-    color: white;
-    font-size: 30px;
-    font-family: 'Roboto Mono', monospace;
+    color: white; 
     padding-right: 20px;
 }
 
 .score-area div {
     float: left;
     padding: 20px 10px 10px 10px;
-    /* line-height: 1.6; */
 }
 
-.welcome-area, .game-area, gameover {
+.score-area i {
+    color: white;
+    font-size: 30px;
+    margin-right: 10px; 
+}
+
+#timer {
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Welcome Area */
+
+.heading {
+    font-family: 'Mochiy Pop P One', sans-serif;
+    font-size: 35px;
+    text-align: center;
+    color: #345995;
+    letter-spacing: 2px;
+    padding: 30px 10px;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.welcome-area, .game-area, .gameover {
     clear: both;
     width: 800px;
     height: 530px;
 }
 
-.hide {
-    display: none;
-}
-
 .box-title {
-    text-align: center;
+    color: white;
+    padding: 50px;
 }
 
+.select-level {
+    color: white;
+}
+
+.radio-labels {
+    color: green;
+    font-size: 20px;
+    padding: 5px;
+}
 
 .gamebtn {
     border-radius: 50%;
@@ -105,28 +118,19 @@ h2 {
     display: inline-block;
     font-size: 20px;
     margin: 40px;
-    cursor: pointer;
+    cursor: pointer; 
 }
 
 .gamebtn:hover {
     border: solid #f4b333;
 }
 
-
-/* .scene-area {
-    clear: both;
-    height: 200px;
-    width: 400px;
-    margin: 0 auto 40px auto; 
-    border-radius: 5px; 
-} */
-
-/* .scene-area {
-    height: 600px;
-    max-width: 800px;
-    margin: 0 auto 40px auto; 
-    border-radius: 5px; 
-} */
+.gamebtn a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+}
 
 .jungle {
     background: url(../images/scenes/5362630.jpg) no-repeat center center;
@@ -331,36 +335,12 @@ h2 {
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
   }
-/* 
-#modal {
-    visibility: hidden;
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, .5);
-}
 
-.modal-inner {
-    width: 60%;
-    height: 50%;
-    background: royalblue;
-    border-radius: 10px;
-    margin: 50px auto;
-    text-align: center;
-    font-size: 3.5rem;
-    color: white;
-} */
 
-#close {
-    position: absolute;
-	top: 50px;
-	right: 280px;
-	font-size: 50px;
-	color: blue;
-    text-decoration: none;
+#final-time, #final-count {
+    font-size: 40px;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    color: #e40066;
 }
 
 /* Footer */

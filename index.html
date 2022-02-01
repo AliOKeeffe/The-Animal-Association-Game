@@ -79,12 +79,12 @@
 
 <body>
     <div class="content-wrapper">
-        <section class="info-bar">
+        <section class="info-bar hide" id="info-bar">
             <div class="home-button">
                 <a href="index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
             </div>
-            <div class="score-area hide" id="score-area">
-                <div class="incorrect-attempts"><i class="far fa-frown"><span id="counter">0</span></i></div>
+            <div class="score-area" id="score-area">
+                <div class="incorrect-attempts"><i class="far fa-frown"> <span id="counter">0</span></i></div>
                 <div><i class="far fa-clock"></i><span id='timer'>0</span></div> 
             </div>
         </section>
@@ -93,17 +93,21 @@
             <h1 class="heading">The Animal Association Game</h1>
             </div>
             <div class="box-title">
-                <h2>Welcome to The Animal Association Game!</h2>
-                <p>Select a game below and see how fast you can match the animals to their habitat.</p>
+                <h2>Select a game below and see how fast you can match the animals to their habitat!</h2>
             </div>
             <div>
-                <form>
-                    <label for="level-of-difficulty">Select your preferred level of difficulty</label>
-                    <select id="level-of-difficulty" name="level-of-difficulty">
-                        <option value="easy">Easy Peasy</option>
-                        <option value="hard">Super Duper Hard</option>
-                    </select>
-                </form>
+                <!-- <p>
+                <label for="level-of-difficulty">Select your preferred level of difficulty</label>
+                </p>
+                <select id="level-of-difficulty" name="level-of-difficulty">
+                    <option value="easy">Easy Peasy</option>
+                    <option value="hard">Super Duper Hard</option>
+                </select> -->
+                <p class="select-level">Select your preferred level of difficulty</p>
+                <input type="radio" id="easy" name="level-of-difficulty" value="easy" checked="checked">
+                <label for="easy" class="radio-labels">Easy Peasy 😄</label>
+                <input type="radio" id="hard" name="level-of-difficulty" value="hard">
+                <label for="hard" class="radio-labels">Super Duper Hard 😅</label>    
             </div>
             <div id='hard-buttons'>
                 <button class='gamebtn' onclick="runGame('farm')">Farm</button>
@@ -123,12 +127,15 @@
         </section>
         <section class="gameover hide" id="gameover">
             <div class="box-title">
-                <a class="restart-game" href="#">x</a>
-                <h2>Congratulations!</h2>
-                <p>You have completed the game with <span id="final-count"></span> incorrect attempts!</p>
-                <p>Your total time was <span id="final-time"></span></p>
+                <h2>Congratulations you completed the game!</h2>
+                <p>Your Time:</p>
+                <p id="final-time"></p>
+                <p>Incorrect Attempts:</p>
+                <p id="final-count"></p>
             </div>
-            <button><a href="index.html" class="btn" aria-label="Go to the home page">Play Again</a></button>
+            <a href="index.html" aria-label="Go to the home page">
+                <button class="gamebtn">Play Again</button>
+            </a>
         </section>
     </div>
 

@@ -27,26 +27,44 @@ let gameContents = {
         rightAnimals: ['lion', 'elephant', 'crocodile', 'rhino', 'hippo', 'camel', 'zebra', 'giraffe', 'ostrich'],
         wrongAnimals: ['cow', 'pig', 'horse', 'sloth', 'dog', 'cockeral', 'goat'],
     }
-}
+};
 
 let currentRightAnimals = [];
 let currentWrongAnimals = [];
 
-// document.addEventListener("DOMContentLoaded", function () {
-// })
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.getElementById("jungle-button").addEventListener('click', runGame("jungle"));
+    document.getElementById("sea-button").addEventListener('click', runGame("sea"));
+    document.getElementById("farm-button").addEventListener('click', runGame("farm"));
+    document.getElementById("safari-button").addEventListener('click', runGame("safari"));
+
+    // document.getElementById("jungle-button").addEventListener('click', function() {
+    //     runGame("jungle");
+    // });
+    // document.getElementById("farm-button").addEventListener('click', function() {
+    //     runGame("farm");
+    // });
+    // document.getElementById("safari-button").addEventListener('click', function() {
+    //     runGame("safari");
+    // });
+    // document.getElementById("sea-button").addEventListener('click', function() {
+    //     runGame("sea");
+    // }); 
+});
 
 function runGame(gameType) {
 
-    let level = document.querySelector('input[type = radio]:checked').value
+    let level = document.querySelector('input[type = radio]:checked').value;
 
     welcomeArea.classList.add('hide');
     gameArea.classList.remove('hide');
     infoBar.classList.remove('hide');
     document.getElementsByTagName('body')[0].style = 'background: #b1cdf2';
 
-    // if (level === 'hard') {
-    //     cardArea.classList.replace('card-area', 'card-area-hard');
-    // } 
+    if (level === 'hard') {
+        cardArea.classList.replace('card-area', 'card-area-hard');
+    } 
 
     //make a deep copy of the gameContents object - as it is a nested object I used the below method as ... wouldn't work. 
     //see https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/
@@ -61,7 +79,7 @@ function runGame(gameType) {
 
     writeCards(animalArray, gameType);
 
-    startTimer()
+    startTimer();
 }
 
 function buildAnimalArray(rightAnimals, wrongAnimals, level) {
@@ -79,7 +97,7 @@ function buildAnimalArray(rightAnimals, wrongAnimals, level) {
     for (let i = 0; i < wrongAnswerCount; i++) {
         let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
         gameAnimals.push(wrongAnimals[wrongIndex]);
-        wrongAnimals.splice(wrongIndex, 1)
+        wrongAnimals.splice(wrongIndex, 1);
     }
 
     shuffleArray(gameAnimals);
@@ -129,7 +147,7 @@ function selectCard() {
         correctAnswers += 1;
         this.removeEventListener('click', selectCard);
 
-        let currentLevel = document.querySelector('input[type = radio]:checked').value
+        let currentLevel = document.querySelector('input[type = radio]:checked').value;
         let correctTotal = (currentLevel === 'easy') ? 3 : 5;
         
         if (correctAnswers === correctTotal) {
@@ -138,7 +156,7 @@ function selectCard() {
     } else {
         this.classList.add('incorrect-card');
         // alert('Incorrect, sorry! ' + this.textContent + ' is not a sea animal');
-        incorrectAttemptsCounter()
+        incorrectAttemptsCounter();
     }
 }
 
@@ -163,9 +181,9 @@ function incorrectAttemptsCounter() {
 // start timer - credit to https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo
 
 
-let milliseconds = 00;
-let seconds = 00; 
-let minutes = 00;
+let milliseconds = 0;
+let seconds = 0; 
+let minutes = 0;
 
 function startTimer() {
     let timer = document.getElementById('timer');
@@ -181,7 +199,7 @@ function startTimer() {
             seconds++;
         }
         if (seconds == 60) {
-            seconds = 00;
+            seconds = 0;
             minutes++;
         }
         if (minutes == 30) {
@@ -190,7 +208,7 @@ function startTimer() {
 
         let m = minutes < 10 ? "0" + minutes : minutes;
         let s = seconds < 10 ? "0" + seconds : seconds;
-        let ms = milliseconds < 100 ? "0" + milliseconds : milliseconds;
+        // let ms = milliseconds < 100 ? "0" + milliseconds : milliseconds;
 
         // timer.innerHTML = `Timer: ${m} : ${s} : ${ms}`;
         timer.innerHTML = `${m} : ${s}`;

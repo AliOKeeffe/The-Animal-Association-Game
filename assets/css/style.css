@@ -132,6 +132,14 @@ h2 {
     padding-top: 20px;
 }
 
+
+#game-selected {
+    font-family:'Mochiy Pop P One', sans-serif;
+    font-size: 30px;
+    color:#f4b333;
+    text-transform: uppercase;
+}
+
 .jungle {
     background: url(../images/scenes/5362630.jpg) no-repeat center center;
     /* background-size: 400px 200px; */
@@ -157,10 +165,10 @@ h2 {
     margin-top: 100px;
 }
 
-/* .card-area-hard {
+.card-area-hard {
     width: 600px;
     display: inline-block;
-} */
+}
 
 /* Animal Cards */
 
@@ -185,9 +193,9 @@ h2 {
 }
 
 .card-hard {
-    height: 150px;
-    width: 150px;
-    background-size: 140px 140px;
+    height: 130px;
+    width: 130px;
+    background-size: 120px 120px;
 }
 
 
@@ -309,10 +317,6 @@ h2 {
 
 
 .correct-card {
-    /* background: green;
-    opacity: 50%;
-    border: 1px solid green;
-    z-index: 1; */
     box-shadow: inset 0 0 99999px rgba(0, 255, 106, 0.5) !important;
 }
 
@@ -343,30 +347,7 @@ h2 {
     color: #e40066;
 }
 
-/* Footer */
-
-.social-networks {
-    width: 100%;
-    text-align: center;
-    padding: 40px 0;
-    margin: 0;
-    background: #c0f3e2;
-}
-
-.social-networks li {
-    display: inline;
-}
-
-.social-networks i {
-    font-size: 160%;
-    padding: 0 30px;
-    color: #4b5054;
-}
-
-.social-networks i:hover {
-    color: #142a2b;
-}
-
+/* Media Queries */
 
 /* For mobile device sizes from 480px wide and down */
 @media screen and (max-width: 480px) {

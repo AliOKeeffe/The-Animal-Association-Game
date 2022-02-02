@@ -34,23 +34,23 @@ let currentWrongAnimals = [];
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    document.getElementById("jungle-button").addEventListener('click', runGame("jungle"));
-    document.getElementById("sea-button").addEventListener('click', runGame("sea"));
-    document.getElementById("farm-button").addEventListener('click', runGame("farm"));
-    document.getElementById("safari-button").addEventListener('click', runGame("safari"));
+    // document.getElementById("jungle-button").addEventListener('click', runGame("jungle"));
+    // document.getElementById("sea-button").addEventListener('click', runGame("sea"));
+    // document.getElementById("farm-button").addEventListener('click', runGame("farm"));
+    // document.getElementById("safari-button").addEventListener('click', runGame("safari"));
 
-    // document.getElementById("jungle-button").addEventListener('click', function() {
-    //     runGame("jungle");
-    // });
-    // document.getElementById("farm-button").addEventListener('click', function() {
-    //     runGame("farm");
-    // });
-    // document.getElementById("safari-button").addEventListener('click', function() {
-    //     runGame("safari");
-    // });
-    // document.getElementById("sea-button").addEventListener('click', function() {
-    //     runGame("sea");
-    // }); 
+    document.getElementById("jungle-button").addEventListener('click', function() {
+        runGame("jungle");
+    });
+    document.getElementById("farm-button").addEventListener('click', function() {
+        runGame("farm");
+    });
+    document.getElementById("safari-button").addEventListener('click', function() {
+        runGame("safari");
+    });
+    document.getElementById("sea-button").addEventListener('click', function() {
+        runGame("sea");
+    }); 
 });
 
 function runGame(gameType) {

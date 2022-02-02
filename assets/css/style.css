@@ -26,7 +26,7 @@ body {
     width: 800px;
     height: 600px;
     border-radius: 10px;
-    background-color: #03cea4;
+    background-color: rgba(3, 206, 164, .8);
     text-align: center;
 }
 
@@ -161,6 +161,8 @@ h2 {
     background-size: cover;
 }
 
+/* Animal Cards */
+
 .card-area {
     margin-top: 100px;
 }
@@ -169,8 +171,6 @@ h2 {
     width: 600px;
     display: inline-block;
 }
-
-/* Animal Cards */
 
 .card, .card-hard {
     height: 150px;
@@ -352,3 +352,114 @@ h2 {
 /* For mobile device sizes from 480px wide and down */
 @media screen and (max-width: 480px) {
 
+    .content-wrapper {
+        width: 100%;
+        margin: 10px;
+    }
+
+    .welcome-area, .game-area, .gameover {
+        width: 100%;
+    }
+
+    .heading {
+        font-size: 25px;
+        padding: 20px 10px;
+    }
+    
+    h2 {
+        font-size: 18px;
+    }
+
+    .box-title {
+        padding: 20px;
+    }
+
+    .radio-labels {
+        font-size: 15px;
+        padding: 5px;
+    }
+
+    .button-area {
+        margin: 10px 20px;
+    }
+    .gamebtn {
+        height: 90px;
+        width: 90px;
+        margin: 10px;
+    }
+        
+    .card-area {
+        margin-top: 50px;
+    }
+    
+    .card-area-hard {
+        width: 100%;
+        margin-top: 30px;
+    }
+    
+    .card, .card-hard {
+        height: 130px;
+        width: 130px;
+        margin: 0 10px 20px 10px;
+        background-size: 120px 120px;
+    }
+
+    .card-hard {
+        height: 93px;
+        width: 93px;
+        background-size: 74px 74px;
+    }
+    
+}
+
+/* For mobile device sizes from 320px wide and down */
+@media screen and (max-width: 320px) {
+    * {
+        font-size: 17px;
+      }
+
+    .content-wrapper {
+        height: 90vh;
+    }
+
+    .welcome-area, .game-area, .gameover {
+        height: 441px;
+    }
+    .gamebtn {
+        height: 70px;
+        width: 70px;
+        margin: 10px;
+    }
+    
+    .home-button i {
+        padding-left: 10px;
+    }
+    
+    .score-area {
+        padding-right: 10px;
+    }
+
+    .heading {
+        font-size: 20px;
+        padding: 20px 10px;
+    }
+    
+    h2 {
+        font-size: 17px;
+    }
+
+    .card-area {
+        margin-top: 30px;
+    }
+    
+    .card-hard {
+        height: 80px;
+        width: 80px;
+        background-size: 70px 70px;
+    }
+
+    #final-time, #final-count {
+        font-size: 30px;
+    }
+    
+}

@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="content-wrapper">
+    <div class="content-wrapper" id="scene-background">
         <div class="info-bar hide" id="info-bar">
             <div class="home-button">
                 <a href="index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
@@ -23,20 +23,11 @@
             </div>
         </div>
         <section class="welcome-area" id="welcome-area"> 
-            <div>
             <h1 class="heading">The Animal Association Game</h1>
-            </div>
             <div class="box-title">
                 <h2>Select a game below and see how fast you can match the animals to their habitat!</h2>
             </div>
             <div>
-                <!-- <p>
-                <label for="level-of-difficulty">Select your preferred level of difficulty</label>
-                </p>
-                <select id="level-of-difficulty" name="level-of-difficulty">
-                    <option value="easy">Easy Peasy</option>
-                    <option value="hard">Super Duper Hard</option>
-                </select> -->
                 <p class="select-level">Select your preferred level of difficulty</p>
                 <input type="radio" id="easy" name="level-of-difficulty" value="easy" checked="checked">
                 <label for="easy" class="radio-labels">Easy Peasy 😄</label>
@@ -44,12 +35,45 @@
                 <input type="radio" id="hard" name="level-of-difficulty" value="hard">
                 <label for="hard" class="radio-labels">Super Duper Hard 😅</label>    
             </div>
+
             <div class="button-area">
+
+                <!-- <style>
+                    .flex-grid {
+                        display: flex;
+                        justify-content: space-evenly;
+                        margin-top: 20px;
+                    }
+                    .col-left,
+                    .col-right {
+                        flex: 1;
+                    }
+                    .col-left { padding: 0 10px 0 20px }
+                    .col-right { padding: 0 20px 0 10px }
+                    .col-right div,
+                    .col-left div {
+                        background: pink;
+                        padding: 20px 0;
+                        margin-bottom: 20px;
+                    }
+                </style>
+                <div class="flex-grid">
+                    <div class="col-left">
+                        <div>1</div>
+                        <div>2</div>
+                    </div>
+                    <div class="col-right">
+                        <div>3</div>
+                        <div>4</div>
+                    </div>
+                </div> -->
+
                 <button class='gamebtn' id='farm-button'>Farm</button>
                 <button class='gamebtn' id='sea-button'>Sea</button>
                 <button class='gamebtn' id="jungle-button">Jungle</button>
                 <button class='gamebtn' id='safari-button'>Safari</button>
             </div>
+
         </section>
         <section class="game-area hide" id="game-area">
             <div>
@@ -63,10 +87,18 @@
         <section class="gameover hide" id="gameover">
             <div class="box-title">
                 <h2>Congratulations you completed the game!</h2>
-                <p>Your Time:</p>
-                <p id="final-time"></p>
-                <p>Incorrect Attempts:</p>
-                <p id="final-count"></p>
+            </div>
+            <div class="scores-wrapper">
+                <div class="final-scores">
+                    <p>Your Time:</p>
+                    <p id="final-time"></p></div>
+                <div class="final-scores"> 
+                    <p>Incorrect Attempts:</p>
+                    <p id="final-count"></p></div>
+                <div class="final-scores">
+                    <p>Level:</p>
+                    <p id="level"></p>
+                </div>
             </div>
             <a href="index.html" aria-label="Go to the home page">
                 <p class="gamebtn">Play Again</p>

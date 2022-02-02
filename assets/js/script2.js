@@ -24,7 +24,7 @@ let gameContents = {
         wrongAnimals: ['whale', 'dolphin', 'octopus', 'horse', 'dog', 'cockeral', 'goat'],
     },
     safari: {
-        rightAnimals: ['lion', 'elephant', 'crocodile', 'rhino', 'hippo', 'camel', 'zebra', 'giraffe', 'ostrich'],
+        rightAnimals: ['lion', 'elephant', 'crocodile', 'rhino', 'hippo', 'zebra', 'giraffe', 'ostrich'],
         wrongAnimals: ['cow', 'pig', 'horse', 'sloth', 'dog', 'cockeral', 'goat'],
     }
 };
@@ -136,7 +136,7 @@ function writeCards(gameAnimals, gameType) {
         card.addEventListener('click', selectCard);
     } 
 
-    let scene = document.getElementById('game-area');
+    let scene = document.getElementById('scene-background');
     scene.classList.add(gameType);    
 }
 
@@ -163,12 +163,15 @@ function selectCard() {
 function winGame () {
     let finalCount = document.getElementById('final-count');
     let finalTime = document.getElementById('final-time');
+    let currentLevel = document.querySelector('input[type = radio]:checked').value;
+    let level = document.getElementById('level');
 
     gameArea.classList.add('hide');
     scoreArea.classList.add('hide');
     gameOver.classList.remove('hide');
     finalCount.innerHTML = incorrectAttempts;
     finalTime.innerHTML = `${minutes} minutes and ${seconds} seconds`;
+    level.innerHTML = currentLevel;
 
     // resetGame();
 }

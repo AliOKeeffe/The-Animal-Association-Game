@@ -28,22 +28,27 @@
                 <h2>Select a game below and see how fast you can match the animals to their habitat!</h2>
             </div> -->
             <div class="playbtn-outer">
-                <button id='instructions-btn' role="button">How to Play</button>
+                <button class='instructions-btn' id='instructions-btn'>How to Play</button>
                 <br>
-                <button id='play-btn' role="button">Play</button>
+                <button class='play-btn'>Play</button>
             </div>
-        
-            <!-- <div>
-                <p class="select-level">Select your preferred level of difficulty</p>
+        </section>
+        <section class="selection-area hide" id="selection-area">
+            <div>
+                <h2 class="select-level">Select your preferred level of difficulty</h2>
                 <input type="radio" id="easy" name="level-of-difficulty" value="easy" checked="checked">
                 <label for="easy" class="radio-labels">Easy Peasy 😄</label>
                 <br>
                 <input type="radio" id="hard" name="level-of-difficulty" value="hard">
-                <label for="hard" class="radio-labels">Super Duper Hard 😅</label>    
+                <label for="hard" class="radio-labels">Super Duper Hard 😅</label>
             </div>
-
-            <div class="button-area"> -->
-
+            <div class="button-area">
+                <button class='gamebtn' id='farm-button'>Farm</button>
+                <button class='gamebtn' id='sea-button'>Sea</button>
+                <button class='gamebtn' id="jungle-button">Jungle</button>
+                <button class='gamebtn' id='safari-button'>Safari</button>
+            </div>
+        </section>
                 <!-- <style>
                     .flex-grid {
                         display: flex;
@@ -73,14 +78,6 @@
                         <div>4</div>
                     </div>
                 </div> -->
-                
-                <!-- <button class='gamebtn' id='farm-button'>Farm</button>
-                <button class='gamebtn' id='sea-button'>Sea</button>
-                <button class='gamebtn' id="jungle-button">Jungle</button>
-                <button class='gamebtn' id='safari-button'>Safari</button>
-            </div> -->
-
-        </section>
         <section class="instructions-area hide" id="instructions-area">
             <div class="box-title">
                 <h2>How to Play</h2>
@@ -125,9 +122,7 @@
                     <p id="level"></p>
                 </div>
             </div>
-            <a href="index.html" aria-label="Go to the home page">
-                <p class="gamebtn">Play Again</p>
-            </a>
+            <button class='play-btn'>Play Again</button>
         </section>
     </div>
 

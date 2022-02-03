@@ -37,7 +37,7 @@ h1 {
 /* Info bar with home button and score */
 
 .info-bar {
-    background-color: #142a2b;
+    background-color: #053A32;
     height: 70px;
     width: 100%;
     border-radius: 10px 10px 0 0;
@@ -92,22 +92,23 @@ h2 {
 .playbtn-outer {
     margin-bottom: 30px;
 }
-#instructions-btn, #play-btn {
+.instructions-btn, .play-btn {
     background-color: #3DD1E7;
+    font-size: 25px;
     color: #053A32;
-    border: 1px solid #000000;
+    border: 5px solid #053A32;
+    border-radius: 10px;
     font-family: 'Mochiy Pop P One', sans-serif;
     line-height: 1.75rem;
     padding: .75rem 1.65rem;
     width: 100%;
-    max-width: 350px;
+    max-width: 250px;
     cursor: pointer;
-    transform: rotate(-2deg);
     margin: 20px;
 }
 
-#instructions-btn:hover, #play-btn:hover{
-    transform: rotate(0);
+.instructions-btn:hover, .play-btn:hover{
+    transform: rotate(-2deg);
   }
 
 /* .welcome-area, .game-area, .gameover, .instructions-area {
@@ -116,15 +117,20 @@ h2 {
 
 .box-title {
     width: 60%;
-    background: #142a2b;
+    background-color: #FEAA0D;
     margin: 30px auto 0 auto;
     border-radius: 20px;
-    color: white;
-    padding: 20px;
+    color: #053A32;
+    padding: 10px;
 }
 
+.safari .box-title {
+    background-color: #053A32;
+    color: #FEAA0D;
+}
+ 
 .instructions {
-    color: #345995;
+    color: #053A32;
     font-size: 16px;
     margin: 30px;
 }
@@ -163,15 +169,17 @@ h2 {
 .back-button a {
     text-decoration: none;
     padding: 20px;
-    color: #345995;
+    color: #053A32;
 }
 
 .select-level {
-    color: white;
+    padding: 20px;
+    color: #053A32;
+    font-size: 25px;
 }
 
 .radio-labels {
-    color: green;
+    color: #053A32;
     font-size: 20px;
     padding: 5px;
 }
@@ -206,7 +214,7 @@ h2 {
 #game-selected {
     font-family:'Mochiy Pop P One', sans-serif;
     font-size: 30px;
-    color:#f4b333;
+    color:#e40066;
     text-transform: uppercase;
 }
 
@@ -221,7 +229,7 @@ h2 {
     background-size: cover;
 }
 .farm {
-    background: url(../images/scenes/farm_scene.jpg) no-repeat center center;
+    background: url(../images/scenes/farm_scene1.jpg) no-repeat center center;
     /* background-size: 400px 200px; */
     background-size: cover;
 }
@@ -238,6 +246,7 @@ h2 {
 }
 
 .card-area-hard {
+    padding: 60px 0 40px 0;
     width: 600px;
     display: inline-block;
 }
@@ -254,7 +263,7 @@ h2 {
     background-position: center center;
     background-repeat: no-repeat;
     cursor: pointer;
-    color: #345995;
+    color: #053A32;
 }
 
 .card:hover, .card-hard:hover {

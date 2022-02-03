@@ -1,5 +1,7 @@
 let gameArea = document.getElementById('game-area');
 let welcomeArea = document.getElementById('welcome-area');
+let instructions = document.getElementById("instructions-area");
+let selectionArea = document.getElementById("selection-area");
 let cardArea = document.getElementById('card-area');
 let scoreArea = document.getElementById('score-area');
 let infoBar = document.getElementById('info-bar');
@@ -39,19 +41,21 @@ document.addEventListener("DOMContentLoaded", function () {
     // document.getElementById("farm-button").addEventListener('click', runGame("farm"));
     // document.getElementById("safari-button").addEventListener('click', runGame("safari"));
 
-    let instructionsBtn = document.getElementById('instructions-btn')
-        instructionsBtn.addEventListener('click', function() {
-            let instructions = document.getElementById("instructions-area")
-            instructions.classList.remove('hide');
-            welcomeArea.classList.add('hide');
+    let instructionsBtn = document.getElementById('instructions-btn');
+    instructionsBtn.addEventListener('click', function() {
+        instructions.classList.remove('hide');
+        welcomeArea.classList.add('hide');
     })
 
-    let playBtn = document.getElementById('play-btn')
-        playBtn.addEventListener('click', function() {
-            let selectionArea = document.getElementById("selection-area")
-            selection.classList.remove('hide');
+    let playBtns = document.getElementsByClassName('play-btn');
+    for (i of playBtns) {
+        i.addEventListener('click', function() { 
+            selectionArea.classList.remove('hide');
             welcomeArea.classList.add('hide');
-    })
+            infoBar.classList.remove('hide');
+            gameOver.classList.add('hide');
+        });
+    }
 
     document.getElementById("jungle-button").addEventListener('click', function() {
         runGame("jungle");
@@ -71,10 +75,9 @@ function runGame(gameType) {
 
     let level = document.querySelector('input[type = radio]:checked').value;
 
-    welcomeArea.classList.add('hide');
+    selectionArea.classList.add('hide');
     gameArea.classList.remove('hide');
-    infoBar.classList.remove('hide');
-    document.getElementsByTagName('body')[0].style = 'background: #b1cdf2';
+    document.getElementsByTagName('body')[0].style = 'background: #61BBA7';
 
     if (level === 'hard') {
         cardArea.classList.replace('card-area', 'card-area-hard');

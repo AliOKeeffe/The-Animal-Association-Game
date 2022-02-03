@@ -26,10 +26,14 @@ body {
     width: 800px;
     /* height: 600px; */
     border-radius: 10px;
-    background-color: rgba(3, 206, 164, .8);
+    
+    background-color: rgba(98, 187, 167, .8);
     text-align: center;
 }
 
+h1 {
+
+}
 /* Info bar with home button and score */
 
 .info-bar {
@@ -73,10 +77,11 @@ body {
 
 .heading {
     font-family: 'Mochiy Pop P One', sans-serif;
-    font-size: 35px;
+    font-size: 40px;
     text-align: center;
-    color: #345995;
+    color: #053A32;
     letter-spacing: 2px;
+    padding: 30px;
 }
 
 h2 {
@@ -84,11 +89,30 @@ h2 {
     font-size: 25px;
 }
 
-.welcome-area, .game-area, .gameover, .instructions-area {
-    clear: both;
-    /* width: 100%;
-    height: 530px; */
+.playbtn-outer {
+    margin-bottom: 30px;
 }
+#instructions-btn, #play-btn {
+    background-color: #3DD1E7;
+    color: #053A32;
+    border: 1px solid #000000;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    line-height: 1.75rem;
+    padding: .75rem 1.65rem;
+    width: 100%;
+    max-width: 350px;
+    cursor: pointer;
+    transform: rotate(-2deg);
+    margin: 20px;
+}
+
+#instructions-btn:hover, #play-btn:hover{
+    transform: rotate(0);
+  }
+
+/* .welcome-area, .game-area, .gameover, .instructions-area {
+    clear: both;
+} */
 
 .box-title {
     width: 60%;

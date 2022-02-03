@@ -46,6 +46,13 @@ document.addEventListener("DOMContentLoaded", function () {
             welcomeArea.classList.add('hide');
     })
 
+    let playBtn = document.getElementById('play-btn')
+        playBtn.addEventListener('click', function() {
+            let selectionArea = document.getElementById("selection-area")
+            selection.classList.remove('hide');
+            welcomeArea.classList.add('hide');
+    })
+
     document.getElementById("jungle-button").addEventListener('click', function() {
         runGame("jungle");
     });

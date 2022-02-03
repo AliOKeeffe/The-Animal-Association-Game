@@ -39,6 +39,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // document.getElementById("farm-button").addEventListener('click', runGame("farm"));
     // document.getElementById("safari-button").addEventListener('click', runGame("safari"));
 
+    let instructionsBtn = document.getElementById('instructions-btn')
+        instructionsBtn.addEventListener('click', function() {
+            let instructions = document.getElementById("instructions-area")
+            instructions.classList.remove('hide');
+            welcomeArea.classList.add('hide');
+    })
+
     document.getElementById("jungle-button").addEventListener('click', function() {
         runGame("jungle");
     });

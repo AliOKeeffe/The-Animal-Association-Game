@@ -84,7 +84,7 @@ h2 {
     font-size: 25px;
 }
 
-.welcome-area, .game-area, .gameover {
+.welcome-area, .game-area, .gameover, .instructions-area {
     clear: both;
     /* width: 100%;
     height: 530px; */
@@ -97,6 +97,49 @@ h2 {
     border-radius: 20px;
     color: white;
     padding: 20px;
+}
+
+.instructions {
+    color: #345995;
+    font-size: 16px;
+    margin: 30px;
+}
+
+.instructions p {
+    padding:0 20px 20px 20px;
+}
+
+.instructions ol {
+    padding: 20px;
+    background-color: #f4b333;
+    border-radius: 10px;
+}
+
+.instructions li {
+    list-style-type: circle;
+    font-size: 15px;
+    padding: 5px 0;
+    margin: 0 20px;
+    text-align: left;
+}
+
+.back-button {
+    height: 50px;
+    width: 100px;
+    border-radius: 10%;
+    background-color: #f4b333;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    
+}
+
+.back-button a {
+    text-decoration: none;
+    padding: 20px;
+    color: #345995;
 }
 
 .select-level {

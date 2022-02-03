@@ -47,15 +47,22 @@ document.addEventListener("DOMContentLoaded", function () {
         welcomeArea.classList.add('hide');
     })
 
-    let playBtns = document.getElementsByClassName('play-btn');
-    for (i of playBtns) {
-        i.addEventListener('click', function() { 
-            selectionArea.classList.remove('hide');
-            welcomeArea.classList.add('hide');
-            infoBar.classList.remove('hide');
-            gameOver.classList.add('hide');
-        });
-    }
+    // let playBtns = document.getElementsByClassName('play-btn');
+    // for (i of playBtns) {
+    //     i.addEventListener('click', function() { 
+    //         selectionArea.classList.remove('hide');
+    //         welcomeArea.classList.add('hide');
+    //         infoBar.classList.remove('hide');
+    //         gameOver.classList.add('hide');
+    //     });
+    // }
+
+    let playBtn = document.getElementById('play-btn');
+    playBtn.addEventListener('click', function() { 
+        selectionArea.classList.remove('hide');
+        welcomeArea.classList.add('hide');
+        infoBar.classList.remove('hide');
+    });
 
     document.getElementById("jungle-button").addEventListener('click', function() {
         runGame("jungle");

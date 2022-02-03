@@ -107,6 +107,9 @@ h2 {
     margin: 20px;
 }
 
+.play-btn a {
+    display: inline-block;
+}
 .instructions-btn:hover, .play-btn:hover{
     transform: rotate(-2deg);
   }

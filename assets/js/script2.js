@@ -78,6 +78,48 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("sea-button").addEventListener('click', function() {
         runGame("sea");
     }); 
+
+
+    // Popluate the leaderboard
+
+    // get the wrapper element from the DOM
+    let leaderBoardWrapper = document.getElementById('leaderboard-wrapper');
+    // get the leaderboard scores from localstorage
+    let leaderBoardScores = JSON.parse(localStorage.getItem('leaderBoard'));
+    // If we've scores
+    console.log(leaderBoardScores);
+
+    if (leaderBoardScores) {
+        // build the list items
+        let tableHtml = `
+            <table>
+                <thead>
+                    <td>Name<td>
+                    <td>Seconds<td>
+                </thead>
+                <tbody>
+        `;
+        for (let leaderBoardEntry of leaderBoardScores) {
+            tableHtml += `
+                <tr>
+                    <td>${leaderBoardEntry.name}</td>
+                    <td>${leaderBoardEntry.score}</td>
+                </tr>
+            `;
+        }
+        tableHtml += `
+                </tbody>
+            <table>
+        `;
+
+        console.log(tableHtml);
+
+        // write to the dom
+        leaderBoardWrapper.innerHTML = tableHtml;
+        
+    } else {
+        leaderBoardWrapper.innerHTML = "<h2>No scores!</h2>";
+    }
 });
 
 function runGame(gameType) {
@@ -216,32 +258,32 @@ function winGame () {
     // resetGame();
 
     // Create form submission / listener
-    document.getElementById('submit-score').addEventListener('click', function() {
-        // get the scoreboard data from localstorage, turn it into JSON
-        let leaderBoardScores = JSON.parse(localStorage.getItem('leaderBoard')) || [];
+    document.getElementById('submit-score').addEventListener('click', addToLeaderboard);
+}
 
-        // build the object
-        newScore = {
-            name: document.getElementById('username').value, // Q: What if there's no name?
-            // score: finalScore,
-            score: Math.floor(Math.random() * 100),
-        };        
+function addToLeaderboard() {
 
-        // push it onto the array we got from localStorage
-        leaderBoardScores.push(newScore);
+    // todo - exit if there's no name in the input
 
-        // sort
-        leaderBoardScores.sort((a,b) => b.score - a.score);
+    // get the scoreboard data from localstorage, turn it into JSON
+    let leaderBoardScores = JSON.parse(localStorage.getItem('leaderBoard')) || [];
 
-        // splice
-        leaderBoardScores.splice(3);
+    // build the object
+    newScore = {
+        name: document.getElementById('username').value, 
+        score: finalScore,
+    };        
 
-        // save it to localStorage
-        localStorage.setItem('leaderBoard', JSON.stringify(leaderBoardScores));
+    // push it onto the array we got from localStorage
+    leaderBoardScores.push(newScore);
+    // sort & splice the array to 3
+    leaderBoardScores.sort((a,b) => a.score - b.score);
+    leaderBoardScores.splice(3);
+    // save it to localStorage
+    localStorage.setItem('leaderBoard', JSON.stringify(leaderBoardScores));
 
-        // @TODO take the listener off the submit score button
-    });
-
+    // take the listener off the submit score button
+    this.removeEventListener('click', addToLeaderboard);
 }
 
 function incorrectAttemptsCounter() {

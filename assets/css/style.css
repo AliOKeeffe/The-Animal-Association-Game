@@ -421,14 +421,16 @@ h2 {
     background: #f4b333;
     border-radius: 10%;
     padding: 20px;
+    color: #053A32;
+    font-size: 18px;
+    font-weight: bold;
 }
-
-
 
 #final-time, #final-count, #level {
     font-size: 20px;
     font-family: 'Mochiy Pop P One', sans-serif;
     color: #e40066;
+    text-transform: uppercase
 }
 
 /* Media Queries */
@@ -492,13 +494,34 @@ h2 {
     }
     
     h2 {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .box-title {
         padding: 20px;
+        margin: 30px auto;
     }
 
+    .select-level {
+        font-size: 20px;
+        padding: 20px 0 0 0;
+    }
+
+    .instructions {
+        padding: 0;
+    }
+    .instructions p {
+        padding:0 0 20px 0;
+        font-size: 16px;
+    }
+    
+    .instructions ol {
+        padding: 20px;
+    }
+    
+    .instructions li {
+        margin: 0 5px;
+    }
     .radio-labels {
         font-size: 15px;
         padding: 5px;
@@ -513,11 +536,17 @@ h2 {
         width: 90px;
         margin: 10px;
     }
-        
-    .card-area {
-        margin-top: 50px;
-    }
     
+    .card-area {
+        padding: 20px;
+        margin: 0;
+    }
+
+    .card-area-hard {
+        padding: 5px;
+        margin: 0;
+    }
+
     .card, .card-hard {
         height: 130px;
         width: 130px;
@@ -530,7 +559,21 @@ h2 {
         width: 93px;
         background-size: 74px 74px;
     }
-    
+
+    .scores-wrapper {
+        margin: 0;
+    }
+    .final-scores {
+        width: 120px;
+        height: 140px;
+        padding: 5px;
+        font-size: 13px;
+        margin: 0 5px;
+    }
+
+    #final-time, #final-count, #level {
+        font-size: 15px;
+    }
 }
 
 /* For mobile device sizes from 320px wide and down */

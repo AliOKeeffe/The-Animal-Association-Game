@@ -22,6 +22,7 @@
                 <div><i class="far fa-clock"></i><span id='timer'>0</span></div> 
             </div>
         </div>
+
         <section class="welcome-area" id="welcome-area"> 
             <h1 class="heading">The Animal Association Game</h1>
             <!-- <div class="box-title">
@@ -33,6 +34,7 @@
                 <button class='play-btn' id='play-btn'>Play</button>
             </div>
         </section>
+
         <section class="selection-area hide" id="selection-area">
             <div>
                 <h2 class="select-level">Select your preferred level of difficulty</h2>
@@ -49,35 +51,7 @@
                 <button class='gamebtn' id='safari-button'>Safari</button>
             </div>
         </section>
-                <!-- <style>
-                    .flex-grid {
-                        display: flex;
-                        justify-content: space-evenly;
-                        margin-top: 20px;
-                    }
-                    .col-left,
-                    .col-right {
-                        flex: 1;
-                    }
-                    .col-left { padding: 0 10px 0 20px }
-                    .col-right { padding: 0 20px 0 10px }
-                    .col-right div,
-                    .col-left div {
-                        background: pink;
-                        padding: 20px 0;
-                        margin-bottom: 20px;
-                    }
-                </style>
-                <div class="flex-grid">
-                    <div class="col-left">
-                        <div>1</div>
-                        <div>2</div>
-                    </div>
-                    <div class="col-right">
-                        <div>3</div>
-                        <div>4</div>
-                    </div>
-                </div> -->
+
         <section class="instructions-area hide" id="instructions-area">
             <div>
                 <h2 class="select-level">How to Play</h2>
@@ -95,6 +69,7 @@
                 <a href="index.html" aria-label="Go back to home page">Back</a>   
             </div>
         </section>
+
         <section class="game-area hide" id="game-area">
             <div>
                 <div class="box-title">
@@ -119,6 +94,10 @@
                     <p>Level:</p>
                     <p id="level"></p>
                 </div>
+            </div>
+            <div class="gameover-title box-title">
+                <input id="username" type="text" placeholder="Enter your name" required>
+                <button id="submit-score">Save your score!</button>
             </div>
             <div class="playbtn-outer">
                 <div class='play-btn'>

@@ -10,8 +10,6 @@ let correctAnswers = 0;
 let incorrectAttempts = 0;
 let counter = document.getElementById('counter');
 
-
-
 let gameContents = {
     farm: {
         rightAnimals: ['sheep', 'cow', 'pig', 'horse', 'donkey', 'cockeral', 'goat', 'dog', 'cat'],
@@ -33,6 +31,10 @@ let gameContents = {
 
 let currentRightAnimals = [];
 let currentWrongAnimals = [];
+
+let seconds = 0; 
+let minutes = 0;
+let finalScore = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -179,6 +181,11 @@ function selectCard() {
         }
     } else {
         this.classList.add('incorrect-card');
+
+        // Credit: https://www.sitepoint.com/delay-sleep-pause-wait/
+        // wait more than 0.5 seconds (the CSS animation time...) then remove the class `incorrect-card`
+        setTimeout(() => { this.classList.remove('incorrect-card') }, 550);
+
         // alert('Incorrect, sorry! ' + this.textContent + ' is not a sea animal');
         incorrectAttemptsCounter();
     }
@@ -194,10 +201,47 @@ function winGame () {
     scoreArea.classList.add('hide');
     gameOver.classList.remove('hide');
     finalCount.innerHTML = incorrectAttempts;
-    finalTime.innerHTML = `${minutes} minutes and ${seconds} seconds`;
-    level.innerHTML = currentLevel;
 
+    let timeString = '';
+    if (minutes) {
+        timeString += `${minutes} minutes and `;
+    }
+    timeString += `${seconds} second`;
+    timeString += seconds > 1 ? 's' : '';
+    finalTime.innerHTML = timeString;
+
+    finalScore = seconds;
+    
+    level.innerHTML = currentLevel;
     // resetGame();
+
+    // Create form submission / listener
+    document.getElementById('submit-score').addEventListener('click', function() {
+        // get the scoreboard data from localstorage, turn it into JSON
+        let leaderBoardScores = JSON.parse(localStorage.getItem('leaderBoard')) || [];
+
+        // build the object
+        newScore = {
+            name: document.getElementById('username').value, // Q: What if there's no name?
+            // score: finalScore,
+            score: Math.floor(Math.random() * 100),
+        };        
+
+        // push it onto the array we got from localStorage
+        leaderBoardScores.push(newScore);
+
+        // sort
+        leaderBoardScores.sort((a,b) => b.score - a.score);
+
+        // splice
+        leaderBoardScores.splice(3);
+
+        // save it to localStorage
+        localStorage.setItem('leaderBoard', JSON.stringify(leaderBoardScores));
+
+        // @TODO take the listener off the submit score button
+    });
+
 }
 
 function incorrectAttemptsCounter() {
@@ -207,24 +251,15 @@ function incorrectAttemptsCounter() {
 
 // start timer - credit to https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo
 
-
-let milliseconds = 0;
-let seconds = 0; 
-let minutes = 0;
-
 function startTimer() {
     let timer = document.getElementById('timer');
 
     setInterval(function() {
         startCount();
-    }, 10);
+    }, 1000);
     
     function startCount () {
-        milliseconds +=10;
-        if (milliseconds == 1000) {
-            milliseconds = 0;
-            seconds++;
-        }
+        seconds += 1;
         if (seconds == 60) {
             seconds = 0;
             minutes++;
@@ -235,9 +270,7 @@ function startTimer() {
 
         let m = minutes < 10 ? "0" + minutes : minutes;
         let s = seconds < 10 ? "0" + seconds : seconds;
-        // let ms = milliseconds < 100 ? "0" + milliseconds : milliseconds;
 
-        // timer.innerHTML = `Timer: ${m} : ${s} : ${ms}`;
         timer.innerHTML = `${m} : ${s}`;
     }
 }
@@ -248,12 +281,11 @@ function startTimer() {
 //     cardArea.innerHTML = '';
   
 //     // Reset Score
-//     correctAnswers = 0 
+//     correctAnswers = 0 a
 //     incorrectAttempts = 0
 //     counter.innerHTML = incorrectAttempts;
     
 //     // Reset Timer
-//     milliseconds = 00;
 //     seconds = 00;
 //     minutes = 00;
 //     zeroPlaceholder = 0;

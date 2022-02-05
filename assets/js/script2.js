@@ -1,5 +1,6 @@
 let gameArea = document.getElementById('game-area');
 let welcomeArea = document.getElementById('welcome-area');
+let leaderBoardArea = document.getElementById('leaderboard-area')
 let instructions = document.getElementById("instructions-area");
 let selectionArea = document.getElementById("selection-area");
 let cardArea = document.getElementById('card-area');
@@ -42,6 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // document.getElementById("sea-button").addEventListener('click', runGame("sea"));
     // document.getElementById("farm-button").addEventListener('click', runGame("farm"));
     // document.getElementById("safari-button").addEventListener('click', runGame("safari"));
+
+    let leaderBoardBtn = document.getElementById('leaderboard-btn');
+        leaderBoardBtn.addEventListener('click', function() {
+            leaderBoardArea.classList.remove('hide');
+            welcomeArea.classList.add('hide');
+        })
+
 
     let instructionsBtn = document.getElementById('instructions-btn');
     instructionsBtn.addEventListener('click', function() {
@@ -92,10 +100,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (leaderBoardScores) {
         // build the list items
         let tableHtml = `
-            <table>
+            <table class='leaderboard-table'>
                 <thead>
-                    <td>Name<td>
-                    <td>Seconds<td>
+                    <tr>
+                        <th>Name</th>
+                        <th>Seconds</th>
+                    </tr>
                 </thead>
                 <tbody>
         `;
@@ -109,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         tableHtml += `
                 </tbody>
-            <table>
+            </table>
         `;
 
         console.log(tableHtml);
@@ -118,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
         leaderBoardWrapper.innerHTML = tableHtml;
         
     } else {
-        leaderBoardWrapper.innerHTML = "<h2>No scores!</h2>";
+        leaderBoardWrapper.innerHTML = "<h3 class='select-level'>No scores yet.... Get playing!</h3>";
     }
 });
 

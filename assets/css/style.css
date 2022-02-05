@@ -31,9 +31,6 @@ body {
     text-align: center;
 }
 
-h1 {
-
-}
 /* Info bar with home button and score */
 
 .info-bar {
@@ -93,7 +90,7 @@ h2 {
     margin-bottom: 30px;
 }
 
-.instructions-btn, .play-btn {
+.instructions-btn, .play-btn, .instructions-btn {
     background-color: #3DD1E7;
     font-size: 25px;
     color: #053A32;
@@ -113,13 +110,50 @@ h2 {
     font-size: 25px;
     color: #053A32;
     text-decoration: none;
+    font-family: 'Mochiy Pop P One', sans-serif;
 }
-.instructions-btn:hover, .play-btn:hover{
+.instructions-btn:hover, .play-btn:hover, .instructions-btn:hover{
     transform: rotate(-2deg);
   }
 
 /* .welcome-area, .game-area, .gameover, .instructions-area {
     clear: both;
+} */
+
+#leaderboard-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.leaderboard-table {
+    /* border-collapse: collapse; */
+    margin: 25px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    table-layout: fixed;
+    width: 50%;
+    overflow-wrap: break-word;
+}
+
+.leaderboard-table thead tr {
+    background-color: #053A32;
+    color: white;
+}
+
+.leaderboard-table th, .leaderboard-table td {
+    padding: 12px 15px;
+}
+
+.leaderboard-table tbody tr {
+    border-bottom: 1px solid #dddddd;   
+}
+
+.leaderboard-table tbody tr:nth-of-type(even) {
+    background-color: white;
+}
+
+/* .leaderboard-table tbody tr:last-of-type {
+    border-bottom: 2px solid #053A32;
 } */
 
 .box-title {
@@ -163,7 +197,7 @@ h2 {
 .select-level {
     padding: 20px;
     color: #053A32;
-    font-size: 25px;
+    /* font-size: 25px; */
     font-weight: bold;
 }
 

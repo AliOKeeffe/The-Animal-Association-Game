@@ -67,8 +67,10 @@
                     <li>When you have selected all of the correct animals the game will end and you will see your score</li>
                 </ol>
             </div>
-            <div class='play-btn'>
-                <a href="index.html" aria-label="Go back to home page">Back</a>   
+            <div class="playbtn-outer">
+                <div class='play-btn'>
+                    <a href="index.html" aria-label="Go back to home page">Back</a>   
+                </div>
             </div>
         </section>
 
@@ -77,8 +79,10 @@
             <div id="leaderboard-wrapper">
             </div>
             <!-- <button class='play-btn' id="clear-scores">Clear</button> -->
-            <div class='play-btn'>
-                <a href="index.html" aria-label="Go back to home page">Back</a>   
+            <div class="playbtn-outer">
+                <div class='play-btn'>
+                    <a href="index.html" aria-label="Go back to home page">Back</a>   
+                </div>
             </div>
         </section>
 
@@ -92,30 +96,30 @@
             </div>
         </section>
         <section class="gameover hide" id="gameover">
-            <div class="gameover-title box-title">
+            <div class="box-title">
                 <h2>Game Over</h2>
             </div>
             <div class="scores-wrapper">
                 <div class="final-scores">
                     <p>Your Time:</p>
-                    <p id="final-time"></p></div>
+                    <p id="final-time"></p>
+                </div>
                 <div class="final-scores"> 
                     <p>Incorrect Attempts:</p>
-                    <p id="final-count"></p></div>
+                    <p id="final-count"></p>
+                </div>
                 <div class="final-scores">
                     <p>Level:</p>
                     <p id="level"></p>
                 </div>
             </div>
-            <div class="gameover-title box-title">
-                <input id="username" type="text" placeholder="Enter your name" required>
-                <button id="submit-score">Save your score!</button>
-            </div>
             <div class="playbtn-outer">
+                <input id="username" type="text" placeholder="Enter your name"><br>
+                <button class="play-btn" id="submit-score">Save</button>
                 <div class='play-btn'>
                     <a href="index.html" aria-label="Go to the home page">Play Again</a>
                 </div>
-             </div>
+            </div>
         </section>
     </div>
 

@@ -102,7 +102,7 @@ h2 {
     width: 100%;
     max-width: 250px;
     cursor: pointer;
-    margin: 20px;
+    margin: 20px 20px 0 20px;
     display: inline-block;
 }
 
@@ -112,6 +112,7 @@ h2 {
     text-decoration: none;
     font-family: 'Mochiy Pop P One', sans-serif;
 }
+
 .instructions-btn:hover, .play-btn:hover, .instructions-btn:hover{
     transform: rotate(-2deg);
   }
@@ -460,11 +461,24 @@ h2 {
     font-weight: bold;
 }
 
+.safari .final-scores {
+    background-color: #053A32;
+    color: #FEAA0D;
+}
+
 #final-time, #final-count, #level {
     font-size: 20px;
     font-family: 'Mochiy Pop P One', sans-serif;
     color: #e40066;
     text-transform: uppercase
+}
+
+#username {
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    text-align: center;
+    margin-top: 20px;
 }
 
 /* Media Queries */

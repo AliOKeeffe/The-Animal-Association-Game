@@ -268,7 +268,11 @@ function winGame () {
     // resetGame();
 
     // Create form submission / listener
-    document.getElementById('submit-score').addEventListener('click', addToLeaderboard);
+    let submit= document.getElementById('submit-score');
+    submit.addEventListener('click', addToLeaderboard);
+    submit.addEventListener('click', function() {
+        location.href = "https://8000-aliokeeffe-theanimalasso-75zyl3wt1kt.ws-eu30.gitpod.io/index.html"
+    });
 }
 
 function addToLeaderboard() {

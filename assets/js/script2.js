@@ -1,6 +1,6 @@
 let gameArea = document.getElementById('game-area');
 let welcomeArea = document.getElementById('welcome-area');
-let leaderBoardArea = document.getElementById('leaderboard-area')
+let leaderBoardArea = document.getElementById('leaderboard-area');
 let instructions = document.getElementById("instructions-area");
 let selectionArea = document.getElementById("selection-area");
 let cardArea = document.getElementById('card-area');
@@ -48,14 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
         leaderBoardBtn.addEventListener('click', function() {
             leaderBoardArea.classList.remove('hide');
             welcomeArea.classList.add('hide');
-        })
+        });
 
 
     let instructionsBtn = document.getElementById('instructions-btn');
     instructionsBtn.addEventListener('click', function() {
         instructions.classList.remove('hide');
         welcomeArea.classList.add('hide');
-    })
+    });
 
     // let playBtns = document.getElementsByClassName('play-btn');
     // for (i of playBtns) {
@@ -236,7 +236,8 @@ function selectCard() {
 
         // Credit: https://www.sitepoint.com/delay-sleep-pause-wait/
         // wait more than 0.5 seconds (the CSS animation time...) then remove the class `incorrect-card`
-        setTimeout(() => { this.classList.remove('incorrect-card') }, 550);
+        setTimeout(() => { this.classList.remove('incorrect-card');
+        }, 550);
 
         // alert('Incorrect, sorry! ' + this.textContent + ' is not a sea animal');
         incorrectAttemptsCounter();
@@ -271,7 +272,7 @@ function winGame () {
     let submit= document.getElementById('submit-score');
     submit.addEventListener('click', addToLeaderboard);
     submit.addEventListener('click', function() {
-        location.href = "https://8000-aliokeeffe-theanimalasso-75zyl3wt1kt.ws-eu30.gitpod.io/index.html"
+        location.href = "https://8000-aliokeeffe-theanimalasso-75zyl3wt1kt.ws-eu30.gitpod.io/index.html";
     });
 }
 
@@ -283,7 +284,7 @@ function addToLeaderboard() {
     let leaderBoardScores = JSON.parse(localStorage.getItem('leaderBoard')) || [];
 
     // build the object
-    newScore = {
+    let newScore = {
         name: document.getElementById('username').value, 
         score: finalScore,
     };        

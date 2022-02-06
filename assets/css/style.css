@@ -14,7 +14,7 @@
 }
 
 body {
-    background: url(../images/scenes/5403826.jpg) no-repeat center center;
+    background: url(../images/scenes/mainbg.webp) no-repeat center center;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -208,32 +208,27 @@ h2 {
     padding: 5px;
 }
 
-.gamebtn {
-    border-radius: 50%;
-    height: 100px;
-    width: 100px;
-    background-color: #e40066;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 40px;
-    cursor: pointer; 
+.select-game-area {
+    margin: 0 0 40px 0;
+    display: flex;
+    justify-content: space-evenly;
 }
-
-.gamebtn:hover {
-    border: solid #f4b333;
+.select-game-area .game-button {
+    width: 20%;
+    cursor: pointer;
 }
-
-.gamebtn a {
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    padding-top: 20px;
+.select-game-area .button-image {
+    height: 140px;
+    border: 5px solid #053A32;
+    border-radius: 10px;
 }
-
+.select-game-area .game-button:hover .button-image {
+    border: 5px solid white;
+}
+.select-game-area .button-text {
+    font-family: 'Mochiy Pop P One', sans-serif;
+    font-size: 25px;
+}
 
 #game-selected {
     font-family:'Mochiy Pop P One', sans-serif;
@@ -243,23 +238,18 @@ h2 {
 }
 
 .jungle {
-    background: url(../images/scenes/5362630.jpg) no-repeat center center;
-    /* background-size: 400px 200px; */
-    background-size: cover;
+    background: url(../images/scenes/jungle_scene.webp) no-repeat center center;
 }
 .sea {
-    background: url(../images/scenes/underwater_scene.jpg) no-repeat center center;
-    /* background-size: 400px 200px; */
-    background-size: cover;
+    background: url(../images/scenes/sea_scene.webp) no-repeat center center;
 }
 .farm {
-    background: url(../images/scenes/farm_scene1.jpg) no-repeat center center;
-    /* background-size: 400px 200px; */
-    background-size: cover;
+    background: url(../images/scenes/farm_scene.webp) no-repeat center center;
 }
 .safari {
-    background: url(../images/scenes/safari_scene.jpg) no-repeat center center;
-    /* background-size: 400px 200px; */
+    background: url(../images/scenes/safari_scene.webp) no-repeat center center;
+}
+.jungle, .sea, .farm, .safari {
     background-size: cover;
 }
 
@@ -499,12 +489,6 @@ h2 {
         font-size: 23px;
     }
 
-    .gamebtn {
-        height: 80px;
-        width: 80px;
-        margin: 20px
-    }
-
     .card-area {
         margin: 30px 20px 0px 20px;
     }
@@ -579,12 +563,6 @@ h2 {
         margin: 10px 20px;
     }
 
-    .gamebtn {
-        height: 90px;
-        width: 90px;
-        margin: 10px;
-    }
-    
     .card-area {
         padding: 20px;
         margin: 0;
@@ -637,12 +615,7 @@ h2 {
     .welcome-area, .game-area, .gameover {
         height: 441px;
     }
-    .gamebtn {
-        height: 70px;
-        width: 70px;
-        margin: 10px;
-    }
-    
+
     .home-button i {
         padding-left: 10px;
     }

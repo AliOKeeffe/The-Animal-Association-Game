@@ -37,9 +37,9 @@ INSERT AM I RESPONSIVE IMAGE HERE
 ## Design
 
 ### Imagery
-The imagery and colour scheme of the site were both given careful consideration to ensure they compliment each other. The imagery used in the game is very important to the overall experience of the user. Given that that the game relates to animal habitats, a nature theme is consistently used across all imagery in order to tie in with the overall theme of the game. 
-
-Cartoon style images to appeal to children
+- The imagery and colour scheme of the site were both given careful consideration to ensure they compliment each other. The imagery used in the game is very important to the overall experience of the user. 
+- Cartoon style imagery was chosen to give a playful feel to the site and to appeal to young children. 
+- Given that that the game relates to animal habitats, a nature theme is consistently used across all imagery in order to tie in with the overall theme of the game. 
 
 ### Colour Scheme
 
@@ -49,10 +49,40 @@ Colour palette from Coolors
 
 - The colour scheme of the site is mainly green and yellow with varying shades of green used to tie in with the nature imagery. The yellow chosen is happy and cheerful in order to be appealing for young children. 
 
-- The color scheme of the site ties in with the main homepage image and the color picker tool in the Chrome browser was used to pull out the main colours as seen in the colour palette. These were then used throughout the site. 
+- The color scheme of the site ties in with the main homepage image and the color picker Chrome extension was used to pull out the main colours as seen in the colour palette. These were then used throughout the site. 
 
 - Great care was taken to establish a good contrast between background colours and text at all times to ensure maximum user accessibility.
 
 
 ### Fonts
-The Montserrat font is the main font used throughout the whole website. This font was imported via [Google Fonts](https://fonts.google.com/). I'm using Sans Serif as a backup font, in case for any reason the main font isn't being imported into the site correctly.
+The Poppins font is the main font used throughout the whole website. This font was imported via [Google Fonts](https://fonts.google.com/). The Mochiy Pop P One font is used for the main header and buttons to give a playful feel.  
+
+Sans Serif is used as a backup font, in case for any reason the main font isn't being imported into the site correctly.
+
+### Wireframes
+
+Wireframes were produced using Balsamiq.
+
+
+## Features
+
+
+
+## Testing
+
+### Validator Testing
+- #### HTML
+    - No errors were returned when passing through the official W3C Markup Validator
+        - [W3C Validator Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Faliokeeffe.github.io%2FThe-Animal-Association-Game%2F)
+- #### CSS
+    - No errors were found when passing through the official W3C CSS Validator 
+        - [W3C CSS Validator Results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Faliokeeffe.github.io%2FThe-Animal-Association-Game%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- #### Javascript
+    - No errors were returned when passing through the the [JSHint Validator](https://jshint.com/)
+
+    INSERT SCREENSHOT
+
+- #### Accessibility 
+    - The site achieved a Lighthouse accessibility score of 100% which confirms that the colours and fonts chosen are easy to read and accessible
+
+    INSERT SCREENSHOT

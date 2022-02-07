@@ -232,9 +232,9 @@ function winGame() {
 
 function addToLeaderboard() {
 
-    // todo - exit if there's no name in the input
+    // exit if there's no name in the input
     let nameInput = document.getElementById('username');
-    if (nameInput.value == "") {
+    if (nameInput.value.length < 3) {
         nameInput.style = 'border: 5px solid red';
         return;
     }

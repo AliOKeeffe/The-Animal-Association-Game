@@ -233,13 +233,17 @@ function winGame() {
 function addToLeaderboard() {
 
     // todo - exit if there's no name in the input
-
+    let nameInput = document.getElementById('username');
+    if (nameInput.value == "") {
+        nameInput.style = 'border: 5px solid red';
+        return;
+    }
     // get the scoreboard data from localstorage, turn it into JSON
     let leaderBoardScores = JSON.parse(localStorage.getItem('leaderBoard')) || [];
 
     // build the object
     let newScore = {
-        name: document.getElementById('username').value, 
+        name: nameInput.value, 
         score: finalScore,
     };        
 

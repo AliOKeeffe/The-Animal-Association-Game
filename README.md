@@ -37,9 +37,22 @@ INSERT AM I RESPONSIVE IMAGE HERE
 ## Design
 
 ### Imagery
+The imagery and colour scheme of the site were both given careful consideration to ensure they compliment each other. The imagery used in the game is very important to the overall experience of the user. Given that that the game relates to animal habitats, a nature theme is consistently used across all imagery in order to tie in with the overall theme of the game. 
 
+Cartoon style images to appeal to children
 
 ### Colour Scheme
 
+Colour palette from Coolors
+
+![Colour Palette](docs/readme_images/colour_palette.png)
+
+- The colour scheme of the site is mainly green and yellow with varying shades of green used to tie in with the nature imagery. The yellow chosen is happy and cheerful in order to be appealing for young children. 
+
+- The color scheme of the site ties in with the main homepage image and the color picker tool in the Chrome browser was used to pull out the main colours as seen in the colour palette. These were then used throughout the site. 
+
+- Great care was taken to establish a good contrast between background colours and text at all times to ensure maximum user accessibility.
+
 
 ### Fonts
+The Montserrat font is the main font used throughout the whole website. This font was imported via [Google Fonts](https://fonts.google.com/). I'm using Sans Serif as a backup font, in case for any reason the main font isn't being imported into the site correctly.

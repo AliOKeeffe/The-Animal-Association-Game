@@ -459,7 +459,7 @@ h2 {
 }
 
 #final-time, #final-count, #level {
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Mochiy Pop P One', sans-serif;
     color: #e40066;
     text-transform: uppercase
@@ -830,6 +830,7 @@ h2 {
     .box-title {
         margin: 10px auto 0 auto;
         padding: 5px;
+        width: 70%;
     }
 
     .card-area {
@@ -914,7 +915,7 @@ h2 {
 
     .card-area-hard {
         padding: 0;
-        margin 10px;
+        margin: 10px;
         width: 70%
     }
 

@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let leaderBoardBtn = document.getElementById('leaderboard-btn');
         leaderBoardBtn.addEventListener('click', function() {
+            loadLeaderboard();
             leaderBoardArea.classList.remove('hide');
             welcomeArea.classList.add('hide');
         });
@@ -85,51 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     document.getElementById("sea-button").addEventListener('click', function() {
         runGame("sea");
-    }); 
-
-
-    // Popluate the leaderboard
-
-    // get the wrapper element from the DOM
-    let leaderBoardWrapper = document.getElementById('leaderboard-wrapper');
-    // get the leaderboard scores from localstorage
-    let leaderBoardScores = JSON.parse(localStorage.getItem('leaderBoard'));
-    // If we've scores
-    console.log(leaderBoardScores);
-
-    if (leaderBoardScores) {
-        // build the list items
-        let tableHtml = `
-            <table class='leaderboard-table'>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Seconds</th>
-                    </tr>
-                </thead>
-                <tbody>
-        `;
-        for (let leaderBoardEntry of leaderBoardScores) {
-            tableHtml += `
-                <tr>
-                    <td>${leaderBoardEntry.name}</td>
-                    <td>${leaderBoardEntry.score}</td>
-                </tr>
-            `;
-        }
-        tableHtml += `
-                </tbody>
-            </table>
-        `;
-
-        console.log(tableHtml);
-
-        // write to the dom
-        leaderBoardWrapper.innerHTML = tableHtml;
-        
-    } else {
-        leaderBoardWrapper.innerHTML = "<h3 class='select-level'>No scores yet.... Get playing!</h3>";
-    }
+    });
 });
 
 function runGame(gameType) {
@@ -244,7 +201,7 @@ function selectCard() {
     }
 }
 
-function winGame () {
+function winGame() {
     let finalCount = document.getElementById('final-count');
     let finalTime = document.getElementById('final-time');
     let currentLevel = document.querySelector('input[type = radio]:checked').value;
@@ -269,11 +226,8 @@ function winGame () {
     // resetGame();
 
     // Create form submission / listener
-    let submit= document.getElementById('submit-score');
+    let submit = document.getElementById('submit-score');
     submit.addEventListener('click', addToLeaderboard);
-    submit.addEventListener('click', function() {
-        location.href = "https://8000-aliokeeffe-theanimalasso-75zyl3wt1kt.ws-eu30.gitpod.io/index.html";
-    });
 }
 
 function addToLeaderboard() {
@@ -299,6 +253,13 @@ function addToLeaderboard() {
 
     // take the listener off the submit score button
     this.removeEventListener('click', addToLeaderboard);
+
+    loadLeaderboard();
+    leaderBoardArea.classList.remove('hide');
+    gameOver.classList.add('hide');
+    let scene = document.getElementById('scene-background');
+    scene.classList.remove('jungle', 'safari', 'sea', 'farm');  
+    document.getElementsByTagName('body')[0].classList.add('main-image');
 }
 
 function incorrectAttemptsCounter() {
@@ -306,8 +267,45 @@ function incorrectAttemptsCounter() {
     counter.innerHTML = incorrectAttempts;
 }
 
-// start timer - credit to https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo
+function loadLeaderboard() {
+    // Get the wrapper element from the DOM
+    let leaderBoardWrapper = document.getElementById('leaderboard-wrapper');
+    // Get the leaderboard scores from localstorage
+    let leaderBoardScores = JSON.parse(localStorage.getItem('leaderBoard'));
+    if (leaderBoardScores) {
+        // Build the list items
+        let tableHtml = `
+            <table class='leaderboard-table'>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Seconds</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+        for (let leaderBoardEntry of leaderBoardScores) {
+            tableHtml += `
+                <tr>
+                    <td>${leaderBoardEntry.name}</td>
+                    <td>${leaderBoardEntry.score}</td>
+                </tr>
+            `;
+        }
+        tableHtml += `
+                </tbody>
+            </table>
+        `;
 
+        // write to the dom
+        leaderBoardWrapper.innerHTML = tableHtml;
+        
+    } else {
+        leaderBoardWrapper.innerHTML = "<h3 class='select-level'>No scores yet.... Get playing!</h3>";
+    }
+}
+
+// start timer - credit to https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo
 function startTimer() {
     let timer = document.getElementById('timer');
 
@@ -331,23 +329,3 @@ function startTimer() {
         timer.innerHTML = `${m} : ${s}`;
     }
 }
-
-// function resetGame() {
-    
-//     let cardArea = document.getElementById('card-area');
-//     cardArea.innerHTML = '';
-  
-//     // Reset Score
-//     correctAnswers = 0 a
-//     incorrectAttempts = 0
-//     counter.innerHTML = incorrectAttempts;
-    
-//     // Reset Timer
-//     seconds = 00;
-//     minutes = 00;
-//     zeroPlaceholder = 0;
-
-//     //Reset global variables
-//     currentRightAnimals = [];
-//     currentWrongAnimals = [];
-// }

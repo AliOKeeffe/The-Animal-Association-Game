@@ -19,10 +19,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh
+    min-height: 100vh;
+}
+
+.main-image {
+    background: url(../images/scenes/mainbg.webp) no-repeat center center !important;
+    background-size: cover !important;
 }
 
 .content-wrapper {
+    width: 800px;
+    /* height: 600px; */
+    border-radius: 10px;
+    
+    background-color: rgba(98, 187, 167, .8);
+    text-align: center;
+}
+
+.content-wrapper2 {
     width: 800px;
     /* height: 600px; */
     border-radius: 10px;

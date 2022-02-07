@@ -153,10 +153,6 @@ h2 {
     background-color: white;
 }
 
-/* .leaderboard-table tbody tr:last-of-type {
-    border-bottom: 2px solid #053A32;
-} */
-
 .box-title {
     width: 60%;
     background-color: #FEAA0D;
@@ -202,10 +198,16 @@ h2 {
     font-weight: bold;
 }
 
+.radio-btn {
+    width:25px;
+    height:25px;
+}
+
 .radio-labels {
     color: #053A32;
     font-size: 20px;
     padding: 5px;
+    line-height: 2;
 }
 
 .select-game-area {
@@ -219,14 +221,14 @@ h2 {
 }
 .select-game-area .button-image {
     height: 140px;
-    border: 5px solid #053A32;
     border-radius: 10px;
+    box-shadow: inset 0px 0px 10px #053A32;
 }
 .select-game-area .game-button:hover .button-image {
-    border: 5px solid white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.30);
 }
 .select-game-area .button-text {
-    font-family: 'Mochiy Pop P One', sans-serif;
+    color: #053A32;
     font-size: 25px;
 }
 
@@ -481,12 +483,23 @@ h2 {
         width: 500px;
     }
 
+    .heading {
+        font-size: 30px;
+    }
+
     .welcome-area, .game-area, .gameover {
         width: 100%;
     }
 
     h2 {
         font-size: 23px;
+    }
+
+    .leaderboard-table {
+        width: 70%;
+    }
+    .select-game-area .button-image {
+        height: 100px;
     }
 
     .card-area {
@@ -509,6 +522,16 @@ h2 {
         width: 100px;
         background-size: 90px 90px;
     }
+
+    .scores-wrapper {
+        margin: 30px 40px;
+    }
+    
+    .final-scores {
+        width: 130px;
+        height: 130px;
+        padding: 10px;
+    }
 }
 
 
@@ -522,21 +545,47 @@ h2 {
 
     .heading {
         font-size: 25px;
-        padding: 20px 10px;
+        padding: 10px 10px 0 10px;
     }
     
     h2 {
         font-size: 20px;
     }
 
+    .playbtn-outer {
+        margin-bottom: 20px;
+    }
+    
+
     .box-title {
-        padding: 20px;
-        margin: 30px auto;
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .leaderboard-table {
+        width: 80%;
     }
 
     .select-level {
         font-size: 20px;
         padding: 20px 0 0 0;
+    }
+
+    .select-game-area {
+        margin: 0 0 20px 0;
+        display: inline-block
+    }
+    .select-game-area .game-button {
+        display: inline-block;
+        width: auto;
+        padding: 5px;
+    }
+    .select-game-area .button-image {
+        height: 120px;
+        width: 120px
+    }
+    .select-game-area .button-text {
+        font-size: 20px;
     }
 
     .instructions {
@@ -553,9 +602,15 @@ h2 {
     
     .instructions li {
         margin: 0 5px;
+        font-size: 15px;
+    }
+
+    .radio-btn {
+        width: 20px;
+        height: 20px;
     }
     .radio-labels {
-        font-size: 15px;
+        font-size: 18px;
         padding: 5px;
     }
 
@@ -564,20 +619,21 @@ h2 {
     }
 
     .card-area {
-        padding: 20px;
+        padding: 10px;
         margin: 0;
     }
 
     .card-area-hard {
-        padding: 5px;
+        padding: 0;
         margin: 0;
     }
 
     .card, .card-hard {
-        height: 130px;
-        width: 130px;
+        height: 125px;
+        width: 125px;
         margin: 0 10px 20px 10px;
         background-size: 120px 120px;
+        font-size: 15px;
     }
 
     .card-hard {
@@ -590,11 +646,13 @@ h2 {
         margin: 0;
     }
     .final-scores {
-        width: 120px;
-        height: 140px;
-        padding: 5px;
-        font-size: 13px;
+        width: 105px;
+        height: 130px;
         margin: 0 5px;
+    }
+
+    .final-scores p {
+        font-size: 15px;
     }
 
     #final-time, #final-count, #level {
@@ -605,7 +663,7 @@ h2 {
 /* For mobile device sizes from 320px wide and down */
 @media screen and (max-width: 320px) {
     * {
-        font-size: 17px;
+        font-size: 15px;
     }
 
     .content-wrapper {
@@ -614,6 +672,11 @@ h2 {
 
     .welcome-area, .game-area, .gameover {
         height: 441px;
+    }
+
+    .box-title {
+        padding: 10px;
+        margin: 15px auto;
     }
 
     .home-button i {
@@ -633,18 +696,53 @@ h2 {
         font-size: 17px;
     }
 
+    .instructions {
+        margin: 5px;
+    }
+    .instructions p {
+        font-size: 15px;
+    }
+    
+    .instructions li {
+        font-size: 13px;
+    }
+
+    .select-game-area {
+        margin: 0 0 10px 0;
+    }
+
+    .select-game-area .game-button {
+        padding: 10px;
+    }
+
+    .select-game-area .button-image {
+        height: 80px;
+        width: 80px
+    }
+    .select-game-area .button-text {
+        font-size: 15px;
+    }
+
     .card-area {
-        margin: 30px 0 0 0;
+        margin: 20px 0 0 0;
+    }
+
+    .card {
+        height: 90px;
+        width: 90px;
+        background-size: 80px 80px;
     }
     
     .card-hard {
-        height: 80px;
-        width: 80px;
-        background-size: 70px 70px;
+        height: 70px;
+        width: 70px;
+        background-size: 60px 60px;
+        font-size: 10px;
+        padding: 5px;
     }
 
     #final-time, #final-count {
-        font-size: 30px;
+        font-size: 15px;
     }
     
 }

@@ -747,9 +747,195 @@ h2 {
     
 }
 
-/* @media screen and (max-height: 425px) {
+@media screen and (max-height: 425px) {
+    * {
+        font-size: 15px;
+    }
+
     .content-wrapper {
         width: 100vw;
         height: 100vh;
     }
-} */
+
+    .heading {
+        padding: 30px 30px 10px 30px;
+    }
+
+    .info-bar {
+        height: 50px;  
+        border-radius: 0 0 0 0;
+    }
+    
+    .home-button i {
+        font-size: 30px;
+        padding: 10px;
+    }
+    
+    .score-area {
+        padding-right: 10px;
+    }
+    
+    .score-area div {
+        padding: 10px;
+    }
+    
+    .select-level {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .instructions {
+        padding: 0;
+        margin: 0 10px;
+    }
+    .instructions p {
+        padding:0 0 20px 0;
+        font-size: 16px;
+    }
+    
+    .instructions ol {
+        padding: 0 20px;
+    }
+    
+    .instructions li {
+        margin: 0 5px;
+        font-size: 15px;
+    }
+
+    .leaderboard-table {
+        margin: 10px 0;
+    }
+
+    .radio-btn {
+        width:20px;
+        height:20px;
+    }
+
+    .radio-labels {
+        line-height: 1;
+        font-size: 15px;
+    }
+
+    .select-game-area .button-image {
+        height: 100px;
+    }
+    .select-game-area .button-text {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .box-title {
+        margin: 10px auto 0 auto;
+        padding: 5px;
+    }
+
+    .card-area {
+        padding: 40px 0;
+        margin: 20px 20px 0px 20px;
+    }
+
+    .card-area-hard {
+        padding: 0;
+        margin-top: 10px;
+        width: 70%
+    }
+
+    .card {
+        height: 120px;
+        width: 120px;
+        background-size: 110px 110px;
+    }
+    .card-hard {
+        height: 90px;
+        width: 90px;
+        background-size: 80px 80px;
+    }
+
+    #final-time, #final-count {
+        font-size: 15px;
+    }
+
+    .scores-wrapper {
+        margin: 20px 40px;
+    }
+    .final-scores {
+        height: 90px;
+        padding: 5px;
+    }
+
+    #username {
+    margin-top: 0;
+    }
+
+}
+
+@media screen and (max-height: 320px) {
+    .heading {
+        font-size: 25px;
+    }
+    
+    h2 {
+        font-size: 17px;
+
+    }
+    .select-game-area .button-image {
+        height: 80px;
+    }
+    .instructions-btn, .play-btn, .instructions-btn {
+        background-color: #3DD1E7;
+        font-size: 20px;
+        line-height: 1rem;
+        padding: .75rem 1.65rem;
+        width: 100%;
+        max-width: 200px;
+        cursor: pointer;
+        margin: 10px 20px 0 20px;
+    }
+    
+    .leaderboard-table td {
+        padding: 5px;
+    }
+
+    .play-btn a {
+        font-size: 20px;
+    }
+
+    .instructions li {
+        font-size: 13px;
+    }
+
+    .card-area {
+        padding: 30px 0;
+        margin: 10px 20px 0px 20px;
+    }
+
+    .card-area-hard {
+        padding: 0;
+        margin 10px;
+        width: 70%
+    }
+
+    .card {
+        height: 100px;
+        width: 100px;
+        background-size: 90px 90px;
+    }
+    .card-hard {
+        height: 80px;
+        width: 80px;
+        background-size: 70px 70px;
+        margin: 3px;
+    }
+
+    #username {
+        padding: 5px;;
+    }
+
+    .final-scores {
+        height: 80px;
+    }
+
+}

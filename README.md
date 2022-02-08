@@ -6,7 +6,7 @@ There are four habitats to choose from; farm, jungle, safari and sea. For each h
 
 This game is a great way to teach kids about the different habitats that animals live in whilst also improving memory and picture recognition.
 
-The live link can be found here - [Animal Association Game](https://aliokeeffe.github.io/The-Animal-Association-Game/)
+The live link can be found here - [The Animal Association Game](https://aliokeeffe.github.io/The-Animal-Association-Game/)
 
 ![Animal Association Game Am I Responsive Image](docs/readme_images/am_i_responsive.png)
 
@@ -90,11 +90,10 @@ Wireframes were produced using Balsamiq.
 
 ### Home Page
 
-The landing page of the website has a very simple layout which includes the name of the game in large font and three large colourful buttons that are easy for kids to select. The user is given three options to choose from:
+The landing page of the website has a very simple layout which includes the name of the game in large font and three large colourful interactive buttons that are easy for kids to select. The user is given three options to choose from:
  - How to Play
  - Play
  - Leaderboard
- 
 
  ![Landing Page](docs/readme_images/landing_page.png)
 
@@ -177,6 +176,7 @@ If the user clicks the "How to Play" button the instructions section appears and
 
 ### Features Left to Implement
 - Email JS to signup to newsletter
+- Ability to play sounds
 
 ## Testing
 
@@ -235,3 +235,66 @@ If the user clicks the "How to Play" button the instructions section appears and
 - To do this, I first used the spread operator however I quickly noticed that I was not getting the results I expected and the original object was still being changed when I spliced the cloned object. 
 - Upon researching this I realised the issue was that my animals object was actually a nested object. When you have a nested object and you copy it, nested objects inside that object will not be copied Therefore, if you change the nested object, you will change it for both instances.
 - To fix this I had to make a deep clone of the nested object by stringifying the object and parsing it right after - JSON.parse(JSON.stringify(a)). The following article was very useful : [How to differentiate between deep and shallow copies in JavaScript](https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/)
+
+### Known Bugs
+No known bugs.
+
+## Technologies Used
+
+### Languages
+- JavaScript
+- HTML5
+- CSS3
+
+### Frameworks - Libraries - Programs Used
+- [Am I Responsive](http://ami.responsivedesign.is/) - Used to verify responsiveness of website on different devices.
+- [Responsinator](http://www.responsinator.com/) - Used to verify responsiveness of website on different devices.
+- [Balsamiq](https://balsamiq.com/) - Used to generate Wireframe images.
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Used for overall development and tweaking, including testing responsiveness and performance.
+- [Font Awesome](https://fontawesome.com/) - Used for icons in information bar.
+- [GitHub](https://github.com/) - Used for version control and hosting.
+- [Google Fonts](https://fonts.google.com/) - Used to import and alter fonts on the page.
+- [TinyPNG](https://tinypng.com/) - Used to compress images to reduce file size without a reduction in quality.
+- [W3C](https://www.w3.org/) - Used for HTML & CSS Validation.
+- [Coolors](https://coolors.co/) - Used to create colour palette.
+
+
+## Deployment
+
+The project was deployed using GitHub pages. The steps to deploy using GitHub pages are:
+
+1. Go to the repository on GitHub.com
+2. Select 'Settings' near the top of the page.
+3. Select 'Pages' from the menu bar on the left of the page.
+4. Under 'Source' select the 'Branch' dropdown menu and select the main branch.
+5. Once selected, click the 'Save'.
+6. Deployment should be confirmed by a message on a green background saying "Your site is published at" followed by the web address.
+
+The live link can be found here - [The Animal Association Game](https://aliokeeffe.github.io/The-Animal-Association-Game/)
+
+## Credits
+
+### Content
+My favourite book Wild Animals - Illustrated by  Neiko Ng which was the inpiration for this game. 
+
+### Media
+All images and videos were sourced from:
+ - [Freepik](https://www.freepik.com/home)
+
+With thanks to the below amazing artists:
+- @pikisuperstar - Farm background
+- @fahreza-design - Sea background
+- @freepik - Jungle backgounds
+- @brgfx - Safari background
+- @inspiring - Animal vectors
+- @pchvector - Marine animal vectors
+- @terdpontvector - Animal Vectors 
+
+### Resources Used
+- [How to differentiate between deep and shallow copies in JavaScript](https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/)
+- [Local Storage Tutorial (Episodes 8 & 9)]
+- [Shuffle Cards in Array using Fisher Yates Shuffle](https://javascript.info/task/shuffle)
+- [SetTimeout() method](https://www.sitepoint.com/delay-sleep-pause-wait/)
+- [Create Stopwatch](https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo)
+- [W3Schools](https://www.w3schools.com/)  
+- [Stack Overflow](https://stackoverflow.com/)

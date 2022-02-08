@@ -196,7 +196,6 @@ function selectCard() {
         setTimeout(() => { this.classList.remove('incorrect-card');
         }, 550);
 
-        // alert('Incorrect, sorry! ' + this.textContent + ' is not a sea animal');
         incorrectAttemptsCounter();
     }
 }

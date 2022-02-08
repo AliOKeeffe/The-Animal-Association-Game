@@ -234,8 +234,9 @@ function addToLeaderboard() {
 
     // exit if there's no name in the input
     let nameInput = document.getElementById('username');
-    if (nameInput.value.length < 3) {
-        nameInput.style = 'border: 5px solid red';
+    if (nameInput.value.length == '') {
+        nameInput.style = 'border: 3px solid red';
+        nameInput.classList.add('incorrect-card');
         return;
     }
     // get the scoreboard data from localstorage, turn it into JSON

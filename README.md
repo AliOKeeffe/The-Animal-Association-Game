@@ -59,6 +59,15 @@ The Poppins font is the main font used throughout the whole website. This font w
 
 Sans Serif is used as a backup font, in case for any reason the main font isn't being imported into the site correctly.
 
+### Layout
+The site is a single page with 6 sections:
+  - Welcome area
+  - How to play
+  - Leaderboard
+  - Game selection area
+  - Play game
+  - Game over and score
+
 ### Wireframes
 
 Wireframes were produced using Balsamiq.
@@ -66,7 +75,63 @@ Wireframes were produced using Balsamiq.
 
 ## Features
 
+### Home Page
 
+The landing page of the website has a very simple layout which includes the name of the game in large font and three large colourful buttons that are easy for kids to select. The user is given three options to choose from:
+ - How to Play
+ - Play
+ - Leaderboard
+ 
+
+ ![Landing Page](docs/readme_images/landing_page.png)
+
+### How to Play Page
+
+If the user clicks the "How to Play" button the instructions section appears and the user can read the main rules of the game. The back button will take them back to the welcome area.
+
+![Instructions](docs/readme_images/instructions_section.png)
+
+### Leaderboard
+
+- The leaderboard section shows the player the three highest scores which have been saved. 
+- All scores are saved in local storage so players can only compete with anyone who attempts the quiz on the same machine. 
+- The score saved is the number of seconds taken to complete the game. (With the highest score being the least time taken)
+
+![Leaderboard](docs/readme_images/leaderboard_section.png)
+
+### Game Selection
+
+- The are two levels of difficulty to choose from (easy and hard) and this option is presented as a radio button. 
+- The default level selected is easy.
+- The user can then choose from four habitats - each contains an object of different animals.
+
+![Game Selection](docs/readme_images/game_selection.png)
+
+### Game Area
+
+#### Easy Game
+
+- The easy game includes four animal cards - three of which are correct answers and one incorrect.
+- The background image changes to an image of the habitat selected and the habitat name is inserted into the heading text. 
+- The information bar at the top of the game area include a counter for incorrect attempts and a timer function. 
+- If the user selects a correct card it will turn green. If incorrect, the card will display a shake animation.
+- When the user clicks on the last correct card the timer stops, the game ends and the game over area appears.
+
+![Easy Game](docs/readme_images/easy_game.png)
+
+#### Hard Game
+
+- The hard game includes eight animal cards - five of which are correct answers and three incorrect.
+
+![Hard Game](docs/readme_images/hard_game.png)
+
+### Game Over
+- The section shows the players score which inludes their time, number of incorrect attempts and level played.
+- The player has an option to insert their name into the text input box and save their score to the leaderboard using local storage. 
+- If no name is entered the user will be unable to save the score and a red border and shake animation will appear on the text input. 
+- If the username is entered correctly the user will be taken directly to the leaderboard page.
+
+![Game Over](docs/readme_images/win_game_section.png)
 
 ## Testing
 

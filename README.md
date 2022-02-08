@@ -8,7 +8,7 @@ This game is a great way to teach kids about the different habitats that animals
 
 The live link can be found here - [Animal Association Game](https://aliokeeffe.github.io/The-Animal-Association-Game/)
 
-INSERT AM I RESPONSIVE IMAGE HERE
+![Animal Association Game Am I Responsive Image](docs/readme_images/am_i_responsive.png)
 
 ## Site Owner Goals
 - To provide the user with an easy to navigate game that is both fun and educational.
@@ -71,6 +71,19 @@ The site is a single page with 6 sections:
 ### Wireframes
 
 Wireframes were produced using Balsamiq.
+
+ <details>
+
+ <summary>Desktop Wireframe</summary>
+
+![Desktop Wireframe](docs/wireframes/desktop_wireframe.png)
+ </details>
+
+ <details>
+    <summary>Mobile Wireframe</summary>
+
+![Mobile Wireframe](docs/wireframes/mobile_wireframe.png)
+ </details>
 
 
 ## Features
@@ -162,6 +175,9 @@ If the user clicks the "How to Play" button the instructions section appears and
 
 ![Game Over](docs/readme_images/win_game_section.png)
 
+### Features Left to Implement
+- Email JS to signup to newsletter
+
 ## Testing
 
 ### Validator Testing
@@ -180,3 +196,42 @@ If the user clicks the "How to Play" button the instructions section appears and
     - The site achieved a Lighthouse accessibility score of 100% which confirms that the colours and fonts chosen are easy to read and accessible
 
     INSERT SCREENSHOT
+
+
+### Input Testing
+- The username text input has been tested to ensure it won't save to the leaderboard unless text is inputted into the field.
+- The leaderboard was tested to ensure that scores are saved in the correct order (quickest time first) and that only three scores are shown.
+
+### Button Testing
+- All buttons were tested manually to ensure the user is directed to the correct section of the website and functions run as intended.
+
+### Game Testing
+- The game was thorougly tested by friends and family to ensure that everything worked as intended:
+  - Correct and incorrect animal cards were shuffled.
+  - The same animal card didn't appear twice in the same game. 
+  - The game shows a different selection of cards each time its played.
+  - The game ends once all the correct animals have been selected.
+  - The correct score is shown once the game ends.
+
+### Browser Testing
+- The Website was tested on Google Chrome, Firefox, Microsoft Edge, Safari browsers with no issues noted.
+    
+### Device Testing
+- The website was viewed on a variety of devices such as Desktop, Laptop, iPhone 8, iPhoneX and iPad to ensure responsiveness on various screen sizes in both portrait and landscape mode. The website performed as intended. The responsive design was also checked using Chrome developer tools across multiple devices with structural integrity holding for the various sizes.
+- I also used the following websites to test responsiveness:
+    - [Responsinator](http://www.responsinator.com/?url=https%3A%2F%2Faliokeeffe.github.io%2FThe-Animal-Association-Game%2F)
+    - [Am I Responsive](http://ami.responsivedesign.is/?url=https%3A%2F%2Faliokeeffe.github.io%2FThe-Animal-Association-Game%2F)
+
+
+### Fixed Bugs
+
+#### SetTimeout() method on incorrect cards
+- When the user selects an incorrect animal during the game a shake animation CSS rule is added to the animal card using click listener. 
+- When testing the game I noticed that once the card has been clicked once, the shake animation didn't fire on subsequent clicks. 
+- In order to fix this I added the setTimeout() method to call a function to remove the CSS class after half a second (sufficient time for the animation to finish). This meant that for subsequent incorrect clicks, the shake animation rule could be added to card again meaning that the card shakes each time it is clicked.
+
+#### Making a Deep Clone of an Object
+- In order avoid having duplicated animals showing in a game, each time an animal card is written to the DOM it is spliced out of the animals object. In order to avoid altering the original animals object I needed to first make a clone of the object and splice the animals out of the new object instead. 
+- To do this, I first used the spread operator however I quickly noticed that I was not getting the results I expected and the original object was still being changed when I spliced the cloned object. 
+- Upon researching this I realised the issue was that my animals object was actually a nested object. When you have a nested object and you copy it, nested objects inside that object will not be copied Therefore, if you change the nested object, you will change it for both instances.
+- To fix this I had to make a deep clone of the nested object by stringifying the object and parsing it right after - JSON.parse(JSON.stringify(a)). The following article was very useful : [How to differentiate between deep and shallow copies in JavaScript](https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/)

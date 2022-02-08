@@ -867,6 +867,7 @@ h2 {
         height: 90px;
         width: 90px;
         background-size: 80px 80px;
+        margin: 0 10px 10px 10px;
     }
 
     #final-time, #final-count {

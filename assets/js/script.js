@@ -1,302 +1,251 @@
-// let animalsArray = {
-//    Cat: { Name: 'Cat', Image: 'https://via.placeholder.com/150x150' },
-//    Mouse: { Name: 'Mouse', Image: 'https://via.placeholder.com/150x150' },
-//    Monkey: { Name: 'Monkey', Image: 'https://via.placeholder.com/150x150' },
-//    Sheep: { Name: 'Sheep', Image: 'https://via.placeholder.com/150x150' },
-//     // { Name: 'Cow', Image: 'https://via.placeholder.com/150x150' },
-//     // { Name: 'Pig', Image: 'https://via.placeholder.com/150x150' },
-//     // { Name: 'Horse', Image: 'https://via.placeholder.com/150x150' }
-// }
-
-
-// let jungle = {
-//     rightanswers: ['Sloth', 'Monkey', 'Snake', 'Treefrog', 'Toucan', 'Parrot', 'Leopard'],
-//     wronganswers: ['Whale', 'Dolphin', 'Octopus', 'Horse','Chicken', 'Cockeral', 'Goat'],
-//     gameType: 'jungle'
-// }
-
-// let animalsArray = ['Cat', 'Mouse', 'Monkey', 'Sheep', 'Cow', 'Pig', 'Horse'];
-
-// let colorArray = ['Blue', 'Green', 'Purple', 'Orange', 'Yellow', 'Red', 'Black', 'Pink'];
-
-let farmAnimals = ['Sheep', 'Cow', 'Pig', 'Horse', 'Chicken', 'Cockeral', 'Goat'];
-let seaAnimals = ['Whale', 'Dolphin', 'Octopus', 'Squid', 'Seahorse', 'Jellyfish', 'Clownfish'];
-let gameAnimals = [];
-let gameType;
-
-let correctAnswers = 0;
-let incorrectAttempts = 0;
-let gameOver = document.getElementById('gameover');
-let restartbtn = document.getElementsByClassName('restart-game');
-let counter = document.getElementById('counter');
-let startbtn = document.getElementById('startbtn');
-let homebtn = document.getElementsByClassName('home-button');
 let gameArea = document.getElementById('game-area');
 let welcomeArea = document.getElementById('welcome-area');
-let finalCount = document.getElementById('final-count');
-let finalTime = document.getElementById('final-time');
+let leaderBoardArea = document.getElementById('leaderboard-area');
+let instructions = document.getElementById("instructions-area");
+let selectionArea = document.getElementById("selection-area");
+let cardArea = document.getElementById('card-area');
+let scoreArea = document.getElementById('score-area');
+let infoBar = document.getElementById('info-bar');
+let gameOver = document.getElementById('gameover');
+let correctAnswers = 0;
+let incorrectAttempts = 0;
+let counter = document.getElementById('counter');
 
+let gameContents = {
+    farm: {
+        rightAnimals: ['sheep', 'cow', 'pig', 'horse', 'donkey', 'cockeral', 'goat', 'dog', 'cat'],
+        wrongAnimals: ['whale', 'dolphin', 'octopus', 'turtle', 'sloth', 'monkey', 'snake']
+    },
+    sea: {
+        rightAnimals: ['whale', 'dolphin', 'octopus', 'turtle', 'seal', 'swordfish', 'shark', 'walrus', 'crab'],
+        wrongAnimals: ['sheep', 'cow', 'pig', 'horse', 'sloth', 'monkey', 'snake'],
+    },
+    jungle: {
+        rightAnimals: ['sloth', 'monkey', 'snake', 'treefrog', 'toucan', 'gorilla', 'panda'],
+        wrongAnimals: ['whale', 'dolphin', 'octopus', 'horse', 'dog', 'cockeral', 'goat'],
+    },
+    safari: {
+        rightAnimals: ['lion', 'elephant', 'crocodile', 'rhino', 'hippo', 'zebra', 'giraffe', 'ostrich'],
+        wrongAnimals: ['cow', 'pig', 'horse', 'sloth', 'dog', 'cockeral', 'goat'],
+    }
+};
 
+let currentRightAnimals = [];
+let currentWrongAnimals = [];
 
-
-// Wait for the DOM to finish loading before running the game
-// Get the buttom elements and add event listeners to them
+let seconds = 0; 
+let minutes = 0;
+let finalScore = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
-    // let buttons = document.getElementsByTagName('button');
 
-    // // for (let button of buttons) {
-    // //     button.addEventListener('click', function () {
-    // //         alert("you pressed a button");
-    // //     })
-    // // }
-
-    // startbtn.addEventListener('click', runGame);
-
-    let buttons = document.getElementsByTagName('button');
-
-    for (let button of buttons) {
-        button.addEventListener('click', function() {
-            if(this.getAttribute('data-type') === 'home') {
-                location.href = 'https://8000-aliokeeffe-kidsassociati-0wp5x4a93rd.ws-eu29.gitpod.io/';
-            } else {
-                gameType = this.getAttribute('data-type');
-                runGame(gameType);
-                
-            }
-        })
-    }    
-        
-    // for (let i of homebtn) {
-    //     i.addEventListener('click', function () {
-    //         location.href = 'https://8000-aliokeeffe-kidsassociati-0wp5x4a93rd.ws-eu29.gitpod.io/';
-    //     });
-    // }
-
-    for (let i of restartbtn) {
-        i.addEventListener('click', function () {
-            gameOver.classList.add('hide');
-            resetGame();
+    let leaderBoardBtn = document.getElementById('leaderboard-btn');
+        leaderBoardBtn.addEventListener('click', function() {
+            loadLeaderboard();
+            leaderBoardArea.classList.remove('hide');
+            welcomeArea.classList.add('hide');
         });
-    }
-    // runGame();
 
-    
-})
+    let instructionsBtn = document.getElementById('instructions-btn');
+    instructionsBtn.addEventListener('click', function() {
+        instructions.classList.remove('hide');
+        welcomeArea.classList.add('hide');
+    });
+
+    let playBtn = document.getElementById('play-btn');
+    playBtn.addEventListener('click', function() { 
+        selectionArea.classList.remove('hide');
+        welcomeArea.classList.add('hide');
+        infoBar.classList.remove('hide');
+    });
+
+    document.getElementById("jungle-button").addEventListener('click', function() {
+        runGame("jungle");
+    });
+    document.getElementById("farm-button").addEventListener('click', function() {
+        runGame("farm");
+    });
+    document.getElementById("safari-button").addEventListener('click', function() {
+        runGame("safari");
+    });
+    document.getElementById("sea-button").addEventListener('click', function() {
+        runGame("sea");
+    });
+});
 
 function runGame(gameType) {
 
-    if (gameType === 'farm') {
-        gameAnimals = createGameAnimals([...farmAnimals], [...seaAnimals]);
-    } else if (gameType === 'sea') {
-        gameAnimals = createGameAnimals([...seaAnimals], [...farmAnimals]);
-    }
+    let level = document.querySelector('input[type = radio]:checked').value;
 
-    writeCards(gameAnimals);
+    selectionArea.classList.add('hide');
+    gameArea.classList.remove('hide');
+    document.getElementsByTagName('body')[0].style = 'background: #61BBA7';
 
-    welcomeArea.classList.add('hide');
-    gameArea.classList.remove('hide');  
+    if (level === 'hard') {
+        cardArea.classList.replace('card-area', 'card-area-hard');
+    } 
+
+    //make a deep copy of the gameContents object - as it is a nested object I used the below method as ... wouldn't work. 
+    //see https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/
+    let gameContentsCopy = JSON.parse(JSON.stringify(gameContents));
+    let currentContents = gameContentsCopy[gameType];
+
+    // Set global variables
+    currentRightAnimals.push(...currentContents.rightAnimals);
+    currentWrongAnimals.push(...currentContents.wrongAnimals);
+
+    let animalArray = buildAnimalArray(currentContents.rightAnimals, currentContents.wrongAnimals, level);
+
+    writeCards(animalArray, gameType);
+
+    startTimer();
 }
 
-// Write a function that takes two arrays as parameters and returns a new array with 3 of one a 2 of the other.
+function buildAnimalArray(rightAnimals, wrongAnimals, level) {
+    let gameAnimals = [];
+    
+    let rightAnswerCount = (level == 'easy') ? 3 : 5;
+    let wrongAnswerCount = (level == 'easy') ? 1 : 3;
 
-function createGameAnimals(rightAnimals, wrongAnimals) {
-
-    for (let i = 0; i < 3; i++) {
-        // Loop through animalsArray and get three random animals and push into newArray
+    for (let i = 0; i < rightAnswerCount; i++) {
         let rightIndex = Math.floor(Math.random() * rightAnimals.length);
         gameAnimals.push(rightAnimals[rightIndex]);
-        // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
         rightAnimals.splice(rightIndex, 1);
     }
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < wrongAnswerCount; i++) {
         let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
         gameAnimals.push(wrongAnimals[wrongIndex]);
-        wrongAnimals.splice(wrongIndex, 1)
+        wrongAnimals.splice(wrongIndex, 1);
     }
 
-    return gameAnimals;   
+    shuffleArray(gameAnimals);
+    
+    return gameAnimals;    
 }
 
-function writeCards(gameAnimals) {
+// Shuffle order of cards in gameAnimals array using the Fischer Yates Shuffle - https://javascript.info/task/shuffle 
 
-    let cardHtml = '';
+function shuffleArray(gameAnimals) {
+    for (let i = gameAnimals.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+
+        [gameAnimals[i], gameAnimals[j]] = [gameAnimals[j], gameAnimals[i]];
+    }
+}
+
+function writeCards(gameAnimals, gameType) {
+    document.getElementById('game-selected').innerHTML = gameType;
+    let level = document.querySelector('input[type = radio]:checked').value;
+
+    let cardHtml = "";
     for (let animal of gameAnimals) {
-        cardHtml += 
-        `<div class="card ${animal}">${animal}</div>`;
+        if (level === 'easy') {
+            cardHtml += `<div class="card ${animal}">${animal}</div>`;
+        } else {
+            cardHtml += `<div class="card-hard ${animal}">${animal}</div>`;
+        }
     }
     
-    let cardArea = document.getElementById('card-area');
     cardArea.innerHTML = cardHtml;
 
-    let cards = document.getElementsByClassName('card');
-    
+    let cards = document.querySelectorAll('.card, .card-hard');
     for (let card of cards) {
         card.addEventListener('click', selectCard);
     } 
+
+    let scene = document.getElementById('scene-background');
+    scene.classList.add(gameType);    
 }
 
 function selectCard() {
-    let card = this; 
-    if (gameType === 'farm') {
-        if (farmAnimals.includes(card.textContent)) {
-            card.classList.add('correct-card');
-            correctAnswers += 1;
-            card.removeEventListener('click', selectCard);
+    if (currentRightAnimals.includes(this.textContent)) {
 
-            if (correctAnswers == 3) {
-                winGame();
-            }
-        } else {
-            alert('Incorrect, sorry! ' + card.textContent + ' is not a farm animal');
-            incorrectAttemptsCounter()
-        }
-    } else if (gameType === 'sea') {
-        if (seaAnimals.includes(card.textContent)) {
-            card.classList.add('correct-card');
-            correctAnswers += 1;
-            card.removeEventListener('click', selectCard);
+        this.classList.add('correct-card');
+        correctAnswers += 1;
+        this.removeEventListener('click', selectCard);
 
-            if (correctAnswers == 3) {
+        let currentLevel = document.querySelector('input[type = radio]:checked').value;
+        let correctTotal = (currentLevel === 'easy') ? 3 : 5;
+        
+        if (correctAnswers === correctTotal) {
                 winGame();
-            }
-        } else {
-            alert('Incorrect, sorry! ' + card.textContent + ' is not a sea animal');
-            incorrectAttemptsCounter()
         }
+    } else {
+        this.classList.add('incorrect-card');
+
+        // Credit: https://www.sitepoint.com/delay-sleep-pause-wait/
+        // wait more than 0.5 seconds (the CSS animation time...) then remove the class `incorrect-card`
+        setTimeout(() => { this.classList.remove('incorrect-card');
+        }, 550);
+
+        incorrectAttemptsCounter();
     }
 }
 
+function winGame() {
+    let finalCount = document.getElementById('final-count');
+    let finalTime = document.getElementById('final-time');
+    let currentLevel = document.querySelector('input[type = radio]:checked').value;
+    let level = document.getElementById('level');
 
-function winGame () {
+    gameArea.classList.add('hide');
+    scoreArea.classList.add('hide');
     gameOver.classList.remove('hide');
     finalCount.innerHTML = incorrectAttempts;
-    finalTime.innerHTML = `${minutes} minutes and ${seconds} seconds`;
 
-    resetGame();
+    let timeString = '';
+    if (minutes) {
+        timeString += `${minutes} minutes and `;
+    }
+    timeString += `${seconds} second`;
+    timeString += seconds > 1 ? 's' : '';
+    finalTime.innerHTML = timeString;
+
+    finalScore = seconds;
+    
+    level.innerHTML = currentLevel;
+
+    // Create form submission / listener
+    let submit = document.getElementById('submit-score');
+    submit.addEventListener('click', addToLeaderboard);
 }
 
-//     console.log(this.getAttribute('data-type'))
+function addToLeaderboard() {
 
-//     // let cards = document.getElementsByClassName('card')
-// }
-//     // for (let card of cards) {
-//         if (this.getAttribute('data-type') === 'farm') {
-      
-//             this.classList.add('correct-card');
-//             correctAnswers += 1;
-//             this.removeEventListener('click', selectCard);
-    
-//             if (correctAnswers == 3) {
-//                 // gameover.style.visibility = "visible";
-//                 gameOver.classList.remove('hide');
-//                 finalCount.innerHTML = incorrectAttempts;
-//                 finalTime.innerHTML = `${minutes} minutes and ${seconds} seconds`;
-//             }
-    
-//             resetGame();
-    
-//         } else {
-//             alert('Incorrect, sorry! ' + this.textContent + ' is not an animal');
-//             incorrectAttemptsCounter()
-//         }
-
-// }
-    // let animalsArray1 = Object.keys(animalsArray);
-
-//     if (animalsArray.includes(card.textContent)) {
-
-//         card.classList.add('correct-card');
-//         correctAnswers += 1;
-//         card.removeEventListener('click', selectCard);
-
-//         if (correctAnswers == 3) {
-//             // gameover.style.visibility = "visible";
-//             gameOver.classList.remove('hide');
-//             finalCount.innerHTML = incorrectAttempts;
-//             finalTime.innerHTML = `${minutes} minutes and ${seconds} seconds`;
-//         }
-
-//         closeModal();
-
-//     } else {
-//         alert('Incorrect, sorry! ' + card.textContent + ' is not an animal');
-//         incorrectAttemptsCounter()
-//     }
-// }
-
-
-
-
-
-
-
-
-// For each element in animalsArray, creat a div with the name of the animal and add it to the DOM
-// function runGame() {
-//     welcomeArea.classList.add('hide');
-//     gameArea.classList.remove('hide');
-
-//     let animalsArray2 = [...animalsArray]
-//     let colorArray2 = [...colorArray];
-//     let newArray = [];
-
-//     // let animalsArray2 = Object.values(animalsArray);
-
-//     for (let i = 0; i < 3; i++) {
-//         // Loop through animalsArray and get three random animals and push into newArray
-//         let animalIndex = Math.floor(Math.random() * animalsArray2.length);
-//         newArray.push(animalsArray2[animalIndex]);
-//         // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
-//         animalsArray2.splice(animalIndex, 1);
-//     }
-
-//     for (let i = 0; i < 2; i++) {
-//         let colorIndex = Math.floor(Math.random() * colorArray2.length);
-//         newArray.push(colorArray2[colorIndex]);
-//         colorArray2.splice(colorIndex, 1)
-//     }
-
-//     console.log(newArray);
-
-//     shuffleArray(newArray); 
-
-//     let cardHtml = '';
-//     for (let animal of newArray) {
-//         cardHtml += 
-//         `<div class="card ${animal}">${animal}</div>`;
-//     }
-
-//     // let cardHtml = '';
-//     // for (let animalObject of newArray) {
-//     //     cardHtml += 
-//     //     `<div class="card">
-//     //         <img src="${animalObject.Image}">
-//     //         ${animalObject.Name}
-//     //     </div>`;
-//     // }
-    
-//     let cardArea = document.getElementById('card-area');
-//     cardArea.innerHTML = cardHtml;
-
-//     let cards = document.getElementsByClassName('card');
-
-//     for (let card of cards) {
-//         card.addEventListener('click', selectCard);
-//     }
-    
-//     startCount();
-// }
-
-// Shuffle order of cards in newArray using the Fischer Yates Shuffle - https://javascript.info/task/shuffle 
-
-function shuffleArray(newArray) {
-    for (let i = newArray.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-
-        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    // exit if there's no name in the input
+    let nameInput = document.getElementById('username');
+    if (nameInput.value.trim() === '') {
+        nameInput.style = 'border: 3px solid red';
+        nameInput.classList.add('incorrect-card');
+        return;
     }
+    // get the scoreboard data from localstorage, turn it into JSON
+    let leaderBoardScores = JSON.parse(localStorage.getItem('leaderBoard')) || [];
+
+    // build the object
+    let newScore = {
+        name: nameInput.value, 
+        score: finalScore,
+    };        
+
+    // push it onto the array we got from localStorage
+    leaderBoardScores.push(newScore);
+    // sort & splice the array to 3
+    leaderBoardScores.sort((a,b) => a.score - b.score);
+    leaderBoardScores.splice(3);
+    // save it to localStorage
+    localStorage.setItem('leaderBoard', JSON.stringify(leaderBoardScores));
+
+    // take the listener off the submit score button
+    this.removeEventListener('click', addToLeaderboard);
+
+    loadLeaderboard();
+    leaderBoardArea.classList.remove('hide');
+    gameOver.classList.add('hide');
+    let scene = document.getElementById('scene-background');
+    scene.classList.remove('jungle', 'safari', 'sea', 'farm');  
+    document.getElementsByTagName('body')[0].classList.add('main-image');
 }
 
 function incorrectAttemptsCounter() {
@@ -304,115 +253,65 @@ function incorrectAttemptsCounter() {
     counter.innerHTML = incorrectAttempts;
 }
 
-// remove styling for selected cards, set incorrect attempts back to zero, add back in click listeners
+function loadLeaderboard() {
+    // Get the wrapper element from the DOM
+    let leaderBoardWrapper = document.getElementById('leaderboard-wrapper');
+    // Get the leaderboard scores from localstorage
+    let leaderBoardScores = JSON.parse(localStorage.getItem('leaderBoard'));
+    if (leaderBoardScores) {
+        // Build the list items
+        let tableHtml = `
+            <table class='leaderboard-table'>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Seconds</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+        for (let leaderBoardEntry of leaderBoardScores) {
+            tableHtml += `
+                <tr>
+                    <td>${leaderBoardEntry.name}</td>
+                    <td>${leaderBoardEntry.score}</td>
+                </tr>
+            `;
+        }
+        tableHtml += `
+                </tbody>
+            </table>
+        `;
 
-function resetGame() {
-    
-    let cardArea = document.getElementById('card-area');
-    cardArea.innerHTML = '';
-  
-    correctAnswers = 0 
-    incorrectAttempts = 0
-    counter.innerHTML = incorrectAttempts;
-    // Reset Timer
-    milliseconds = 00;
-    seconds = 00;
-    minutes = 00;
-    zeroPlaceholder = 0;
-
-    runGame();
-
-    let cards = document.getElementsByClassName('card');
-
-    for (let card of cards) {
-        card.addEventListener('click', selectCard);
+        // write to the dom
+        leaderBoardWrapper.innerHTML = tableHtml;
+        
+    } else {
+        leaderBoardWrapper.innerHTML = "<h3 class='select-level'>No scores yet.... Get playing!</h3>";
     }
 }
 
 // start timer - credit to https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo
+function startTimer() {
+    let timer = document.getElementById('timer');
 
-let milliseconds = 00;
-let seconds = 00; 
-let minutes = 00;
-let timer = document.getElementById('timer');
+    setInterval(function() {
+        startCount();
+    }, 1000);
+    
+    function startCount () {
+        seconds += 1;
+        if (seconds == 60) {
+            seconds = 0;
+            minutes++;
+        }
+        if (minutes == 30) {
+            minutes = 0;
+        }
 
-setInterval(function() {
-    startCount();
-}, 10);
- 
-function startCount () {
-    milliseconds +=10;
-    if (milliseconds == 1000) {
-        milliseconds = 0;
-        seconds++;
+        let m = minutes < 10 ? "0" + minutes : minutes;
+        let s = seconds < 10 ? "0" + seconds : seconds;
+
+        timer.innerHTML = `${m} : ${s}`;
     }
-    if (seconds == 60) {
-        seconds = 00;
-        minutes++;
-    }
-    if (minutes == 30) {
-        minutes = 0;
-    }
-
-    let m = minutes < 10 ? "0" + minutes : minutes;
-    let s = seconds < 10 ? "0" + seconds : seconds;
-    let ms = milliseconds < 100 ? "0" + milliseconds : milliseconds;
-
-    timer.innerHTML = `Timer: ${m} : ${s} : ${ms}`;
 }
-
-
-
-
-// function closeModal() {
-//     closeIcon.addEventListener("click", function() {
-//         gameOver.classList.add('hide');
-//         resetGame()
-//     });
-// }
-
-
-
-// Requirements:
-// - need to know when the page has loaded (event listener)
-// - Animals array populated with the desired animals
-// - need to loop through the animals array and create a div containing the name of the animal
-// - Write the divs to the DOM (propend the divs to the card area)
-
-
-
-
-// - should I load a scene when the page loads or have a start button?
-
-// add a counter for correct attempts if the counter is = 3 then pop up you have won the game!
-
-
-    // if (level === 'easy') {    
-    //     for (let i = 0; i < 3; i++) {
-    //         // Loop through animalsArray and get three random animals and push into newArray
-    //         let rightIndex = Math.floor(Math.random() * rightAnimals.length);
-    //         gameAnimals.push(rightAnimals[rightIndex]);
-    //         // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
-    //         rightAnimals.splice(rightIndex, 1);
-    //     }
-
-    //     for (let i = 0; i < 2; i++) {
-    //         let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
-    //         gameAnimals.push(wrongAnimals[wrongIndex]);
-    //         wrongAnimals.splice(wrongIndex, 1)
-    //     }
-    // } else {
-    //     for (let i = 0; i < 6; i++) {
-    //         // Loop through animalsArray and get three random animals and push into newArray
-    //         let rightIndex = Math.floor(Math.random() * rightAnimals.length);
-    //         gameAnimals.push(rightAnimals[rightIndex]);
-    //         // Remove animals pushed into newArray from the animalsArray2 so they cannot be selected more than once
-    //         rightAnimals.splice(rightIndex, 1);
-    //     }
-
-    //     for (let i = 0; i < 4; i++) {
-    //         let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
-    //         gameAnimals.push(wrongAnimals[wrongIndex]);
-    //         wrongAnimals.splice(wrongIndex, 1)
-    //     }
-    // }

@@ -27,7 +27,7 @@ INSERT AM I RESPONSIVE IMAGE HERE
 - ### Returning user
   - As a returning user I want to be able to play the same game without getting the same selection of animals.
   - As a returning user I want to be able to play a different game (different habitat).
-  - As a returning time user I want to be able to see my score.
+  - As a returning time user I want to be able to save my score to to the leaderboard.
 
 - ### Frequent user
   - As a frequent user I want to be able to increase the level of difficulty of the game.
@@ -107,11 +107,20 @@ If the user clicks the "How to Play" button the instructions section appears and
 
 ![Game Selection](docs/readme_images/game_selection.png)
 
+<details>
+
+<summary>Mobile Game Selection</summary>
+
+![Mobile Game Selection](docs/readme_images/mobile_game_selection.png)
+
+ </details>
+
 ### Game Area
 
 #### Easy Game
 
 - The easy game includes four animal cards - three of which are correct answers and one incorrect.
+- A different selection of cards is displayed each time a new game is started and the same card will never be duplicated in the same game.
 - The background image changes to an image of the habitat selected and the habitat name is inserted into the heading text. 
 - The information bar at the top of the game area include a counter for incorrect attempts and a timer function. 
 - If the user selects a correct card it will turn green. If incorrect, the card will display a shake animation.
@@ -119,11 +128,31 @@ If the user clicks the "How to Play" button the instructions section appears and
 
 ![Easy Game](docs/readme_images/easy_game.png)
 
+<details>
+
+ <summary>Mobile Easy Game</summary>
+
+![Mobile Easy Game](docs/readme_images/mobile_easy_game.png)
+
+![Mobile Landscape Easy Game](docs/readme_images/landscape_game_easy.png)
+
+ </details>
+
 #### Hard Game
 
 - The hard game includes eight animal cards - five of which are correct answers and three incorrect.
 
 ![Hard Game](docs/readme_images/hard_game.png)
+
+<details>
+
+ <summary>Mobile Hard Game</summary>
+
+![Mobile Hard Game](docs/readme_images/mobile_hard_game.png)
+
+![Mobile Landscape Hard Game](docs/readme_images/landscape_game_hard.png)
+
+ </details>
 
 ### Game Over
 - The section shows the players score which inludes their time, number of incorrect attempts and level played.

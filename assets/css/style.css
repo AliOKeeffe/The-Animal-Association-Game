@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:ital,wght@0,200;0,300;0,500;1,200&family=Roboto+Mono:wght@300&display=swap');
 
-
 * {
     margin: 0;
     padding: 0;
@@ -29,21 +28,17 @@ body {
 
 .content-wrapper {
     width: 800px;
-    /* height: 600px; */
-    border-radius: 10px;
-    
+    border-radius: 10px;  
     background-color: rgba(98, 187, 167, .8);
     text-align: center;
 }
 
-.content-wrapper2 {
+/* .content-wrapper2 {
     width: 800px;
-    /* height: 600px; */
     border-radius: 10px;
-    
     background-color: rgba(98, 187, 167, .8);
     text-align: center;
-}
+} */
 
 /* Info bar with home button and score */
 
@@ -51,8 +46,7 @@ body {
     background-color: #053A32;
     height: 70px;
     width: 100%;
-    border-radius: 10px 10px 0 0;
-    
+    border-radius: 10px 10px 0 0;    
 }
 
 .home-button i {
@@ -141,7 +135,6 @@ h2 {
 }
 
 .leaderboard-table {
-    /* border-collapse: collapse; */
     margin: 25px 0;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     text-align: center;
@@ -208,7 +201,6 @@ h2 {
 .select-level {
     padding: 20px;
     color: #053A32;
-    /* font-size: 25px; */
     font-weight: bold;
 }
 
@@ -306,7 +298,6 @@ h2 {
     width: 130px;
     background-size: 120px 120px;
 }
-
 
 .camel {
     background-image: url(../images/animal_cards/camel.webp);
@@ -432,7 +423,6 @@ h2 {
 /* shake animation from w3 schools https://www.w3schools.com/howto/howto_css_shake_image.asp */
 .incorrect-card {
   animation: shake 0.5s;
-  /* animation-iteration-count: infinite; */
 }
 
 @keyframes shake {
@@ -547,7 +537,6 @@ h2 {
         padding: 10px;
     }
 }
-
 
 /* For mobile device sizes from 480px wide and down */
 @media screen and (max-width: 480px) {

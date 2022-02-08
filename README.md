@@ -275,7 +275,7 @@ The live link can be found here - [The Animal Association Game](https://aliokeef
 ## Credits
 
 ### Content
-My favourite book Wild Animals - Illustrated by  Neiko Ng which was the inpiration for this game. 
+My children's favourite book Wild Animals - Illustrated by  Neiko Ng which was the inpiration for this game. 
 
 ### Media
 All images and videos were sourced from:
@@ -292,9 +292,10 @@ With thanks to the below amazing artists:
 
 ### Resources Used
 - [How to differentiate between deep and shallow copies in JavaScript](https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/)
-- [Local Storage Tutorial (Episodes 8 & 9)]
+- [Local Storage Tutorial (Episodes 8 & 9)](https://www.youtube.com/playlist?list=PLB6wlEeCDJ5Yyh6P2N6Q_9JijB6v4UejF)
 - [Shuffle Cards in Array using Fisher Yates Shuffle](https://javascript.info/task/shuffle)
 - [SetTimeout() method](https://www.sitepoint.com/delay-sleep-pause-wait/)
 - [Create Stopwatch](https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo)
 - [W3Schools](https://www.w3schools.com/)  
 - [Stack Overflow](https://stackoverflow.com/)
+- [how to prevent empty field being saved](https://teamtreehouse.com/community/how-do-you-prevent-an-empty-input-field-being-added-to-my-todo-list)

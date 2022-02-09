@@ -27,7 +27,7 @@ The live link can be found here - [The Animal Association Game](https://aliokeef
 - ### Returning user
   - As a returning user I want to be able to play the same game without getting the same selection of animals.
   - As a returning user I want to be able to play a different game (different habitat).
-  - As a returning time user I want to be able to save my score to to the leaderboard.
+  - As a returning user I want to be able to save my score to to the leaderboard.
 
 - ### Frequent user
   - As a frequent user I want to be able to increase the level of difficulty of the game.
@@ -90,7 +90,7 @@ Wireframes were produced using Balsamiq.
 
 ### Home Page
 
-The landing page of the website has a very simple layout which includes the name of the game in large font and three large colourful interactive buttons that are easy for kids to select. The user is given three options to choose from:
+The landing page of the website has a very simple layout which includes a H1 heading stating the name of the game and three large colourful interactive buttons that are easy for kids to select. The user is given three options to choose from:
  - How to Play
  - Play
  - Leaderboard
@@ -188,30 +188,40 @@ If the user clicks the "How to Play" button the instructions section appears and
     - No errors were found when passing through the official W3C CSS Validator 
         - [W3C CSS Validator Results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Faliokeeffe.github.io%2FThe-Animal-Association-Game%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 - #### Javascript
-    - No errors were returned when passing through the the [JSHint Validator](https://jshint.com/)
+    - No errors or warnings were returned when passing through the the [JSHint Validator](https://jshint.com/)
 
-    INSERT SCREENSHOT
+  ![JSHint Validator Results](docs/readme_images/jshint_validator.png)
+  
 
 - #### Accessibility 
-    - The site achieved a Lighthouse accessibility score of 100% which confirms that the colours and fonts chosen are easy to read and accessible
+    - The site achieved a Lighthouse accessibility score of 100% on both mobile and desktop which confirms that the colours and fonts chosen are easy to read and accessible
 
-    INSERT SCREENSHOT
+    Mobile Lighthouse Score
 
+    ![Mobile Lighthouse Score](docs/readme_images/mobile_lighthouse.png)
+
+    Desktop Lighthouse Score
+
+    ![Desktop Lighthouse Score](docs/readme_images/desktop_lighthouse.png)
 
 ### Input Testing
 - The username text input has been tested to ensure it won't save to the leaderboard unless text is inputted into the field.
-- The leaderboard was tested to ensure that scores are saved in the correct order (quickest time first) and that only three scores are shown.
 
 ### Button Testing
 - All buttons were tested manually to ensure the user is directed to the correct section of the website and functions run as intended.
 
 ### Game Testing
-- The game was thorougly tested by friends and family to ensure that everything worked as intended:
+- The game was thorougly tested by friends and family to ensure that everything worked as intended including the following:
   - Correct and incorrect animal cards were shuffled.
   - The same animal card didn't appear twice in the same game. 
   - The game shows a different selection of cards each time its played.
+  - The scene background changes to match the habitat selected.
+  - The name of the habitat selected is inserted into the H2 in the game area once selected.
   - The game ends once all the correct animals have been selected.
+  - The timer stops when the game ends.
+  - The incorrect attempts counter captures all incorrect clicks.
   - The correct score is shown once the game ends.
+  - The leaderboard was tested to ensure that scores are saved in the correct order (quickest time first) and that only three scores are shown.
 
 ### Browser Testing
 - The Website was tested on Google Chrome, Firefox, Microsoft Edge, Safari browsers with no issues noted.
@@ -236,8 +246,13 @@ If the user clicks the "How to Play" button the instructions section appears and
 - Upon researching this I realised the issue was that my animals object was actually a nested object. When you have a nested object and you copy it, nested objects inside that object will not be copied Therefore, if you change the nested object, you will change it for both instances.
 - To fix this I had to make a deep clone of the nested object by stringifying the object and parsing it right after - JSON.parse(JSON.stringify(a)). The following article was very useful : [How to differentiate between deep and shallow copies in JavaScript](https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/)
 
+#### Username Input Data Validation
+- In order prevent the user saving a blank username to the leaderboard I wrote to javaScript prevent the score saving to the leaderboard if the text input value equaled an empty string. 
+- However when I put my project into the peer review slack channel one of my peers kindly tested this validation and was able to save a blank username by inputting an empty space and then saving.
+- In order to fix this I did a bit of research found that the trim function could be used to prevent whitespace from being saved. I was able to amend my function to include this and now the username will only save if a character is inputted.
+
 ### Known Bugs
-No known bugs.
+There are no known bugs.
 
 ## Technologies Used
 
@@ -257,11 +272,12 @@ No known bugs.
 - [TinyPNG](https://tinypng.com/) - Used to compress images to reduce file size without a reduction in quality.
 - [W3C](https://www.w3.org/) - Used for HTML & CSS Validation.
 - [Coolors](https://coolors.co/) - Used to create colour palette.
+- [Favicon](https://favicon.io/) - Used to create the favicon.
 
 
 ## Deployment
 
-The project was deployed using GitHub pages. The steps to deploy using GitHub pages are:
+The site was deployed using GitHub pages. The steps to deploy using GitHub pages are:
 
 1. Go to the repository on GitHub.com
 2. Select 'Settings' near the top of the page.
@@ -272,10 +288,24 @@ The project was deployed using GitHub pages. The steps to deploy using GitHub pa
 
 The live link can be found here - [The Animal Association Game](https://aliokeeffe.github.io/The-Animal-Association-Game/)
 
+
+## Cloning
+
+To clone this repsository follow the below steps: 
+
+1. Locate the repository at this link [The Animal Association Game Repository](https://github.com/AliOKeeffe/The-Animal-Association-Game). 
+2. Under **'Code'**, see the different cloning options, HTTPS, SSH, and GitHub CLI. Click the prefered cloning option, and then copy the link provided. 
+3. Open **Terminal**.
+4. In Terminal, change the current working directory to the desired location of the cloned directory.
+5. Type **'git clone'**, and then paste the URL copied from GitHub earlier. 
+6. Type **'Enter'** to create the local clone. 
+
 ## Credits
 
 ### Content
-My children's favourite book Wild Animals - Illustrated by  Neiko Ng which was the inpiration for this game. 
+The inspiration for this game came from my children Naomi and Fionn and their favourite book called Wild Animals - Illustrated by  Neiko Ng. The book features many different habitats; jungle, safari, desert, forest etc. The aim of book is to find all the animals in picture. I thought that an adapted version of this would be an interesting and simple idea for my javascript project whereby the animals had to be matched to the habitat (instead of being found within it). 
+
+Fionn and Naomi have already got a lot of enjoyment from playing it! 
 
 ### Media
 All images and videos were sourced from:
@@ -288,14 +318,20 @@ With thanks to the below amazing artists:
 - @brgfx - Safari background
 - @inspiring - Animal vectors
 - @pchvector - Marine animal vectors
-- @terdpontvector - Animal Vectors 
+- @terdpongvector - Animal Vectors 
 
 ### Resources Used
-- [How to differentiate between deep and shallow copies in JavaScript](https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/)
-- [Local Storage Tutorial (Episodes 8 & 9)](https://www.youtube.com/playlist?list=PLB6wlEeCDJ5Yyh6P2N6Q_9JijB6v4UejF)
-- [Shuffle Cards in Array using Fisher Yates Shuffle](https://javascript.info/task/shuffle)
-- [SetTimeout() method](https://www.sitepoint.com/delay-sleep-pause-wait/)
-- [Create Stopwatch](https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo)
+
 - [W3Schools](https://www.w3schools.com/)  
 - [Stack Overflow](https://stackoverflow.com/)
-- [how to prevent empty field being saved](https://teamtreehouse.com/community/how-do-you-prevent-an-empty-input-field-being-added-to-my-todo-list)
+- The following article was very helpful in understanding shallow vs deep clones and how to clone a nested object - [How to differentiate between deep and shallow copies in JavaScript](https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/).
+- The code for the building the leaderboard using local storage was inpired by the following tutorial which I then  adapted for my own game (episodes 8 & 9) - [Build a Quiz App with HTML CSS AND Javascript - By James Q Quick (espisodes 8 & 9)](https://www.youtube.com/playlist?list=PLB6wlEeCDJ5Yyh6P2N6Q_9JijB6v4UejF).
+- I used the Fisher Yates Shuffle in order to shuffle the correct and incorrect animal cards which I learned about in this tutorial - [Shuffle an array](https://javascript.info/task/shuffle).
+- The following post was useful in validating my username input - [How to prevent empty field being saved](https://teamtreehouse.com/community/how-do-you-prevent-an-empty-input-field-being-added-to-my-todo-list).
+- I used the following article to learn about the setTimeout method in order to remove classes from elements after a certain period of time had lapsed. - [Delay, Sleep, Pause, & Wait in JavaScript](https://www.sitepoint.com/delay-sleep-pause-wait/).
+- Inspiration for the stopwatch used in the game came from this post which I then adapted for my own game. - [Create a Simple Stopwatch using JavaScript](https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo).
+
+## Acknowledgments
+My mentor Antonio for his support and advice.
+
+The Code Institute slack community for their quick responses and very helpful feedback!

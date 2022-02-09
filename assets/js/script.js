@@ -10,6 +10,11 @@ let gameOver = document.getElementById('gameover');
 let correctAnswers = 0;
 let incorrectAttempts = 0;
 let counter = document.getElementById('counter');
+let currentRightAnimals = [];
+let currentWrongAnimals = [];
+let seconds = 0; 
+let minutes = 0;
+let finalScore = 0;
 
 let gameContents = {
     farm: {
@@ -29,13 +34,6 @@ let gameContents = {
         wrongAnimals: ['cow', 'pig', 'horse', 'sloth', 'dog', 'cockeral', 'goat'],
     }
 };
-
-let currentRightAnimals = [];
-let currentWrongAnimals = [];
-
-let seconds = 0; 
-let minutes = 0;
-let finalScore = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -101,21 +99,29 @@ function runGame(gameType) {
     startTimer();
 }
 
+/**
+ * Get a selection of right and wrong animals for the current game
+ */
 function buildAnimalArray(rightAnimals, wrongAnimals, level) {
     let gameAnimals = [];
     
+    // Determine the quantity of right and wrong animals to include in the current game depending on the level of difficulty selected
     let rightAnswerCount = (level == 'easy') ? 3 : 5;
     let wrongAnswerCount = (level == 'easy') ? 1 : 3;
 
+    // Get a random selection of "right" animals to include in the current game. The number selected will depend on the level of difficulty selected
     for (let i = 0; i < rightAnswerCount; i++) {
         let rightIndex = Math.floor(Math.random() * rightAnimals.length);
         gameAnimals.push(rightAnimals[rightIndex]);
+        // Remove the used animals each time to avoid duplication
         rightAnimals.splice(rightIndex, 1);
     }
 
+    // Get a random selection of "wrong" animals to include in the current game. The number selected will depend on the level of difficulty selected
     for (let i = 0; i < wrongAnswerCount; i++) {
         let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
         gameAnimals.push(wrongAnimals[wrongIndex]);
+        // Remove the used animals each time to avoid duplication
         wrongAnimals.splice(wrongIndex, 1);
     }
 
@@ -124,7 +130,10 @@ function buildAnimalArray(rightAnimals, wrongAnimals, level) {
     return gameAnimals;    
 }
 
-// Shuffle order of cards in gameAnimals array using the Fischer Yates Shuffle - https://javascript.info/task/shuffle 
+/**
+ * Shuffle the order of animals in the current game using the Fischer Yates Shuffle
+ * Credit: https://javascript.info/task/shuffle 
+ */
 
 function shuffleArray(gameAnimals) {
     for (let i = gameAnimals.length - 1; i > 0; i--) {
@@ -134,66 +143,91 @@ function shuffleArray(gameAnimals) {
     }
 }
 
+/**
+ * Create the animal cards and write them to the DOM.
+ */
 function writeCards(gameAnimals, gameType) {
+    // Write the name of the habitat selected to the DOM
     document.getElementById('game-selected').innerHTML = gameType;
+
+    // Determine the level of difficulty selected
     let level = document.querySelector('input[type = radio]:checked').value;
 
     let cardHtml = "";
+    // Create a card for each animal in the game animals array and add CSS class depending on level of difficulty selected
     for (let animal of gameAnimals) {
         if (level === 'easy') {
             cardHtml += `<div class="card ${animal}">${animal}</div>`;
         } else {
             cardHtml += `<div class="card-hard ${animal}">${animal}</div>`;
         }
-    }
-    
+    } 
+    // Write the animal cards to the DOM
     cardArea.innerHTML = cardHtml;
 
+    // Create listener for card selection
     let cards = document.querySelectorAll('.card, .card-hard');
     for (let card of cards) {
         card.addEventListener('click', selectCard);
     } 
 
+    // Change the scene background to match the game type selected
     let scene = document.getElementById('scene-background');
     scene.classList.add(gameType);    
 }
 
+/**
+ * Handle required actions when the user clicks on an animal card 
+ */
 function selectCard() {
+    // Check is the selected card a "correct" selection
     if (currentRightAnimals.includes(this.textContent)) {
-
         this.classList.add('correct-card');
-        correctAnswers += 1;
+        // Increment the correct answers count
+        correctAnswers++;
+
+        // Don't allow the card to be selected again
         this.removeEventListener('click', selectCard);
 
+        // Check the level of difficulty selected, if the total is correct then the user has won the game
         let currentLevel = document.querySelector('input[type = radio]:checked').value;
         let correctTotal = (currentLevel === 'easy') ? 3 : 5;
-        
         if (correctAnswers === correctTotal) {
-                winGame();
+            winGame();
         }
     } else {
+        // Fire the "incorrect" CSS animation
         this.classList.add('incorrect-card');
 
         // Credit: https://www.sitepoint.com/delay-sleep-pause-wait/
-        // wait more than 0.5 seconds (the CSS animation time...) then remove the class `incorrect-card`
+        // Wait more than 0.5 seconds (the CSS animation time...) then remove the class `incorrect-card`
         setTimeout(() => { this.classList.remove('incorrect-card');
         }, 550);
 
-        incorrectAttemptsCounter();
+        // Increment the incorrect count, write it to the DOM
+        incorrectAttempts++;
+        counter.innerHTML = incorrectAttempts;
     }
 }
 
+/**
+ * When the user wins the game show them their score and allow them to save it to the leaderboard
+ */
 function winGame() {
     let finalCount = document.getElementById('final-count');
     let finalTime = document.getElementById('final-time');
     let currentLevel = document.querySelector('input[type = radio]:checked').value;
     let level = document.getElementById('level');
 
+    // Show the Game Over area
     gameArea.classList.add('hide');
     scoreArea.classList.add('hide');
     gameOver.classList.remove('hide');
+
+    // Display the number of incorrect attempts
     finalCount.innerHTML = incorrectAttempts;
 
+    // Display the final time
     let timeString = '';
     if (minutes) {
         timeString += `${minutes} minutes and `;
@@ -202,8 +236,10 @@ function winGame() {
     timeString += seconds > 1 ? 's' : '';
     finalTime.innerHTML = timeString;
 
+    // Declare variable for final score for leaderboard
     finalScore = seconds;
     
+    // Display the level of difficulty
     level.innerHTML = currentLevel;
 
     // Create form submission / listener
@@ -248,11 +284,6 @@ function addToLeaderboard() {
     document.getElementsByTagName('body')[0].classList.add('main-image');
 }
 
-function incorrectAttemptsCounter() {
-    incorrectAttempts++;
-    counter.innerHTML = incorrectAttempts;
-}
-
 function loadLeaderboard() {
     // Get the wrapper element from the DOM
     let leaderBoardWrapper = document.getElementById('leaderboard-wrapper');
@@ -291,7 +322,7 @@ function loadLeaderboard() {
     }
 }
 
-// start timer - credit to https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo
+// Start Timer - credit to https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo
 function startTimer() {
     let timer = document.getElementById('timer');
 

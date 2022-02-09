@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +16,6 @@
 </head>
 
 <body>
-
     <!-- Content wrapper for different game backgrounds -->
     <div class="content-wrapper" id="scene-background">
 
@@ -26,8 +25,12 @@
                 <a href="index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>
             </div>
             <div class="score-area" id="score-area">
-                <div class="incorrect-attempts"><i class="far fa-frown"> <span id="counter">0</span></i></div>
-                <div><i class="far fa-clock"></i><span id='timer'>0</span></div>
+                <div class="incorrect-attempts">
+                    <i class="far fa-frown"> <span id="counter">0</span></i>
+                </div>
+                <div>
+                    <i class="far fa-clock"></i><span id='timer'>0</span>
+                </div>
             </div>
         </div>
 
@@ -68,10 +71,8 @@
         <section class="hide" id="selection-area">
             <div>
                 <h2 class="select-level">Select your preferred level of difficulty:</h2>
-
                 <!-- Radio buttons to choose level of difficulty -->
-                <input type="radio" class="radio-btn" id="easy" name="level-of-difficulty" value="easy"
-                    checked="checked">
+                <input type="radio" class="radio-btn" id="easy" name="level-of-difficulty" value="easy" checked="checked">
                 <label for="easy" class="radio-labels">Easy Peasy 😄</label>
                 <br>
                 <input type="radio" class="radio-btn" id="hard" name="level-of-difficulty" value="hard">
@@ -79,7 +80,6 @@
             </div>
             <h2 class="select-level">And then choose a game:</h2>
             <div class="select-game-area">
-
                 <!-- Game buttons to choose a habitat -->
                 <div class="game-button" id="jungle-button">
                     <div class="button-image jungle"></div>
@@ -103,8 +103,7 @@
         <!-- Leaderboard Section -->
         <section class="hide" id="leaderboard-area">
             <h2 class="select-level">Leaderboard</h2>
-            <div id="leaderboard-wrapper">
-            </div>
+            <div id="leaderboard-wrapper"></div>
             <div class="button-outer">
                 <a href="index.html" aria-label="Go back to home page">
                     <div class='button'>Back</div>
@@ -118,10 +117,8 @@
                 <div class="box-title">
                     <h2>Select all the <span id="game-selected">farm</span> animals as fast as you can!</h2>
                 </div>
-
                 <!-- Card area that animal cards get written to when the user has selected a game -->
-                <div class="card-area" id="card-area">
-                </div>
+                <div class="card-area" id="card-area"></div>
             </div>
         </section>
 
@@ -131,7 +128,6 @@
                 <h2>Game Over</h2>
             </div>
             <div class="scores-wrapper">
-
                 <!-- Final Game scores -->
                 <div class="final-scores">
                     <p>Your Time:</p>

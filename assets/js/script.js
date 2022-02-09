@@ -16,6 +16,7 @@ let seconds = 0;
 let minutes = 0;
 let finalScore = 0;
 
+// This object defines the right and wrong animals used to populate the game cards per "scene"
 let gameContents = {
     farm: {
         rightAnimals: ['sheep', 'cow', 'pig', 'horse', 'donkey', 'cockeral', 'goat', 'dog', 'cat'],
@@ -36,20 +37,23 @@ let gameContents = {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-
+    
+    // Show the Leaderboard section
     let leaderBoardBtn = document.getElementById('leaderboard-btn');
-        leaderBoardBtn.addEventListener('click', function() {
-            loadLeaderboard();
-            leaderBoardArea.classList.remove('hide');
-            welcomeArea.classList.add('hide');
-        });
+    leaderBoardBtn.addEventListener('click', function() {
+        loadLeaderboard();
+        leaderBoardArea.classList.remove('hide');
+        welcomeArea.classList.add('hide');
+    });
 
+    // Show the How to Play section
     let instructionsBtn = document.getElementById('instructions-btn');
     instructionsBtn.addEventListener('click', function() {
         instructions.classList.remove('hide');
         welcomeArea.classList.add('hide');
     });
 
+    // Show the Game Selection section
     let playBtn = document.getElementById('play-btn');
     playBtn.addEventListener('click', function() { 
         selectionArea.classList.remove('hide');
@@ -57,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         infoBar.classList.remove('hide');
     });
 
+    // These event listeners start the game depending on the selected scene
     document.getElementById("jungle-button").addEventListener('click', function() {
         runGame("jungle");
     });
@@ -71,10 +76,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+/**
+ * Run a game based on the provided gameType (farm, sea, jungle or safari)
+ */
 function runGame(gameType) {
 
+    // Check whether the game type selected is easy or hard
     let level = document.querySelector('input[type = radio]:checked').value;
 
+    // Display the Game Area and change the body background
     selectionArea.classList.add('hide');
     gameArea.classList.remove('hide');
     document.getElementsByTagName('body')[0].style = 'background: #61BBA7';
@@ -83,8 +93,8 @@ function runGame(gameType) {
         cardArea.classList.replace('card-area', 'card-area-hard');
     } 
 
-    //make a deep copy of the gameContents object - as it is a nested object I used the below method as ... wouldn't work. 
-    //see https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/
+    // Make a deep clone of the gameContents object
+    // Credit: https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/
     let gameContentsCopy = JSON.parse(JSON.stringify(gameContents));
     let currentContents = gameContentsCopy[gameType];
 
@@ -92,24 +102,29 @@ function runGame(gameType) {
     currentRightAnimals.push(...currentContents.rightAnimals);
     currentWrongAnimals.push(...currentContents.wrongAnimals);
 
+    // Build the animal array that we'll use to populate the game cards, and write these to the DOM
     let animalArray = buildAnimalArray(currentContents.rightAnimals, currentContents.wrongAnimals, level);
-
     writeCards(animalArray, gameType);
-
     startTimer();
 }
 
 /**
- * Get a selection of right and wrong animals for the current game
+ * Get a selection of right and wrong animals for the current game, dependant on the "level"
  */
 function buildAnimalArray(rightAnimals, wrongAnimals, level) {
     let gameAnimals = [];
     
-    // Determine the quantity of right and wrong animals to include in the current game depending on the level of difficulty selected
+    /*
+     * Determine the quantity of right and wrong animals to include in the current game
+     * depending on the level of difficulty selected
+     */
     let rightAnswerCount = (level == 'easy') ? 3 : 5;
     let wrongAnswerCount = (level == 'easy') ? 1 : 3;
 
-    // Get a random selection of "right" animals to include in the current game. The number selected will depend on the level of difficulty selected
+    /*
+     * Get a random selection of "right" animals to include in the current game.
+     * The number selected will depend on the level of difficulty selected
+     */
     for (let i = 0; i < rightAnswerCount; i++) {
         let rightIndex = Math.floor(Math.random() * rightAnimals.length);
         gameAnimals.push(rightAnimals[rightIndex]);
@@ -117,7 +132,10 @@ function buildAnimalArray(rightAnimals, wrongAnimals, level) {
         rightAnimals.splice(rightIndex, 1);
     }
 
-    // Get a random selection of "wrong" animals to include in the current game. The number selected will depend on the level of difficulty selected
+    /*
+     * Get a random selection of "wrong" animals to include in the current game.
+     * The number selected will depend on the level of difficulty selected
+     */ 
     for (let i = 0; i < wrongAnswerCount; i++) {
         let wrongIndex = Math.floor(Math.random() * wrongAnimals.length);
         gameAnimals.push(wrongAnimals[wrongIndex]);
@@ -134,11 +152,9 @@ function buildAnimalArray(rightAnimals, wrongAnimals, level) {
  * Shuffle the order of animals in the current game using the Fischer Yates Shuffle
  * Credit: https://javascript.info/task/shuffle 
  */
-
 function shuffleArray(gameAnimals) {
     for (let i = gameAnimals.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
-
         [gameAnimals[i], gameAnimals[j]] = [gameAnimals[j], gameAnimals[i]];
     }
 }
@@ -154,7 +170,10 @@ function writeCards(gameAnimals, gameType) {
     let level = document.querySelector('input[type = radio]:checked').value;
 
     let cardHtml = "";
-    // Create a card for each animal in the game animals array and add CSS class depending on level of difficulty selected
+    /*
+     * Create a card for each animal in the game animals array and add CSS
+     * class depending on level of difficulty selected
+     */
     for (let animal of gameAnimals) {
         if (level === 'easy') {
             cardHtml += `<div class="card ${animal}">${animal}</div>`;
@@ -236,7 +255,7 @@ function winGame() {
     timeString += seconds > 1 ? 's' : '';
     finalTime.innerHTML = timeString;
 
-    // Declare variable for final score for leaderboard
+    // Store the seconds taken once the game has finished
     finalScore = seconds;
     
     // Display the level of difficulty
@@ -247,33 +266,37 @@ function winGame() {
     submit.addEventListener('click', addToLeaderboard);
 }
 
+/**
+ * Stores the name / score into localStorage, these will be used 
+ * to populate the Leaderboard
+ */
 function addToLeaderboard() {
 
-    // exit if there's no name in the input
+    // Exit function if there's no name in the input
     let nameInput = document.getElementById('username');
     if (nameInput.value.trim() === '') {
         nameInput.style = 'border: 3px solid red';
         nameInput.classList.add('incorrect-card');
         return;
     }
-    // get the scoreboard data from localstorage, turn it into JSON
+    // Get the scoreboard data from localstorage, turn it into JSON
     let leaderBoardScores = JSON.parse(localStorage.getItem('leaderBoard')) || [];
 
-    // build the object
+    // Build the object
     let newScore = {
         name: nameInput.value, 
         score: finalScore,
     };        
 
-    // push it onto the array we got from localStorage
+    // Push it onto the array we got from localStorage
     leaderBoardScores.push(newScore);
-    // sort & splice the array to 3
+    // Sort & splice the array to just 3 elements
     leaderBoardScores.sort((a,b) => a.score - b.score);
     leaderBoardScores.splice(3);
-    // save it to localStorage
+    // Save it to localStorage
     localStorage.setItem('leaderBoard', JSON.stringify(leaderBoardScores));
 
-    // take the listener off the submit score button
+    // Take the listener off the submit score button
     this.removeEventListener('click', addToLeaderboard);
 
     loadLeaderboard();
@@ -284,6 +307,10 @@ function addToLeaderboard() {
     document.getElementsByTagName('body')[0].classList.add('main-image');
 }
 
+/**
+ * Retrieves the names and scores from localStorage to build the Table used
+ * in the Leaderboard section
+ */
 function loadLeaderboard() {
     // Get the wrapper element from the DOM
     let leaderBoardWrapper = document.getElementById('leaderboard-wrapper');
@@ -314,7 +341,7 @@ function loadLeaderboard() {
             </table>
         `;
 
-        // write to the dom
+        // Write to the DOM
         leaderBoardWrapper.innerHTML = tableHtml;
         
     } else {
@@ -322,7 +349,10 @@ function loadLeaderboard() {
     }
 }
 
-// Start Timer - credit to https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo
+/**
+ * Stopwatch
+ * Credit to https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo
+ */
 function startTimer() {
     let timer = document.getElementById('timer');
 

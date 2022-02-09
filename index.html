@@ -6,24 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Fun animal association game for kids">
-    <meta name="keywords" content="kids game, animals, habitats, educational game, fun game"> 
+    <meta name="keywords" content="kids game, animals, habitats, educational game, fun game">
+
+    <!-- CSS stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Favicon from favicon.io -->
     <title>The Animal Association Game</title>
 </head>
 
 <body>
+
+    <!-- Content wrapper for Game Backgrounds -->
     <div class="content-wrapper" id="scene-background">
+
+        <!-- Information bar -->
         <div class="info-bar hide" id="info-bar">
             <div class="home-button">
-                <a href="index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>   
+                <a href="index.html" aria-label="Go to the home page"><i class="fas fa-home"></i></a>
             </div>
             <div class="score-area" id="score-area">
                 <div class="incorrect-attempts"><i class="far fa-frown"> <span id="counter">0</span></i></div>
-                <div><i class="far fa-clock"></i><span id='timer'>0</span></div> 
+                <div><i class="far fa-clock"></i><span id='timer'>0</span></div>
             </div>
         </div>
 
-        <section class="welcome-area" id="welcome-area"> 
+        <!-- Landing page welcome section -->
+        <section class="welcome-area" id="welcome-area">
             <h1 class="heading">The Animal Association Game</h1>
             <div class="playbtn-outer">
                 <button class='instructions-btn' id='instructions-btn'>How to Play</button>
@@ -34,36 +43,7 @@
             </div>
         </section>
 
-        <section class="selection-area hide" id="selection-area">
-            <div>
-                <h2 class="select-level">Select your preferred level of difficulty:</h2>
-                <input type="radio" class="radio-btn" id="easy" name="level-of-difficulty" value="easy" checked="checked">
-                <label for="easy" class="radio-labels">Easy Peasy 😄</label>
-                <br>
-                <input type="radio" class="radio-btn" id="hard" name="level-of-difficulty" value="hard">
-                <label for="hard" class="radio-labels">Super Duper Hard 😅</label>
-            </div>
-            <h2 class="select-level">And then choose a game:</h2>
-            <div class="select-game-area">
-                <div class="game-button" id="jungle-button">
-                    <div class="button-image jungle"></div>
-                    <div class="button-text">Jungle</div>
-                </div>
-                <div class="game-button" id="sea-button">
-                    <div class="button-image sea"></div>
-                    <div class="button-text">Sea</div>
-                </div>
-                <div class="game-button" id="safari-button">
-                    <div class="button-image safari"></div>
-                    <div class="button-text">Safari</div>
-                </div>
-                <div class="game-button" id="farm-button">
-                    <div class="button-image farm"></div>
-                    <div class="button-text">Farm</div>
-                </div>
-            </div>
-        </section>
-
+        <!-- Instructions Section-->
         <section class="instructions-area hide" id="instructions-area">
             <div>
                 <h2 class="select-level">How to Play</h2>
@@ -84,6 +64,43 @@
             </div>
         </section>
 
+        <!-- Game selection -->
+        <section class="selection-area hide" id="selection-area">
+            <div>
+                <h2 class="select-level">Select your preferred level of difficulty:</h2>
+
+                <!-- Radio buttons to choose level of difficulty -->
+                <input type="radio" class="radio-btn" id="easy" name="level-of-difficulty" value="easy"
+                    checked="checked">
+                <label for="easy" class="radio-labels">Easy Peasy 😄</label>
+                <br>
+                <input type="radio" class="radio-btn" id="hard" name="level-of-difficulty" value="hard">
+                <label for="hard" class="radio-labels">Super Duper Hard 😅</label>
+            </div>
+            <h2 class="select-level">And then choose a game:</h2>
+            <div class="select-game-area">
+
+                <!-- Game buttons to choose a habitat -->
+                <div class="game-button" id="jungle-button">
+                    <div class="button-image jungle"></div>
+                    <div class="button-text">Jungle</div>
+                </div>
+                <div class="game-button" id="sea-button">
+                    <div class="button-image sea"></div>
+                    <div class="button-text">Sea</div>
+                </div>
+                <div class="game-button" id="safari-button">
+                    <div class="button-image safari"></div>
+                    <div class="button-text">Safari</div>
+                </div>
+                <div class="game-button" id="farm-button">
+                    <div class="button-image farm"></div>
+                    <div class="button-text">Farm</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaderboard Section -->
         <section class="leaderboard-area hide" id="leaderboard-area">
             <h2 class="select-level">Leaderboard</h2>
             <div id="leaderboard-wrapper">
@@ -91,29 +108,36 @@
             <div class="playbtn-outer">
                 <a href="index.html" aria-label="Go back to home page">
                     <div class='play-btn'>Back</div>
-                </a>   
+                </a>
             </div>
         </section>
 
+        <!-- Play Game Section -->
         <section class="game-area hide" id="game-area">
             <div>
                 <div class="box-title">
                     <h2>Select all the <span id="game-selected">farm</span> animals as fast as you can!</h2>
-                </div> 
+                </div>
+
+                <!-- Card area that animal cards get written to when the user has selected a game -->
                 <div class="card-area" id="card-area">
                 </div>
             </div>
         </section>
+
+        <!-- Gameover Section -->
         <section class="gameover hide" id="gameover">
             <div class="box-title">
                 <h2>Game Over</h2>
             </div>
             <div class="scores-wrapper">
+
+                <!-- Final Game scores -->
                 <div class="final-scores">
                     <p>Your Time:</p>
                     <p id="final-time"></p>
                 </div>
-                <div class="final-scores"> 
+                <div class="final-scores">
                     <p>Incorrect Attempts:</p>
                     <p id="final-count"></p>
                 </div>
@@ -127,7 +151,7 @@
                 <button class="play-btn" id="submit-score">Save</button>
                 <a href="index.html" aria-label="Go back to home page">
                     <div class='play-btn'>Play Again</div>
-                </a> 
+                </a>
             </div>
         </section>
     </div>
@@ -135,6 +159,7 @@
     <!-- font awesome script -->
     <script src="https://kit.fontawesome.com/08445b6b20.js" crossorigin="anonymous"></script>
 
+    <!-- JavaScript script -->
     <script src="assets/js/script.js"></script>
 </body>
 

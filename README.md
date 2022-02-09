@@ -1,3 +1,55 @@
+- [The Animal Association Game](#the-animal-association-game)
+  * [Site Owner Goals](#site-owner-goals)
+  * [User Stories](#user-stories)
+    + [First Time User](#first-time-user)
+    + [Returning user](#returning-user)
+    + [Frequent user](#frequent-user)
+  * [Design](#design)
+    + [Imagery](#imagery)
+    + [Colour Scheme](#colour-scheme)
+    + [Fonts](#fonts)
+    + [Layout](#layout)
+    + [Wireframes](#wireframes)
+  * [Features](#features)
+    + [Home Page](#home-page)
+    + [How to Play Page](#how-to-play-page)
+    + [Leaderboard](#leaderboard)
+    + [Game Selection](#game-selection)
+    + [Game Area](#game-area)
+      - [Easy Game](#easy-game)
+      - [Hard Game](#hard-game)
+    + [Game Over](#game-over)
+    + [Features Left to Implement](#features-left-to-implement)
+  * [Testing](#testing)
+    + [Validator Testing](#validator-testing)
+      - [HTML](#html)
+      - [CSS](#css)
+      - [Javascript](#javascript)
+      - [Accessibility](#accessibility)
+    + [Input Testing](#input-testing)
+    + [Button Testing](#button-testing)
+    + [Game Testing](#game-testing)
+    + [Browser Testing](#browser-testing)
+    + [Device Testing](#device-testing)
+    + [Fixed Bugs](#fixed-bugs)
+      - [SetTimeout() method on incorrect cards](#settimeout---method-on-incorrect-cards)
+      - [Making a Deep Clone of an Object](#making-a-deep-clone-of-an-object)
+      - [Username Input Data Validation](#username-input-data-validation)
+    + [Known Bugs](#known-bugs)
+  * [Technologies Used](#technologies-used)
+    + [Languages](#languages)
+    + [Frameworks - Libraries - Programs Used](#frameworks---libraries---programs-used)
+  * [Deployment](#deployment)
+  * [Cloning](#cloning)
+  * [Credits](#credits)
+    + [Content](#content)
+    + [Media](#media)
+    + [Resources Used](#resources-used)
+  * [Acknowledgments](#acknowledgments)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 # The Animal Association Game
 
 The Animal Association Game is a fun educational game aimed at children between the ages of 4 and 7. The aim of the game is to match the animals to their preferred habitat and avoid selecting the wrong animals.
@@ -193,16 +245,16 @@ If the user clicks the "How to Play" button the instructions section appears and
   ![JSHint Validator Results](docs/readme_images/jshint_validator.png)
   
 
-- #### Accessibility 
-    - The site achieved a Lighthouse accessibility score of 100% on both mobile and desktop which confirms that the colours and fonts chosen are easy to read and accessible
+### Accessibility 
+- The site achieved a Lighthouse accessibility score of 100% on both mobile and desktop which confirms that the colours and fonts chosen are easy to read and accessible
 
-    Mobile Lighthouse Score
+Mobile Lighthouse Score
 
-    ![Mobile Lighthouse Score](docs/readme_images/mobile_lighthouse.png)
+![Mobile Lighthouse Score](docs/readme_images/mobile_lighthouse.png)
 
-    Desktop Lighthouse Score
+Desktop Lighthouse Score
 
-    ![Desktop Lighthouse Score](docs/readme_images/desktop_lighthouse.png)
+![Desktop Lighthouse Score](docs/readme_images/desktop_lighthouse.png)
 
 ### Input Testing
 - The username text input has been tested to ensure it won't save to the leaderboard unless text is inputted into the field.

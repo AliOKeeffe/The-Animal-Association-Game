@@ -10,7 +10,7 @@
     box-sizing: border-box;
     font-size: 20px;
     font-family: Poppins, "sans-serif";
-  }
+}
 
 body {
     background: url(../images/scenes/mainbg.webp) no-repeat center center;
@@ -62,9 +62,9 @@ h2 {
     display: inline-block;
 }
 
-.button:hover{
+.button:hover {
     transform: rotate(-2deg);
-  }
+}
 
 /* Info bar with home button, incorrect attempts and timer */
 
@@ -167,7 +167,7 @@ h2 {
 }
 
 .leaderboard-table tbody tr {
-    border-bottom: 1px solid #dddddd;   
+    border-bottom: 1px solid #dddddd;
 }
 
 .leaderboard-table tbody tr:nth-of-type(even) {
@@ -435,7 +435,7 @@ h2 {
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
-  }
+}
 
 /* Game Over Section */
 
@@ -763,7 +763,7 @@ h2 {
         height: 50px;  
         border-radius: 0 0 0 0;
     }
-    
+
     .home-button i {
         font-size: 30px;
         padding: 10px;
@@ -785,6 +785,7 @@ h2 {
         padding: 0;
         margin: 0 10px;
     }
+
     .instructions p {
         padding:0 0 20px 0;
         font-size: 16px;
@@ -848,6 +849,7 @@ h2 {
         width: 120px;
         background-size: 110px 110px;
     }
+
     .card-hard {
         height: 90px;
         width: 90px;
@@ -862,6 +864,7 @@ h2 {
     .scores-wrapper {
         margin: 20px 40px;
     }
+
     .final-scores {
         height: 90px;
         padding: 5px;
@@ -877,7 +880,7 @@ h2 {
     .heading {
         font-size: 25px;
     }
-    
+
     h2 {
         font-size: 17px;
     }
@@ -896,6 +899,7 @@ h2 {
     .leaderboard-table td {
         padding: 5px;
     }
+
     .select-game-area .button-image {
         height: 80px;
     }
@@ -916,6 +920,7 @@ h2 {
         width: 100px;
         background-size: 90px 90px;
     }
+
     .card-hard {
         height: 80px;
         width: 80px;
@@ -928,6 +933,6 @@ h2 {
     }
 
     #username {
-        padding: 5px;;
+        padding: 5px;
     }
 }

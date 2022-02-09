@@ -66,20 +66,20 @@ The live link can be found here - [The Animal Association Game](https://aliokeef
 - To provide the user with an easy to navigate game that is both fun and educational.
 - To present the user with a website that is visually appealing and fully responsive.
 - To allow the user to choose from a selection of habitats and also to let them increase the level of difficulty of the game if they wish.
-- Invoke a sense of urgency to complete the game as quick as possible. 
+- Invoke a sense of urgency to complete the game as quickly as possible. 
 - To entice the user to return to the game to improve their score.
 
 ## User Stories
 
 - ### First Time User
   - As a first time user I want to understand the main purpose of the game
-  - As a first time user I want to be able to intuitively navigate the game, choose my level of difficultly, choose a habitat, play the game, see my score and restart the game once it ends.
+  - As a first time user I want to be able to intuitively navigate the game, choose my level of difficulty, choose a habitat, play the game, see my score and restart the game once it ends.
   - As a first time user I want to have fun and learn about animals and their habitats
 
 - ### Returning user
   - As a returning user I want to be able to play the same game without getting the same selection of animals.
   - As a returning user I want to be able to play a different game (different habitat).
-  - As a returning user I want to be able to save my score to to the leaderboard.
+  - As a returning user I want to be able to save my score to the leaderboard.
 
 - ### Frequent user
   - As a frequent user I want to be able to increase the level of difficulty of the game.
@@ -165,7 +165,7 @@ If the user clicks the "How to Play" button the instructions section appears and
 
 ### Game Selection
 
-- The are two levels of difficulty to choose from (easy and hard) and this option is presented as a radio button. 
+- There are two levels of difficulty to choose from (easy and hard) and this option is presented as a radio button. 
 - The default level selected is easy.
 - The user can then choose from four habitats - each contains an object of different animals.
 
@@ -186,7 +186,7 @@ If the user clicks the "How to Play" button the instructions section appears and
 - The easy game includes four animal cards - three of which are correct answers and one incorrect.
 - A different selection of cards is displayed each time a new game is started and the same card will never be duplicated in the same game.
 - The background image changes to an image of the habitat selected and the habitat name is inserted into the heading text. 
-- The information bar at the top of the game area include a counter for incorrect attempts and a timer function. 
+- The information bar at the top of the game area includes a counter for incorrect attempts and a timer function. 
 - If the user selects a correct card it will turn green. If incorrect, the card will display a shake animation.
 - When the user clicks on the last correct card the timer stops, the game ends and the game over area appears.
 
@@ -219,7 +219,7 @@ If the user clicks the "How to Play" button the instructions section appears and
  </details>
 
 ### Game Over
-- The section shows the players score which inludes their time, number of incorrect attempts and level played.
+- The section shows the players score which includes their time, number of incorrect attempts and level played.
 - The player has an option to insert their name into the text input box and save their score to the leaderboard using local storage. 
 - If no name is entered the user will be unable to save the score and a red border and shake animation will appear on the text input. 
 - If the username is entered correctly the user will be taken directly to the leaderboard page.
@@ -263,10 +263,10 @@ Desktop Lighthouse Score
 - All buttons were tested manually to ensure the user is directed to the correct section of the website and functions run as intended.
 
 ### Game Testing
-- The game was thorougly tested by friends and family to ensure that everything worked as intended including the following:
+- The game was thoroughly tested by friends and family to ensure that everything worked as intended including the following:
   - Correct and incorrect animal cards were shuffled.
   - The same animal card didn't appear twice in the same game. 
-  - The game shows a different selection of cards each time its played.
+  - The game shows a different selection of cards each time it's played.
   - The scene background changes to match the habitat selected.
   - The name of the habitat selected is inserted into the H2 in the game area once selected.
   - The game ends once all the correct animals have been selected.
@@ -288,18 +288,18 @@ Desktop Lighthouse Score
 #### SetTimeout() method on incorrect cards
 - When the user selects an incorrect animal during the game a shake animation CSS rule is added to the animal card using a click listener. 
 - When testing the game I noticed that once the card has been clicked once, the shake animation didn't fire on subsequent clicks. 
-- In order to fix this I added the setTimeout() method to call a function to remove the CSS class after half a second (sufficient time for the animation to finish). This meant that for subsequent incorrect clicks, the shake animation rule could be added to card again meaning that the card shakes each time it is clicked.
+- In order to fix this I added the setTimeout() method to call a function to remove the CSS class after half a second (sufficient time for the animation to finish). This meant that for subsequent incorrect clicks, the shake animation rule could be added to the card again meaning that the card shakes each time it is clicked.
 
 #### Making a Deep Clone of an Object
-- In order avoid having duplicated animals showing in a game, each time an animal card is written to the DOM it is spliced out of the animals object. In order to avoid altering the original animals object I needed to first make a clone of the object and splice the animals out of the new object instead. 
+- In order to avoid having duplicated animals showing in a game, each time an animal card is written to the DOM it is spliced out of the animals object. In order to avoid altering the original animals object I needed to first make a clone of the object and splice the animals out of the new object instead. 
 - To do this, I first used the spread operator however I quickly noticed that I was not getting the results I expected and the original object was still being changed when I spliced the cloned object. 
-- Upon researching this I realised the issue was that my animals object was actually a nested object. When you have a nested object and you copy it, nested objects inside that object will not be copied Therefore, if you change the nested object, you will change it for both instances.
+- Upon researching this I realised the issue was that my animals object was actually a nested object. When you have a nested object and you copy it, nested objects inside that object will not be copied. Therefore, if you change the nested object, you will change it for both instances.
 - To fix this I had to make a deep clone of the nested object by stringifying the object and parsing it right after - JSON.parse(JSON.stringify(a)). The following article was very useful : [How to differentiate between deep and shallow copies in JavaScript](https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/)
 
 #### Username Input Data Validation
-- In order prevent the user saving a blank username to the leaderboard I wrote javaScript to prevent the score saving to the leaderboard if the text input value equaled an empty string. 
+- In order to prevent the user saving a blank username to the leaderboard I wrote javaScript to prevent the score saving to the leaderboard if the text input value equaled an empty string. 
 - However when I put my project into the peer review slack channel one of my peers kindly tested this validation and was able to save a blank username by inputting an empty space and then saving.
-- In order to fix this I did a bit of research found that the trim function could be used to prevent whitespace from being saved. I was able to amend my function to include this and now the username will only save if a character is inputted.
+- In order to fix this I did a bit of research and found that the trim function could be used to prevent whitespace from being saved. I was able to amend my function to include this and now the username will only save if a character is inputted.
 
 ### Known Bugs
 There are no known bugs.
@@ -341,7 +341,7 @@ The live link can be found here - [The Animal Association Game](https://aliokeef
 
 ## Cloning
 
-To clone this repsository follow the below steps: 
+To clone this repository follow the below steps: 
 
 1. Locate the repository at this link [The Animal Association Game Repository](https://github.com/AliOKeeffe/The-Animal-Association-Game). 
 2. Under **'Code'**, see the different cloning options, HTTPS, SSH, and GitHub CLI. Click the prefered cloning option, and then copy the link provided. 
@@ -353,7 +353,7 @@ To clone this repsository follow the below steps:
 ## Credits
 
 ### Content
-The inspiration for this game came from my children Naomi and Fionn and their favourite book called Wild Animals - Illustrated by  Neiko Ng. The book features many different habitats; jungle, safari, desert, forest etc. The aim of book is to find all the animals in picture. I thought that an adapted version of this would be an interesting and fun idea for my javascript project whereby the animals had to be matched to the habitat (instead of being found within it). 
+The inspiration for this game came from my children Naomi and Fionn and their favourite book called Wild Animals - Illustrated by  Neiko Ng. The book features many different habitats; jungle, safari, desert, forest etc. The aim of the book is to find all the animals in the picture. I thought that an adapted version of this would be an interesting and fun idea for my javascript project whereby the animals had to be matched to the habitat (instead of being found within it). 
 
 Fionn and Naomi have already got a lot of enjoyment from playing it! 
 
@@ -375,7 +375,7 @@ With thanks to the below amazing artists:
 - [W3Schools](https://www.w3schools.com/)  
 - [Stack Overflow](https://stackoverflow.com/)
 - The following article was very helpful in understanding shallow vs deep clones and how to clone a nested object - [How to differentiate between deep and shallow copies in JavaScript](https://www.freecodecamp.org/news/copying-stuff-in-javascript-how-to-differentiate-between-deep-and-shallow-copies-b6d8c1ef09cd/).
-- The code for building the leaderboard using local storage was inpired by the following tutorial which I then  adapted for my own game (episodes 8 & 9) - [Build a Quiz App with HTML CSS AND Javascript - By James Q Quick (espisodes 8 & 9)](https://www.youtube.com/playlist?list=PLB6wlEeCDJ5Yyh6P2N6Q_9JijB6v4UejF).
+- The code for building the leaderboard using local storage was inspired by the following tutorial which I then  adapted for my own game (episodes 8 & 9) - [Build a Quiz App with HTML CSS AND Javascript - By James Q Quick (episodes 8 & 9)](https://www.youtube.com/playlist?list=PLB6wlEeCDJ5Yyh6P2N6Q_9JijB6v4UejF).
 - I used the Fisher Yates Shuffle in order to shuffle the correct and incorrect animal cards which I learned about in this tutorial - [Shuffle an array](https://javascript.info/task/shuffle).
 - The following post was useful in validating my username input - [How to prevent empty field being saved](https://teamtreehouse.com/community/how-do-you-prevent-an-empty-input-field-being-added-to-my-todo-list).
 - I used the following article to learn about the setTimeout method in order to remove classes from elements after a certain period of time had lapsed. - [Delay, Sleep, Pause, & Wait in JavaScript](https://www.sitepoint.com/delay-sleep-pause-wait/).

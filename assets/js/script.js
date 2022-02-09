@@ -36,6 +36,7 @@ let gameContents = {
     }
 };
 
+// When the DOM finishes loading, get the buttons and add event listeners to them
 document.addEventListener("DOMContentLoaded", function () {
     
     // Show the Leaderboard section
@@ -269,6 +270,8 @@ function winGame() {
 /**
  * Stores the name / score into localStorage, these will be used 
  * to populate the Leaderboard
+ * Credit to this tutorial: 
+ * https://www.youtube.com/playlist?list=PLB6wlEeCDJ5Yyh6P2N6Q_9JijB6v4UejF
  */
 function addToLeaderboard() {
 
@@ -310,6 +313,8 @@ function addToLeaderboard() {
 /**
  * Retrieves the names and scores from localStorage to build the Table used
  * in the Leaderboard section
+ * Credit to this tutorial: 
+ * https://www.youtube.com/playlist?list=PLB6wlEeCDJ5Yyh6P2N6Q_9JijB6v4UejF
  */
 function loadLeaderboard() {
     // Get the wrapper element from the DOM

@@ -17,7 +17,7 @@
 
 <body>
 
-    <!-- Content wrapper for Game Backgrounds -->
+    <!-- Content wrapper for different game backgrounds -->
     <div class="content-wrapper" id="scene-background">
 
         <!-- Information bar -->
@@ -32,19 +32,19 @@
         </div>
 
         <!-- Landing page welcome section -->
-        <section class="welcome-area" id="welcome-area">
+        <section id="welcome-area">
             <h1 class="heading">The Animal Association Game</h1>
-            <div class="playbtn-outer">
-                <button class='instructions-btn' id='instructions-btn'>How to Play</button>
+            <div class="button-outer">
+                <button class='button' id='instructions-btn'>How to Play</button>
                 <br>
-                <button class='play-btn' id='play-btn'>Play</button>
+                <button class='button' id='play-btn'>Play</button>
                 <br>
-                <button class='instructions-btn' id='leaderboard-btn'>Leaderboard</button>
+                <button class='button' id='leaderboard-btn'>Leaderboard</button>
             </div>
         </section>
 
         <!-- Instructions Section-->
-        <section class="instructions-area hide" id="instructions-area">
+        <section class="hide" id="instructions-area">
             <div>
                 <h2 class="select-level">How to Play</h2>
             </div>
@@ -57,15 +57,15 @@
                     <li>When you have selected all of the correct animals the game will end and you will see your score</li>
                 </ol>
             </div>
-            <div class="playbtn-outer">
+            <div class="button-outer">
                 <a href="index.html" aria-label="Go back to home page">
-                    <div class='play-btn'>Back</div>
+                    <div class='button'>Back</div>
                 </a>
             </div>
         </section>
 
-        <!-- Game selection -->
-        <section class="selection-area hide" id="selection-area">
+        <!-- Game & level selection -->
+        <section class="hide" id="selection-area">
             <div>
                 <h2 class="select-level">Select your preferred level of difficulty:</h2>
 
@@ -101,19 +101,19 @@
         </section>
 
         <!-- Leaderboard Section -->
-        <section class="leaderboard-area hide" id="leaderboard-area">
+        <section class="hide" id="leaderboard-area">
             <h2 class="select-level">Leaderboard</h2>
             <div id="leaderboard-wrapper">
             </div>
-            <div class="playbtn-outer">
+            <div class="button-outer">
                 <a href="index.html" aria-label="Go back to home page">
-                    <div class='play-btn'>Back</div>
+                    <div class='button'>Back</div>
                 </a>
             </div>
         </section>
 
         <!-- Play Game Section -->
-        <section class="game-area hide" id="game-area">
+        <section class="hide" id="game-area">
             <div>
                 <div class="box-title">
                     <h2>Select all the <span id="game-selected">farm</span> animals as fast as you can!</h2>
@@ -126,7 +126,7 @@
         </section>
 
         <!-- Gameover Section -->
-        <section class="gameover hide" id="gameover">
+        <section class="hide" id="gameover">
             <div class="box-title">
                 <h2>Game Over</h2>
             </div>
@@ -146,11 +146,11 @@
                     <p id="level"></p>
                 </div>
             </div>
-            <div class="playbtn-outer">
+            <div class="button-outer">
                 <input id="username" type="text" placeholder="Enter your name"><br>
-                <button class="play-btn" id="submit-score">Save</button>
+                <button class="button" id="submit-score">Save</button>
                 <a href="index.html" aria-label="Go back to home page">
-                    <div class='play-btn'>Play Again</div>
+                    <div class='button'>Play Again</div>
                 </a>
             </div>
         </section>

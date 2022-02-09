@@ -380,6 +380,7 @@ With thanks to the below amazing artists:
 - The following post was useful in validating my username input - [How to prevent empty field being saved](https://teamtreehouse.com/community/how-do-you-prevent-an-empty-input-field-being-added-to-my-todo-list).
 - I used the following article to learn about the setTimeout method in order to remove classes from elements after a certain period of time had lapsed. - [Delay, Sleep, Pause, & Wait in JavaScript](https://www.sitepoint.com/delay-sleep-pause-wait/).
 - Inspiration for the stopwatch used in the game came from this post which I then adapted for my own game. - [Create a Simple Stopwatch using JavaScript](https://dev.to/shantanu_jana/create-a-simple-stopwatch-using-javascript-3eoo).
+- The shake animation effect for incorrect card selection came from [W3Schools](https://www.w3schools.com/howto/howto_css_shake_image.asp)
 
 ## Acknowledgments
 My mentor Antonio for his support and advice.

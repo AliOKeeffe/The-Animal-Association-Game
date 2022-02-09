@@ -1,4 +1,8 @@
+/* Google Fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:ital,wght@0,200;0,300;0,500;1,200&family=Roboto+Mono:wght@300&display=swap');
+
+/* Global Styles */
 
 * {
     margin: 0;
@@ -7,10 +11,6 @@
     font-size: 20px;
     font-family: Poppins, "sans-serif";
   }
-
-.hide {
-    display: none;
-}
 
 body {
     background: url(../images/scenes/mainbg.webp) no-repeat center center;
@@ -21,9 +21,9 @@ body {
     min-height: 100vh;
 }
 
-.main-image {
-    background: url(../images/scenes/mainbg.webp) no-repeat center center !important;
-    background-size: cover !important;
+h2 {
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .content-wrapper {
@@ -33,14 +33,40 @@ body {
     text-align: center;
 }
 
-/* .content-wrapper2 {
-    width: 800px;
-    border-radius: 10px;
-    background-color: rgba(98, 187, 167, .8);
-    text-align: center;
-} */
+.hide {
+    display: none;
+}
 
-/* Info bar with home button and score */
+.main-image {
+    background: url(../images/scenes/mainbg.webp) no-repeat center center !important;
+    background-size: cover !important;
+}
+
+.button-outer {
+    margin-bottom: 30px;
+}
+
+.button {
+    background-color: #3DD1E7;
+    font-size: 25px;
+    color: #053A32;
+    border: 5px solid #053A32;
+    border-radius: 10px;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    line-height: 1.75rem;
+    padding: .75rem 1.65rem;
+    width: 100%;
+    max-width: 250px;
+    cursor: pointer;
+    margin: 20px 20px 0 20px;
+    display: inline-block;
+}
+
+.button:hover{
+    transform: rotate(-2deg);
+  }
+
+/* Info bar with home button, incorrect attempts and timer */
 
 .info-bar {
     background-color: #053A32;
@@ -89,46 +115,34 @@ body {
     padding: 30px;
 }
 
-h2 {
-    font-weight: bold;
-    font-size: 25px;
-}
+/* Instructions Section */
 
-.playbtn-outer {
-    margin-bottom: 30px;
-}
-
-.instructions-btn, .play-btn, .instructions-btn {
-    background-color: #3DD1E7;
-    font-size: 25px;
+.instructions {
     color: #053A32;
-    border: 5px solid #053A32;
+    font-size: 17px;
+    margin: 10px 30px;
+}
+
+.instructions p {
+    padding:0 20px 20px 20px;
+}
+
+.instructions ol {
+    padding: 20px;
+    background-color: #f4b333;
     border-radius: 10px;
-    font-family: 'Mochiy Pop P One', sans-serif;
-    line-height: 1.75rem;
-    padding: .75rem 1.65rem;
-    width: 100%;
-    max-width: 250px;
-    cursor: pointer;
-    margin: 20px 20px 0 20px;
-    display: inline-block;
 }
 
-.play-btn a {
-    font-size: 25px;
-    color: #053A32;
-    text-decoration: none;
-    font-family: 'Mochiy Pop P One', sans-serif;
+.instructions li {
+    list-style-type: circle;
+    font-size: 16px;
+    padding: 5px 0;
+    margin: 0 20px;
+    text-align: left;
 }
 
-.instructions-btn:hover, .play-btn:hover, .instructions-btn:hover{
-    transform: rotate(-2deg);
-  }
-
-/* .welcome-area, .game-area, .gameover, .instructions-area {
-    clear: both;
-} */
-
+/* Leaderboard Section */
+  
 #leaderboard-wrapper {
     display: flex;
     justify-content: center;
@@ -160,43 +174,7 @@ h2 {
     background-color: white;
 }
 
-.box-title {
-    width: 60%;
-    background-color: #FEAA0D;
-    margin: 30px auto 0 auto;
-    border-radius: 20px;
-    color: #053A32;
-    padding: 10px;
-}
-
-.safari .box-title {
-    background-color: #053A32;
-    color: #FEAA0D;
-}
- 
-.instructions {
-    color: #053A32;
-    font-size: 17px;
-    margin: 10px 30px;
-}
-
-.instructions p {
-    padding:0 20px 20px 20px;
-}
-
-.instructions ol {
-    padding: 20px;
-    background-color: #f4b333;
-    border-radius: 10px;
-}
-
-.instructions li {
-    list-style-type: circle;
-    font-size: 16px;
-    padding: 5px 0;
-    margin: 0 20px;
-    text-align: left;
-}
+/* Select Game & Level Section */
 
 .select-level {
     padding: 20px;
@@ -221,21 +199,41 @@ h2 {
     display: flex;
     justify-content: space-evenly;
 }
+
 .select-game-area .game-button {
     width: 20%;
     cursor: pointer;
 }
+
 .select-game-area .button-image {
     height: 140px;
     border-radius: 10px;
     box-shadow: inset 0px 0px 10px #053A32;
 }
+
 .select-game-area .game-button:hover .button-image {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.30);
 }
+
 .select-game-area .button-text {
     color: #053A32;
     font-size: 25px;
+}
+
+/* Play Game Section */
+
+.box-title {
+    width: 60%;
+    background-color: #FEAA0D;
+    margin: 30px auto 0 auto;
+    border-radius: 20px;
+    color: #053A32;
+    padding: 10px;
+}
+
+.safari .box-title {
+    background-color: #053A32;
+    color: #FEAA0D;
 }
 
 #game-selected {
@@ -244,6 +242,8 @@ h2 {
     color:#e40066;
     text-transform: uppercase;
 }
+
+/* Scene Background */
 
 .jungle {
     background: url(../images/scenes/jungle_scene.webp) no-repeat center center;
@@ -414,13 +414,11 @@ h2 {
     background-image: url(../images/animal_cards/zebra.webp);
 }
 
-
-
 .correct-card {
     box-shadow: inset 0 0 99999px rgba(0, 255, 106, 0.5) !important;
 }
 
-/* shake animation from w3 schools https://www.w3schools.com/howto/howto_css_shake_image.asp */
+/* Credit for shake animation CSS - W3 Schools https://www.w3schools.com/howto/howto_css_shake_image.asp */
 .incorrect-card {
   animation: shake 0.5s;
 }
@@ -438,6 +436,8 @@ h2 {
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
   }
+
+/* Game Over Section */
 
 .scores-wrapper {
     display: flex;
@@ -479,7 +479,6 @@ h2 {
 
 /* Media Queries */
 
-
 /* For iPad/tablet sizes from 768px wide and down */
 @media screen and (max-width: 768px) {
 
@@ -487,21 +486,18 @@ h2 {
         width: 500px;
     }
 
-    .heading {
-        font-size: 30px;
-    }
-
-    .welcome-area, .game-area, .gameover {
-        width: 100%;
-    }
-
     h2 {
         font-size: 23px;
+    }
+
+    .heading {
+        font-size: 30px;
     }
 
     .leaderboard-table {
         width: 70%;
     }
+
     .select-game-area .button-image {
         height: 100px;
     }
@@ -546,54 +542,23 @@ h2 {
         margin: 10px;
     }
 
-    .heading {
-        font-size: 25px;
-        padding: 10px 10px 0 10px;
-    }
-    
     h2 {
         font-size: 20px;
     }
 
-    .playbtn-outer {
+    .button-outer {
         margin-bottom: 20px;
     }
     
-
-    .box-title {
-        padding: 15px;
-        margin: 20px auto;
-    }
-
-    .leaderboard-table {
-        width: 80%;
-    }
-
-    .select-level {
-        font-size: 20px;
-        padding: 20px 0 0 0;
-    }
-
-    .select-game-area {
-        margin: 0 0 20px 0;
-        display: inline-block
-    }
-    .select-game-area .game-button {
-        display: inline-block;
-        width: auto;
-        padding: 5px;
-    }
-    .select-game-area .button-image {
-        height: 120px;
-        width: 120px
-    }
-    .select-game-area .button-text {
-        font-size: 20px;
+    .heading {
+        font-size: 25px;
+        padding: 10px 10px 0 10px;
     }
 
     .instructions {
         padding: 0;
     }
+
     .instructions p {
         padding:0 0 20px 0;
         font-size: 16px;
@@ -608,17 +573,48 @@ h2 {
         font-size: 15px;
     }
 
+    .leaderboard-table {
+        width: 80%;
+    }
+
+    .select-level {
+        font-size: 20px;
+        padding: 20px 0 0 0;
+    }
+
     .radio-btn {
         width: 20px;
         height: 20px;
     }
+
     .radio-labels {
         font-size: 18px;
         padding: 5px;
     }
 
-    .button-area {
-        margin: 10px 20px;
+    .select-game-area {
+        margin: 0 0 20px 0;
+        display: inline-block
+    }
+
+    .select-game-area .game-button {
+        display: inline-block;
+        width: auto;
+        padding: 5px;
+    }
+
+    .select-game-area .button-image {
+        height: 120px;
+        width: 120px
+    }
+
+    .select-game-area .button-text {
+        font-size: 20px;
+    }
+
+    .box-title {
+        padding: 15px;
+        margin: 20px auto;
     }
 
     .card-area {
@@ -648,6 +644,7 @@ h2 {
     .scores-wrapper {
         margin: 0;
     }
+
     .final-scores {
         width: 105px;
         height: 130px;
@@ -672,14 +669,14 @@ h2 {
     .content-wrapper {
         height: 90vh;
     }
-
-    .welcome-area, .game-area, .gameover {
-        height: 441px;
+     
+    h2 {
+        font-size: 17px;
     }
 
-    .box-title {
-        padding: 10px;
-        margin: 15px auto;
+    .heading {
+        font-size: 20px;
+        padding: 20px 10px;
     }
 
     .home-button i {
@@ -690,18 +687,10 @@ h2 {
         padding-right: 10px;
     }
 
-    .heading {
-        font-size: 20px;
-        padding: 20px 10px;
-    }
-    
-    h2 {
-        font-size: 17px;
-    }
-
     .instructions {
         margin: 5px;
     }
+
     .instructions p {
         font-size: 15px;
     }
@@ -722,8 +711,14 @@ h2 {
         height: 80px;
         width: 80px
     }
+
     .select-game-area .button-text {
         font-size: 15px;
+    }
+
+    .box-title {
+        padding: 10px;
+        margin: 15px auto;
     }
 
     .card-area {
@@ -746,10 +741,10 @@ h2 {
 
     #final-time, #final-count {
         font-size: 15px;
-    }
-    
+    }  
 }
 
+/* For Landscape mobile device sizes from 425px height and down */
 @media screen and (max-height: 425px) {
     * {
         font-size: 15px;
@@ -760,8 +755,8 @@ h2 {
         height: 100vh;
     }
 
-    .heading {
-        padding: 30px 30px 10px 30px;
+    h2 {
+        font-size: 20px;
     }
 
     .info-bar {
@@ -781,13 +776,9 @@ h2 {
     .score-area div {
         padding: 10px;
     }
-    
-    .select-level {
-        padding: 10px;
-    }
 
-    h2 {
-        font-size: 20px;
+    .heading {
+        padding: 30px 30px 10px 30px;
     }
 
     .instructions {
@@ -811,6 +802,10 @@ h2 {
     .leaderboard-table {
         margin: 10px 0;
     }
+    
+    .select-level {
+        padding: 10px;
+    }
 
     .radio-btn {
         width:20px;
@@ -825,6 +820,7 @@ h2 {
     .select-game-area .button-image {
         height: 100px;
     }
+
     .select-game-area .button-text {
         font-size: 20px;
         text-align: center;
@@ -874,9 +870,9 @@ h2 {
     #username {
     margin-top: 0;
     }
-
 }
 
+/* For Landscape mobile device sizes from 320px height and down */
 @media screen and (max-height: 320px) {
     .heading {
         font-size: 25px;
@@ -884,32 +880,24 @@ h2 {
     
     h2 {
         font-size: 17px;
+    }
 
-    }
-    .select-game-area .button-image {
-        height: 80px;
-    }
-    .instructions-btn, .play-btn, .instructions-btn {
-        background-color: #3DD1E7;
+    .button {
         font-size: 20px;
         line-height: 1rem;
-        padding: .75rem 1.65rem;
-        width: 100%;
         max-width: 200px;
-        cursor: pointer;
         margin: 10px 20px 0 20px;
-    }
-    
-    .leaderboard-table td {
-        padding: 5px;
-    }
-
-    .play-btn a {
-        font-size: 20px;
     }
 
     .instructions li {
         font-size: 13px;
+    }
+
+    .leaderboard-table td {
+        padding: 5px;
+    }
+    .select-game-area .button-image {
+        height: 80px;
     }
 
     .card-area {
@@ -935,12 +923,11 @@ h2 {
         margin: 3px;
     }
 
-    #username {
-        padding: 5px;;
-    }
-
     .final-scores {
         height: 80px;
     }
 
+    #username {
+        padding: 5px;;
+    }
 }

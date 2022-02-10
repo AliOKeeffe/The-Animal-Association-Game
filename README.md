@@ -1,4 +1,17 @@
-- [The Animal Association Game](#the-animal-association-game)
+# The Animal Association Game
+
+The Animal Association Game is a fun educational game aimed at children between the ages of 4 and 7. The aim of the game is to match the animals to their preferred habitat and avoid selecting the wrong animals.
+
+There are four habitats to choose from; farm, jungle, safari and sea. For each habitat there are two levels; easy and hard. The game is designed to be fun and engaging with the use of bright colourful imagery.
+
+This game is a great way to teach kids about the different habitats that animals live in whilst also improving memory and picture recognition.
+
+The live link can be found here - [The Animal Association Game](https://aliokeeffe.github.io/The-Animal-Association-Game/)
+
+![Animal Association Game Am I Responsive Image](docs/readme_images/am_i_responsive.png)
+
+Table of Contents
+
   * [Site Owner Goals](#site-owner-goals)
   * [User Stories](#user-stories)
     + [First Time User](#first-time-user)
@@ -48,19 +61,6 @@
   * [Acknowledgments](#acknowledgments)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
-# The Animal Association Game
-
-The Animal Association Game is a fun educational game aimed at children between the ages of 4 and 7. The aim of the game is to match the animals to their preferred habitat and avoid selecting the wrong animals.
-
-There are four habitats to choose from; farm, jungle, safari and sea. For each habitat there are two levels; easy and hard. The game is designed to be fun and engaging with the use of bright colourful imagery.
-
-This game is a great way to teach kids about the different habitats that animals live in whilst also improving memory and picture recognition.
-
-The live link can be found here - [The Animal Association Game](https://aliokeeffe.github.io/The-Animal-Association-Game/)
-
-![Animal Association Game Am I Responsive Image](docs/readme_images/am_i_responsive.png)
 
 ## Site Owner Goals
 - To provide the user with an easy to navigate game that is both fun and educational.

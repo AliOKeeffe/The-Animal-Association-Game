@@ -103,7 +103,7 @@ Colour palette from Coolors
 
 - The color scheme of the site ties in with the main homepage image and the color picker Chrome extension was used to pull out the main colours as seen in the colour palette. These were then used throughout the site. 
 
-- Great care was taken to establish a good contrast between background colours and text at all times to ensure maximum user accessibility.
+- Great care was taken to establish a good contrast between background colours and text at all times to ensure maximum user accessibility. Depending on the habitat selected, the font colour and and title background colour will change to ensure good contrast against the habitat image.
 
 
 ### Fonts

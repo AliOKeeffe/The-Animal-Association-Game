@@ -803,6 +803,10 @@ h2 {
     .leaderboard-table {
         margin: 10px 0;
     }
+
+    .leaderboard-table td {
+        padding: 8px;
+    }
     
     .select-level {
         padding: 10px;

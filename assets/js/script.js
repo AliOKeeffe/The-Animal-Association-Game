@@ -250,14 +250,14 @@ function winGame() {
     // Display the final time
     let timeString = '';
     if (minutes) {
-        timeString += `${minutes} minutes and `;
+        timeString += `${minutes} minute and `;
     }
     timeString += `${seconds} second`;
     timeString += seconds > 1 ? 's' : '';
     finalTime.innerHTML = timeString;
 
     // Store the seconds taken once the game has finished
-    finalScore = seconds;
+    finalScore = seconds + (minutes * 60);
     
     // Display the level of difficulty
     level.innerHTML = currentLevel;
@@ -270,7 +270,7 @@ function winGame() {
 /**
  * Stores the name / score into localStorage, these will be used 
  * to populate the Leaderboard
- * Credit to this tutorial: 
+ * Credit to this tutorial which I adapted for my own game: 
  * https://www.youtube.com/playlist?list=PLB6wlEeCDJ5Yyh6P2N6Q_9JijB6v4UejF
  */
 function addToLeaderboard() {
@@ -313,7 +313,7 @@ function addToLeaderboard() {
 /**
  * Retrieves the names and scores from localStorage to build the Table used
  * in the Leaderboard section
- * Credit to this tutorial: 
+ * Credit to this tutorial which I adapted for my own game: 
  * https://www.youtube.com/playlist?list=PLB6wlEeCDJ5Yyh6P2N6Q_9JijB6v4UejF
  */
 function loadLeaderboard() {
